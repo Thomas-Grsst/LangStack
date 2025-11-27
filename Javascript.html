@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentation JavaScript</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-javascript.min.js"></script>
+    <style>
+      .code-block {
+        position: relative;
+      }
+      .copy-btn {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: rgba(107, 114, 128, 0.7);
+        border: none;
+        border-radius: 4px;
+        color: white;
+        padding: 4px 8px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .copy-btn:hover {
+        background: rgba(107, 114, 128, 0.9);
+      }
+      .js-color {
+        background: linear-gradient(135deg, #f7df1e, #d4bb0e);
+      }
+      .demo-box {
+        border: 2px dashed #4b5563;
+        padding: 20px;
+        margin: 10px 0;
+        border-radius: 8px;
+        background: #1f2937;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-950 text-white min-h-screen p-4 md:p-10 font-sans">
+    <div class="max-w-6xl mx-auto">
+      <a
+        href="index.html"
+        class="inline-flex items-center text-yellow-400 hover:text-yellow-300 transition-colors"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 mr-1"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        Retour
+      </a>
+
+      <header class="mt-6 mb-10">
+        <div class="flex items-center">
+          <div class="js-color p-2 rounded-lg mr-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-10 w-10 text-gray-900"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+              />
+            </svg>
+          </div>
+          <div>
+            <h1 class="text-3xl md:text-4xl font-extrabold text-yellow-400">
+              JavaScript — Documentation Complète
+            </h1>
+            <p class="text-gray-400 mt-1 text-lg">
+              Langage de programmation dynamique pour le web interactif
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <!-- INTRO -->
+      <section class="mt-10 bg-gray-900 p-6 rounded-xl border border-gray-800">
+        <h2 class="text-2xl font-bold text-yellow-400 mb-3 flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 mr-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          Qu'est-ce que JavaScript ?
+        </h2>
+        <p class="text-gray-300 leading-relaxed">
+          JavaScript est un langage de programmation de haut niveau, interprété,
+          orienté objet et multi-paradigme. Principalement utilisé pour créer
+          des pages web interactives, il s'exécute côté client et permet de
+          manipuler le DOM, gérer les événements, et communiquer avec les
+          serveurs.
+        </p>
+        <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="font-bold text-yellow-400">Dynamique</h3>
+            <p class="text-sm text-gray-400">Typage dynamique et faible</p>
+          </div>
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="font-bold text-yellow-400">Multi-paradigme</h3>
+            <p class="text-sm text-gray-400">Fonctionnel, OOP, événementiel</p>
+          </div>
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="font-bold text-yellow-400">Universel</h3>
+            <p class="text-sm text-gray-400">
+              Client, serveur, mobile, desktop
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- BASES DU LANGAGE -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-yellow-400 mb-3">
+          Bases du Langage
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-javascript">// VARIABLES ET CONSTANTES
+let variable = "peut être modifiée";
+const constante = "ne peut pas être modifiée";
+var ancienne = "portée fonction (à éviter)";
+
+// TYPES DE DONNÉES PRIMITIFS
+const chaine = "Hello World";
+const nombre = 42;
+const decimal = 3.14;
+const booleen = true;
+const nulle = null;
+const indefini = undefined;
+const symbole = Symbol('unique');
+
+// TABLEAUX
+const tableau = [1, 2, 3, 4, 5];
+const mixte = ["texte", 42, true, null];
+const vide = [];
+
+// OBJETS
+const objet = {
+    nom: "John",
+    age: 30,
+    actif: true,
+    adresse: {
+        rue: "123 Main St",
+        ville: "Paris"
+    }
+};
+
+// FONCTIONS
+function saluer(nom) {
+    return `Bonjour, ${nom}!`;
+}
+
+const saluerFleche = (nom) => {
+    return `Bonjour, ${nom}!`;
+};
+
+// OPÉRATEURS
+let x = 10;
+let y = 5;
+
+// Arithmétiques
+x + y;   // 15
+x - y;   // 5
+x * y;   // 50
+x / y;   // 2
+x % y;   // 0
+x ** y;  // 100000
+
+// Comparaison
+x == y;   // false
+x === y;  // false (strict)
+x != y;   // true
+x !== y;  // true (strict)
+x > y;    // true
+x <= y;   // false
+
+// Logiques
+true && false;  // false
+true || false;  // true
+!true;          // false</code></pre>
+          </div>
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-javascript">// STRUCTURES DE CONTRÔLE
+
+// Condition if/else
+const age = 18;
+if (age >= 18) {
+    console.log("Majeur");
+} else if (age >= 13) {
+    console.log("Adolescent");
+} else {
+    console.log("Enfant");
+}
+
+// Switch
+const jour = "lundi";
+switch (jour) {
+    case "lundi":
+        console.log("Début de semaine");
+        break;
+    case "vendredi":
+        console.log("Bientôt le weekend");
+        break;
+    default:
+        console.log("Jour ordinaire");
+}
+
+// Boucles
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+
+let i = 0;
+while (i < 5) {
+    console.log(i);
+    i++;
+}
+
+// Boucle for...of (tableaux)
+const fruits = ["pomme", "banane", "orange"];
+for (const fruit of fruits) {
+    console.log(fruit);
+}
+
+// Boucle for...in (objets)
+const personne = { nom: "Alice", age: 25 };
+for (const cle in personne) {
+    console.log(`${cle}: ${personne[cle]}`);
+}
+
+// CONVERSION DE TYPES
+const chaineEnNombre = Number("123");     // 123
+const nombreEnChaine = String(123);       // "123"
+const enBooleen = Boolean("texte");       // true
+const enBooleenVide = Boolean("");        // false
+
+// VÉRIFICATION DE TYPES
+typeof "hello";          // "string"
+typeof 42;               // "number"
+typeof true;             // "boolean"
+typeof undefined;        // "undefined"
+typeof null;             // "object" (historique)
+typeof [];               // "object"
+typeof {};               // "object"
+typeof function() {};    // "function"
+
+// Vérification moderne
+Array.isArray([]);       // true</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- FONCTIONS -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-yellow-400 mb-3">Fonctions</h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-javascript">// DÉCLARATIONS DE FONCTIONS
+
+// Fonction nommée
+function calculerCarre(x) {
+    return x * x;
+}
+
+// Fonction expression
+const multiplier = function(a, b) {
+    return a * b;
+};
+
+// Fonction fléchée
+const diviser = (a, b) => {
+    return a / b;
+};
+
+// Fonction fléchée concise
+const carre = x => x * x;
+
+// PARAMÈTRES ET ARGUMENTS
+
+// Paramètres par défaut
+function saluer(nom = "Invité") {
+    return `Bonjour, ${nom}!`;
+}
+
+// Paramètres rest
+function somme(...nombres) {
+    return nombres.reduce((acc, val) => acc + val, 0);
+}
+
+// Déstructuration des paramètres
+function afficherUtilisateur({ nom, age, ville }) {
+    console.log(`${nom}, ${age} ans, habite à ${ville}`);
+}
+
+// FONCTIONS D'ORDRE SUPÉRIEUR
+
+// Fonction qui retourne une fonction
+function createMultiplicateur(facteur) {
+    return function(nombre) {
+        return nombre * facteur;
+    };
+}
+
+const double = createMultiplicateur(2);
+const triple = createMultiplicateur(3);
+
+// Fonction qui accepte une fonction en paramètre
+function appliquerOperation(tableau, operation) {
+    return tableau.map(operation);
+}
+
+const nombres = [1, 2, 3, 4];
+const carres = appliquerOperation(nombres, x => x * x);
+
+// FONCTIONS ASYNCHRONES
+
+async function fetchData() {
+    try {
+        const response = await fetch('https://api.example.com/data');
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Erreur:', error);
+    }
+}
+
+// FONCTIONS GÉNÉRATEURS
+
+function* generateurID() {
+    let id = 1;
+    while (true) {
+        yield id++;
+    }
+}
+
+const gen = generateurID();
+console.log(gen.next().value); // 1
+console.log(gen.next().value); // 2
+
+// FONCTIONS IMMÉDIATES (IIFE)
+
+(function() {
+    console.log("Exécution immédiate");
+})();
+
+// Avec paramètres
+(function(nom) {
+    console.log(`Bonjour, ${nom}`);
+})("Alice");
+
+// CALLBACKS ET PROMESSES
+
+function traitementAsynchrone(callback) {
+    setTimeout(() => {
+        callback("Données reçues");
+    }, 1000);
+}
+
+traitementAsynchrone((resultat) => {
+    console.log(resultat);
+});
+
+// Avec Promesse
+function traitementAvecPromesse() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve("Succès");
+            // reject(new Error("Échec"));
+        }, 1000);
+    });
+}
+
+traitementAvecPromesse()
+    .then(resultat => console.log(resultat))
+    .catch(erreur => console.error(erreur));
+
+// CONTEXTE ET THIS
+
+const objetAvecThis = {
+    valeur: 42,
+    getValeur: function() {
+        return this.valeur;
+    },
+    getValeurFleche: () => {
+        return this.valeur; // undefined (pas de propre this)
+    }
+};
+
+// Liaison explicite de this
+const autreObjet = { valeur: 100 };
+const fonctionLiee = objetAvecThis.getValeur.bind(autreObjet);</code></pre>
+        </div>
+      </section>
+
+      <!-- OBJETS ET CLASSES -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-yellow-400 mb-3">
+          Objets et Classes
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-javascript">// CRÉATION D'OBJETS
+
+// Littéral d'objet
+const personne = {
+    nom: "Alice",
+    age: 30,
+    saluer: function() {
+        return `Bonjour, je suis ${this.nom}`;
+    }
+};
+
+// Avec Object.create()
+const prototype = { type: "humain" };
+const alice = Object.create(prototype);
+alice.nom = "Alice";
+alice.age = 30;
+
+// Avec constructeur
+function Personne(nom, age) {
+    this.nom = nom;
+    this.age = age;
+}
+Personne.prototype.saluer = function() {
+    return `Bonjour, je suis ${this.nom}`;
+};
+
+// ACCÈS ET MANIPULATION
+
+// Accès aux propriétés
+personne.nom;           // "Alice"
+personne["age"];        // 30
+
+// Modification
+personne.age = 31;
+personne["ville"] = "Paris";
+
+// Suppression
+delete personne.ville;
+
+// Vérification d'existence
+"nom" in personne;      // true
+personne.hasOwnProperty("nom"); // true
+
+// ITÉRATION SUR LES OBJETS
+
+// Clés
+Object.keys(personne);    // ["nom", "age", "saluer"]
+
+// Valeurs
+Object.values(personne);  // ["Alice", 30, function]
+
+// Entrées
+Object.entries(personne); // [["nom", "Alice"], ["age", 30], ...]
+
+// DÉSTRUCTURATION
+
+const { nom, age } = personne;
+console.log(nom, age); // "Alice" 30
+
+// Avec alias
+const { nom: prenom, age: annees } = personne;
+
+// Valeurs par défaut
+const { nom, age, ville = "Inconnue" } = personne;
+
+// SPREAD ET REST AVEC OBJETS
+
+// Copie avec spread
+const copiePersonne = { ...personne };
+
+// Fusion d'objets
+const defaults = { couleur: "rouge", taille: "M" };
+const custom = { couleur: "bleu" };
+const merged = { ...defaults, ...custom }; // {couleur: "bleu", taille: "M"}
+
+// Rest avec objets
+const { nom, ...autres } = personne;
+// autres = { age: 30, saluer: function }</code></pre>
+          </div>
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-javascript">// CLASSES ES6
+
+class Personne {
+    constructor(nom, age) {
+        this.nom = nom;
+        this.age = age;
+    }
+
+    // Méthode d'instance
+    saluer() {
+        return `Bonjour, je suis ${this.nom}`;
+    }
+
+    // Méthode statique
+    static comparer(a, b) {
+        return a.age - b.age;
+    }
+
+    // Getter
+    get description() {
+        return `${this.nom} a ${this.age} ans`;
+    }
+
+    // Setter
+    set nouvelAge(age) {
+        if (age > 0) {
+            this.age = age;
+        }
+    }
+}
+
+// HÉRITAGE
+
+class Employe extends Personne {
+    constructor(nom, age, poste) {
+        super(nom, age); // Appel du constructeur parent
+        this.poste = poste;
+    }
+
+    saluer() {
+        return `${super.saluer()} et je suis ${this.poste}`;
+    }
+}
+
+// UTILISATION
+const alice = new Personne("Alice", 30);
+const bob = new Employe("Bob", 25, "Développeur");
+
+// MÉTHODES D'OBJET AVANCÉES
+
+// Object.assign() - Copie les propriétés
+const cible = { a: 1 };
+const source = { b: 2, c: 3 };
+Object.assign(cible, source); // {a: 1, b: 2, c: 3}
+
+// Object.freeze() - Rend l'objet immuable
+const objetGele = Object.freeze({ valeur: 42 });
+// objetGele.valeur = 100; // Erreur en mode strict
+
+// Object.seal() - Empêche l'ajout/suppression de propriétés
+const objetScelle = Object.seal({ x: 1 });
+objetScelle.x = 2; // OK
+// objetScelle.y = 3; // Erreur
+
+// PROTOTYPES ET HÉRITAGE
+
+// Chaîne de prototypes
+const arr = [];
+arr.__proto__ === Array.prototype; // true
+Array.prototype.__proto__ === Object.prototype; // true
+Object.prototype.__proto__ === null; // true
+
+// Modification de prototype
+Array.prototype.dernier = function() {
+    return this[this.length - 1];
+};
+[1, 2, 3].dernier(); // 3
+
+// OBJETS AVEC SYMBOLES
+
+const id = Symbol('id');
+const user = {
+    [id]: 123,
+    nom: "Alice"
+};
+
+// Symbol n'apparaît pas dans Object.keys()
+console.log(Object.keys(user)); // ["nom"]
+
+// MÉTHODES PRIVÉES (ES2022)
+
+class Compteur {
+    #valeur = 0; // Champ privé
+
+    #incrementer() { // Méthode privée
+        this.#valeur++;
+    }
+
+    incrementer() {
+        this.#incrementer();
+        return this.#valeur;
+    }
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- TABLEAUX ET MÉTHODES -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-yellow-400 mb-3">
+          Tableaux et Méthodes
+        </h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-javascript">// CRÉATION DE TABLEAUX
+
+const vide = [];
+const nombres = [1, 2, 3, 4, 5];
+const mixte = [1, "texte", true, null, { nom: "Alice" }];
+const avecConstructor = new Array(5); // [empty × 5]
+const rempli = Array.from({ length: 5 }, (_, i) => i + 1); // [1, 2, 3, 4, 5]
+
+// ACCÈS ET MODIFICATION
+
+const arr = [10, 20, 30, 40, 50];
+
+// Accès
+arr[0];           // 10
+arr[arr.length - 1]; // 50 (dernier élément)
+
+// Modification
+arr[0] = 100;
+arr.push(60);     // Ajoute à la fin
+arr.pop();        // Supprime le dernier
+arr.unshift(0);   // Ajoute au début
+arr.shift();      // Supprime le premier
+
+// MÉTHODES DE TRANSFORMATION
+
+// map - Transforme chaque élément
+const carres = nombres.map(x => x * x); // [1, 4, 9, 16, 25]
+
+// filter - Filtre les éléments
+const pairs = nombres.filter(x => x % 2 === 0); // [2, 4]
+
+// reduce - Réduit à une valeur
+const somme = nombres.reduce((acc, val) => acc + val, 0); // 15
+
+// reduceRight - Réduit de droite à gauche
+const concatInverse = nombres.reduceRight((acc, val) => acc + val, ""); // "54321"
+
+// MÉTHODES DE RECHERCHE
+
+// find - Trouve le premier élément
+const premierPair = nombres.find(x => x % 2 === 0); // 2
+
+// findIndex - Trouve l'index du premier élément
+const indexPair = nombres.findIndex(x => x % 2 === 0); // 1
+
+// includes - Vérifie la présence
+nombres.includes(3); // true
+
+// indexOf/lastIndexOf - Position d'un élément
+nombres.indexOf(3);    // 2
+nombres.lastIndexOf(3); // 2
+
+// some - Au moins un élément satisfait la condition
+nombres.some(x => x > 3); // true
+
+// every - Tous les éléments satisfont la condition
+nombres.every(x => x > 0); // true
+
+// MÉTHODES DE MANIPULATION
+
+// slice - Extrait une portion
+const partie = nombres.slice(1, 4); // [2, 3, 4]
+
+// splice - Modifie le tableau
+const modifie = [1, 2, 3, 4, 5];
+modifie.splice(2, 1, 'a', 'b'); // Supprime 1 élément à l'index 2, ajoute 'a','b'
+// modifie devient [1, 2, 'a', 'b', 4, 5]
+
+// concat - Concatène des tableaux
+const combine = nombres.concat([6, 7, 8]); // [1, 2, 3, 4, 5, 6, 7, 8]
+
+// join - Convertit en chaîne
+nombres.join(', '); // "1, 2, 3, 4, 5"
+
+// reverse - Inverse l'ordre
+const inverse = [...nombres].reverse(); // [5, 4, 3, 2, 1]
+
+// sort - Trie les éléments
+const nonTrie = [3, 1, 4, 2, 5];
+nonTrie.sort((a, b) => a - b); // [1, 2, 3, 4, 5]
+
+// ITÉRATION
+
+// forEach - Exécute une fonction pour chaque élément
+nombres.forEach((element, index) => {
+    console.log(`Index ${index}: ${element}`);
+});
+
+// for...of - Boucle moderne
+for (const nombre of nombres) {
+    console.log(nombre);
+}
+
+// entries - Paire clé/valeur
+for (const [index, valeur] of nombres.entries()) {
+    console.log(index, valeur);
+}
+
+// MÉTHODES AVANCÉES
+
+// flat - Aplatit les tableaux imbriqués
+const imbrique = [1, [2, [3, [4]]]];
+imbrique.flat(2); // [1, 2, 3, [4]]
+
+// flatMap - Map puis flat
+const phrases = ["hello world", "bonjour tout le monde"];
+const mots = phrases.flatMap(phrase => phrase.split(' '));
+// ["hello", "world", "bonjour", "tout", "le", "monde"]
+
+// Array.from() - Crée à partir d'objets itérables
+const fromSet = Array.from(new Set([1, 2, 2, 3])); // [1, 2, 3]
+const fromString = Array.from("hello"); // ["h", "e", "l", "l", "o"]
+
+// DESTRUCTURATION DE TABLEAUX
+
+const [premier, deuxieme, ...reste] = nombres;
+// premier = 1, deuxieme = 2, reste = [3, 4, 5]
+
+// Échange de variables
+let a = 1, b = 2;
+[a, b] = [b, a]; // a = 2, b = 1
+
+// TABLEAUX TYPÉS
+
+const buffer = new ArrayBuffer(16);
+const int32View = new Int32Array(buffer);
+int32View[0] = 42;
+
+// OPÉRATIONS AVEC SPREAD
+
+const copie = [...nombres];
+const fusion = [...nombres, 6, 7, 8];
+const copieProfonde = JSON.parse(JSON.stringify(imbrique));</code></pre>
+        </div>
+      </section>
+
+      <!-- ASYNCHRONE ET PROMESSES -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-yellow-400 mb-3">
+          Asynchrone et Promesses
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-javascript">// CALLBACKS
+
+function chargerDonnees(callback) {
+    setTimeout(() => {
+        const donnees = { id: 1, nom: "Alice" };
+        callback(null, donnees);
+    }, 1000);
+}
+
+// Utilisation avec callback
+chargerDonnees((erreur, donnees) => {
+    if (erreur) {
+        console.error("Erreur:", erreur);
+    } else {
+        console.log("Données:", donnees);
+    }
+});
+
+// PYRAMIDE DE L'ENFER (Callback Hell)
+
+chargerUtilisateur((err, user) => {
+    if (err) return console.error(err);
+    
+    chargerCommandes(user.id, (err, commandes) => {
+        if (err) return console.error(err);
+        
+        chargerProduits(commandes[0].id, (err, produits) => {
+            if (err) return console.error(err);
+            console.log(produits);
+        });
+    });
+});
+
+// PROMESSES
+
+const promesse = new Promise((resolve, reject) => {
+    // Opération asynchrone
+    setTimeout(() => {
+        const succes = Math.random() > 0.5;
+        if (succes) {
+            resolve("Données chargées avec succès");
+        } else {
+            reject(new Error("Échec du chargement"));
+        }
+    }, 1000);
+});
+
+// UTILISATION DES PROMESSES
+
+promesse
+    .then(resultat => {
+        console.log("Succès:", resultat);
+        return resultat.toUpperCase();
+    })
+    .then(resultatTransforme => {
+        console.log("Transformé:", resultatTransforme);
+    })
+    .catch(erreur => {
+        console.error("Erreur:", erreur.message);
+    })
+    .finally(() => {
+        console.log("Exécuté dans tous les cas");
+    });
+
+// MÉTHODES STATIQUES DES PROMESSES
+
+// Promise.all - Attendre que toutes les promesses se résolvent
+const promesse1 = Promise.resolve(1);
+const promesse2 = Promise.resolve(2);
+const promesse3 = Promise.resolve(3);
+
+Promise.all([promesse1, promesse2, promesse3])
+    .then(valeurs => {
+        console.log(valeurs); // [1, 2, 3]
+    });
+
+// Promise.race - Première promesse résolue ou rejetée
+Promise.race([promesse1, promesse2, promesse3])
+    .then(premiere => {
+        console.log(premiere); // 1
+    });
+
+// Promise.allSettled - Toutes les promesses terminées
+Promise.allSettled([promesse1, Promise.reject("erreur"), promesse3])
+    .then(resultats => {
+        console.log(resultats);
+        // [{status: "fulfilled", value: 1}, 
+        //  {status: "rejected", reason: "erreur"},
+        //  {status: "fulfilled", value: 3}]
+    });
+
+// Promise.any - Première promesse résolue
+Promise.any([Promise.reject("erreur1"), Promise.resolve("succès")])
+    .then(premierSucces => {
+        console.log(premierSucces); // "succès"
+    });</code></pre>
+          </div>
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-javascript">// ASYNC/AWAIT
+
+async function chargerUtilisateur() {
+    try {
+        const reponse = await fetch('/api/utilisateur/1');
+        const utilisateur = await reponse.json();
+        
+        const commandes = await fetch(`/api/commandes/${utilisateur.id}`);
+        const dataCommandes = await commandes.json();
+        
+        return { utilisateur, commandes: dataCommandes };
+    } catch (erreur) {
+        console.error("Erreur lors du chargement:", erreur);
+        throw erreur;
+    }
+}
+
+// UTILISATION AVEC ASYNC/AWAIT
+
+async function afficherUtilisateur() {
+    try {
+        const data = await chargerUtilisateur();
+        console.log("Utilisateur:", data.utilisateur);
+        console.log("Commandes:", data.commandes);
+    } catch (erreur) {
+        console.error("Impossible d'afficher l'utilisateur:", erreur);
+    }
+}
+
+// ASYNC/AWAIT AVEC PARALLÉLISME
+
+async function chargerDonneesParalleles() {
+    try {
+        // Démarrage parallèle
+        const promesseUtilisateur = fetch('/api/utilisateur/1');
+        const promesseCommandes = fetch('/api/commandes');
+        const promesseProduits = fetch('/api/produits');
+        
+        // Attendre toutes les réponses
+        const [reponseUtilisateur, reponseCommandes, reponseProduits] = 
+            await Promise.all([promesseUtilisateur, promesseCommandes, promesseProduits]);
+        
+        // Convertir en JSON
+        const [utilisateur, commandes, produits] = await Promise.all([
+            reponseUtilisateur.json(),
+            reponseCommandes.json(),
+            reponseProduits.json()
+        ]);
+        
+        return { utilisateur, commandes, produits };
+    } catch (erreur) {
+        console.error("Erreur de chargement:", erreur);
+    }
+}
+
+// GÉNÉRATEURS ASYNCHRONES
+
+async function* generateurDonnees() {
+    let page = 1;
+    while (true) {
+        const reponse = await fetch(`/api/donnees?page=${page}`);
+        const donnees = await reponse.json();
+        
+        if (donnees.length === 0) {
+            break;
+        }
+        
+        for (const item of donnees) {
+            yield item;
+        }
+        
+        page++;
+    }
+}
+
+// UTILISATION DU GÉNÉRATEUR ASYNCHRONE
+
+async function traiterDonnees() {
+    for await (const item of generateurDonnees()) {
+        console.log("Traitement de:", item);
+        // Traiter chaque item
+    }
+}
+
+// PATTERNS AVANCÉS
+
+// Retry avec backoff exponentiel
+async function fetchAvecRetry(url, maxTentatives = 3) {
+    for (let tentative = 1; tentative <= maxTentatives; tentative++) {
+        try {
+            const reponse = await fetch(url);
+            if (!reponse.ok) throw new Error(`HTTP ${reponse.status}`);
+            return await reponse.json();
+        } catch (erreur) {
+            if (tentative === maxTentatives) throw erreur;
+            const delai = Math.pow(2, tentative) * 1000;
+            await new Promise(resolve => setTimeout(resolve, delai));
+        }
+    }
+}
+
+// Timeout pour les promesses
+function avecTimeout(promesse, delai) {
+    const timeout = new Promise((_, reject) => {
+        setTimeout(() => reject(new Error("Timeout")), delai);
+    });
+    return Promise.race([promesse, timeout]);
+}
+
+// GESTION D'ERREURS AVANCÉE
+
+class ErreurReseau extends Error {
+    constructor(message, code) {
+        super(message);
+        this.name = "ErreurReseau";
+        this.code = code;
+    }
+}
+
+async function requeteSecurisee() {
+    try {
+        const reponse = await fetch('/api/securisee');
+        if (!reponse.ok) {
+            throw new ErreurReseau("Erreur réseau", reponse.status);
+        }
+        return await reponse.json();
+    } catch (erreur) {
+        if (erreur instanceof ErreurReseau) {
+            console.error(`Erreur ${erreur.code}: ${erreur.message}`);
+        } else {
+            console.error("Erreur inattendue:", erreur);
+        }
+        throw erreur;
+    }
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- DOM MANIPULATION -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-yellow-400 mb-3">
+          Manipulation du DOM
+        </h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-javascript">// SÉLECTION D'ÉLÉMENTS
+
+// Méthodes classiques
+const parId = document.getElementById('monId');
+const parClasse = document.getElementsByClassName('maClasse');
+const parBalise = document.getElementsByTagName('div');
+
+// Méthodes modernes (querySelector)
+const premier = document.querySelector('.maClasse');
+const tous = document.querySelectorAll('.maClasse');
+const complexe = document.querySelector('div.maClasse[data-attribut]');
+
+// CRÉATION ET MODIFICATION
+
+// Créer un élément
+const nouveauDiv = document.createElement('div');
+nouveauDiv.textContent = 'Nouveau contenu';
+nouveauDiv.className = 'ma-classe';
+nouveauDiv.setAttribute('data-id', '123');
+
+// Ajouter au DOM
+document.body.appendChild(nouveauDiv);
+document.getElementById('conteneur').prepend(nouveauDiv); // Au début
+document.getElementById('conteneur').append(nouveauDiv);  // À la fin
+
+// Insérer avant/après
+const reference = document.getElementById('reference');
+reference.before(nouveauDiv);  // Avant
+reference.after(nouveauDiv);   // Après
+
+// Supprimer des éléments
+nouveauDiv.remove();
+document.getElementById('aSupprimer').remove();
+
+// MODIFICATION DE CONTENU
+
+const element = document.getElementById('monElement');
+
+// Contenu texte
+element.textContent = 'Nouveau texte';
+element.innerText = 'Texte avec formatage';
+element.innerHTML = '<strong>Texte</strong> avec HTML';
+
+// Classes CSS
+element.classList.add('nouvelle-classe');
+element.classList.remove('ancienne-classe');
+element.classList.toggle('active');
+element.classList.contains('ma-classe'); // true/false
+
+// Styles
+element.style.color = 'red';
+element.style.backgroundColor = '#f0f0f0';
+element.style.fontSize = '16px';
+
+// Attributs
+element.setAttribute('data-info', 'valeur');
+element.getAttribute('data-info'); // "valeur"
+element.hasAttribute('data-info'); // true
+element.removeAttribute('data-info');
+
+// ÉVÉNEMENTS
+
+// Gestionnaire simple
+element.addEventListener('click', function(event) {
+    console.log('Clic sur:', event.target);
+    event.preventDefault(); // Empêche le comportement par défaut
+    event.stopPropagation(); // Empêche la propagation
+});
+
+// Événements courants
+element.addEventListener('mouseenter', () => console.log('Souris entrée'));
+element.addEventListener('mouseleave', () => console.log('Souris sortie'));
+element.addEventListener('focus', () => console.log('Élément focus'));
+element.addEventListener('blur', () => console.log('Élément perdu le focus'));
+element.addEventListener('input', (e) => console.log('Valeur:', e.target.value));
+element.addEventListener('submit', (e) => {
+    e.preventDefault();
+    console.log('Formulaire soumis');
+});
+
+// Délégation d'événements
+document.getElementById('liste').addEventListener('click', (event) => {
+    if (event.target.classList.contains('item')) {
+        console.log('Item cliqué:', event.target.textContent);
+    }
+});
+
+// FORMULAIRES
+
+const formulaire = document.querySelector('form');
+const input = document.querySelector('input[type="text"]');
+
+// Écouter la soumission
+formulaire.addEventListener('submit', (event) => {
+    event.preventDefault();
+    
+    // Récupérer les données
+    const formData = new FormData(formulaire);
+    const data = Object.fromEntries(formData);
+    
+    console.log('Données du formulaire:', data);
+});
+
+// Validation en temps réel
+input.addEventListener('input', (event) => {
+    const valeur = event.target.value;
+    if (valeur.length < 3) {
+        event.target.setCustomValidity('Minimum 3 caractères');
+    } else {
+        event.target.setCustomValidity('');
+    }
+});
+
+// ANIMATIONS ET TRANSITIONS
+
+// Animation avec requestAnimationFrame
+function animer() {
+    const element = document.getElementById('animable');
+    let position = 0;
+    
+    function frame() {
+        position += 2;
+        element.style.transform = `translateX(${position}px)`;
+        
+        if (position < 200) {
+            requestAnimationFrame(frame);
+        }
+    }
+    
+    requestAnimationFrame(frame);
+}
+
+// Transition avec classes
+function basculerAnimation() {
+    const element = document.getElementById('animable');
+    element.classList.toggle('animated');
+}
+
+// OBSERVATEURS
+
+// Intersection Observer (lazy loading)
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.src = entry.target.dataset.src;
+            observer.unobserve(entry.target);
+        }
+    });
+});
+
+document.querySelectorAll('img[data-src]').forEach(img => {
+    observer.observe(img);
+});
+
+// Mutation Observer (changements du DOM)
+const mutationObserver = new MutationObserver((mutations) => {
+    mutations.forEach(mutation => {
+        if (mutation.type === 'childList') {
+            console.log('Enfants ajoutés/supprimés');
+        }
+    });
+});
+
+mutationObserver.observe(document.getElementById('observable'), {
+    childList: true,
+    subtree: true
+});
+
+// PERFORMANCE
+
+// Debouncing
+function debounce(func, delai) {
+    let timeoutId;
+    return function(...args) {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => func.apply(this, args), delai);
+    };
+}
+
+// Utilisation
+const rechercheDebounce = debounce((terme) => {
+    console.log('Recherche:', terme);
+}, 300);
+
+input.addEventListener('input', (e) => rechercheDebounce(e.target.value));
+
+// Throttling
+function throttle(func, delai) {
+    let dernierAppel = 0;
+    return function(...args) {
+        const maintenant = Date.now();
+        if (maintenant - dernierAppel >= delai) {
+            func.apply(this, args);
+            dernierAppel = maintenant;
+        }
+    };
+}</code></pre>
+        </div>
+      </section>
+
+      <!-- ES6+ FEATURES -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-yellow-400 mb-3">
+          Fonctionnalités ES6+
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-javascript">// LET ET CONST
+
+// let - portée bloc, réassignable
+let variable = "valeur";
+variable = "nouvelle valeur";
+
+// const - portée bloc, non réassignable
+const constante = "valeur";
+// constante = "nouvelle valeur"; // Erreur
+
+// LITTÉRAUX DE CHAÎNES (Template Strings)
+
+const nom = "Alice";
+const age = 30;
+
+// Chaînes multilignes
+const message = `Bonjour ${nom},
+Vous avez ${age} ans.
+Bienvenue sur notre plateforme !`;
+
+// Expressions complexes
+const calcul = `La somme est: ${5 + 3}`;
+
+// FONCTIONS FLÉCHÉES
+
+// Syntaxe de base
+const addition = (a, b) => a + b;
+
+// Avec corps de fonction
+const saluer = (nom) => {
+    const message = `Bonjour, ${nom}!`;
+    return message;
+};
+
+// Sans paramètres
+const direBonjour = () => "Bonjour!";
+
+// Retour d'objet
+const creerPersonne = (nom, age) => ({ nom, age });
+
+// DÉSTRUCTURATION
+
+// Tableaux
+const [premier, deuxieme] = [1, 2, 3, 4, 5];
+
+// Objets
+const { nom, age } = { nom: "Alice", age: 30, ville: "Paris" };
+
+// Avec alias
+const { nom: prenom, age: annees } = { nom: "Alice", age: 30 };
+
+// Valeurs par défaut
+const { nom, age, ville = "Inconnue" } = { nom: "Alice", age: 30 };
+
+// PROFONDE
+const { 
+    adresse: { rue, ville } 
+} = { 
+    nom: "Alice", 
+    adresse: { 
+        rue: "123 Main St", 
+        ville: "Paris" 
+    } 
+};
+
+// PARAMÈTRES REST ET SPREAD
+
+// Rest parameters
+function somme(...nombres) {
+    return nombres.reduce((acc, val) => acc + val, 0);
+}
+
+// Spread avec tableaux
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const fusion = [...arr1, ...arr2]; // [1, 2, 3, 4, 5, 6]
+
+// Spread avec objets
+const obj1 = { a: 1, b: 2 };
+const obj2 = { c: 3, d: 4 };
+const fusionObj = { ...obj1, ...obj2 }; // {a: 1, b: 2, c: 3, d: 4}
+
+// VALEURS PAR DÉFAUT
+
+function saluer(nom = "Invité", age = 18) {
+    return `Bonjour ${nom}, vous avez ${age} ans`;
+}
+
+// PROPRIÉTÉS RACCOURCIES
+
+const nom = "Alice";
+const age = 30;
+
+// Au lieu de { nom: nom, age: age }
+const personne = { nom, age };
+
+// MÉTHODES CONCISES
+
+const calculatrice = {
+    // Au lieu de: addition: function(a, b) { ... }
+    addition(a, b) {
+        return a + b;
+    },
+    multiplication(a, b) {
+        return a * b;
+    }
+};</code></pre>
+          </div>
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-javascript">// CLASSES
+
+class Personne {
+    constructor(nom, age) {
+        this.nom = nom;
+        this.age = age;
+    }
+
+    saluer() {
+        return `Bonjour, je suis ${this.nom}`;
+    }
+
+    static info() {
+        return "Classe Personne";
+    }
+}
+
+class Employe extends Personne {
+    constructor(nom, age, poste) {
+        super(nom, age);
+        this.poste = poste;
+    }
+
+    saluer() {
+        return `${super.saluer()} et je suis ${this.poste}`;
+    }
+}
+
+// MODULES ES6
+
+// Export
+export const PI = 3.14159;
+export function calculerCirconference(rayon) {
+    return 2 * PI * rayon;
+}
+export default class Cercle {
+    constructor(rayon) {
+        this.rayon = rayon;
+    }
+}
+
+// Import
+import Cercle, { PI, calculerCirconference } from './geometrie.js';
+
+// PROMESSES
+
+const promesse = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("Succès!"), 1000);
+});
+
+promesse
+    .then(resultat => console.log(resultat))
+    .catch(erreur => console.error(erreur));
+
+// SYMBOLES
+
+const sym1 = Symbol('description');
+const sym2 = Symbol('description');
+console.log(sym1 === sym2); // false
+
+const obj = {
+    [sym1]: "valeur privée"
+};
+
+// ITÉRATEURS ET GÉNÉRATEURS
+
+// Itérateur personnalisé
+const iterable = {
+    [Symbol.iterator]() {
+        let step = 0;
+        return {
+            next() {
+                step++;
+                if (step <= 3) {
+                    return { value: step, done: false };
+                }
+                return { value: undefined, done: true };
+            }
+        };
+    }
+};
+
+// Générateur
+function* generateurInfini() {
+    let i = 0;
+    while (true) {
+        yield i++;
+    }
+}
+
+// SET ET MAP
+
+// Set - valeurs uniques
+const set = new Set([1, 2, 3, 3, 4]); // {1, 2, 3, 4}
+set.add(5);
+set.has(3); // true
+
+// Map - clés de tout type
+const map = new Map();
+map.set('clé', 'valeur');
+map.set(42, 'réponse');
+map.get('clé'); // 'valeur'
+
+// FONCTIONNALITÉS ES2020+
+
+// Optional Chaining
+const ville = personne?.adresse?.ville; // undefined si chaîne manquante
+
+// Nullish Coalescing
+const valeur = input ?? "valeur par défaut"; // seulement si null/undefined
+
+// Promise.allSettled
+Promise.allSettled([promesse1, promesse2])
+    .then(resultats => console.log(resultats));
+
+// BigInt
+const grandNombre = 9007199254740991n;
+const encorePlusGrand = BigInt("123456789012345678901234567890");
+
+// FONCTIONNALITÉS ES2022+
+
+// Top-level await
+// const data = await fetch('/api/data'); // Dans les modules
+
+// .at() pour les tableaux et chaînes
+const arr = [1, 2, 3];
+arr.at(-1); // 3 (dernier élément)
+
+// Champs et méthodes privés
+class Compteur {
+    #valeur = 0;
+    
+    #incrementer() {
+        this.#valeur++;
+    }
+    
+    incrementer() {
+        this.#incrementer();
+        return this.#valeur;
+    }
+}
+
+// Error.cause
+throw new Error('Message', { cause: erreurOriginale });
+
+// FONCTIONNALITÉS ES2023+
+
+// findLast et findLastIndex
+const nombres = [1, 2, 3, 4, 2];
+nombres.findLast(x => x === 2); // 2 (dernière occurrence)
+nombres.findLastIndex(x => x === 2); // 4
+
+// Hashbang Grammaire
+// #!/usr/bin/env node
+// (Pour les scripts exécutables)</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- BONNES PRATIQUES -->
+      <section
+        class="mt-10 mb-20 bg-gray-900 p-6 rounded-xl border border-gray-800"
+      >
+        <h2 class="text-2xl font-bold text-yellow-400 mb-4">
+          Bonnes pratiques JavaScript
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">const et let</h3>
+              <p class="text-sm text-gray-400">
+                Préférer const par défaut, let si mutation nécessaire
+              </p>
+            </div>
+          </div>
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">=== au lieu de ==</h3>
+              <p class="text-sm text-gray-400">
+                Éviter les coercitions de type implicites
+              </p>
+            </div>
+          </div>
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">Gestion d'erreurs</h3>
+              <p class="text-sm text-gray-400">
+                Toujours catcher les promesses et utiliser try/catch
+              </p>
+            </div>
+          </div>
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">Fonctions pures</h3>
+              <p class="text-sm text-gray-400">
+                Privilégier l'immutabilité et éviter les effets de bord
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESSOURCES -->
+      <section
+        class="mt-10 mb-20 bg-gray-900 p-6 rounded-xl border border-gray-800"
+      >
+        <h2 class="text-2xl font-bold text-yellow-400 mb-4">
+          Ressources JavaScript
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <a
+            href="https://developer.mozilla.org/fr/docs/Web/JavaScript"
+            class="flex items-center p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-yellow-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
+            </svg>
+            MDN JavaScript
+          </a>
+          <a
+            href="https://javascript.info/"
+            class="flex items-center p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-yellow-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+              />
+            </svg>
+            The Modern JavaScript Tutorial
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      function copyCode(button) {
+        const codeBlock = button.parentElement;
+        const code = codeBlock.querySelector("code").textContent;
+
+        navigator.clipboard.writeText(code).then(() => {
+          const originalText = button.textContent;
+          button.textContent = "Copié!";
+          setTimeout(() => {
+            button.textContent = originalText;
+          }, 2000);
+        });
+      }
+
+      // Démonstrations interactives
+      document.addEventListener("DOMContentLoaded", function () {
+        // Exemple d'utilisation des démonstrations
+        console.log("Documentation JavaScript chargée");
+
+        // Exemple de fonctionnalité ES6+
+        const demoArray = [1, 2, 3, 4, 5];
+        const doubled = demoArray.map((x) => x * 2);
+        console.log("Tableau doublé:", doubled);
+
+        // Exemple de promesse
+        const demoPromise = Promise.resolve("Démonstration réussie!");
+        demoPromise.then(console.log);
+      });
+    </script>
+  </body>
+</html>
