@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentation Laravel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-php.min.js"></script>
+    <style>
+      .code-block {
+        position: relative;
+      }
+      .copy-btn {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: rgba(107, 114, 128, 0.7);
+        border: none;
+        border-radius: 4px;
+        color: white;
+        padding: 4px 8px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .copy-btn:hover {
+        background: rgba(107, 114, 128, 0.9);
+      }
+      .laravel-color {
+        background: linear-gradient(135deg, #ff2d20, #f55247);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-950 text-white min-h-screen p-4 md:p-10 font-sans">
+    <div class="max-w-6xl mx-auto">
+      <a
+        href="index.html"
+        class="inline-flex items-center text-red-400 hover:text-red-300 transition-colors"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 mr-1"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        Retour
+      </a>
+
+      <header class="mt-6 mb-10">
+        <div class="flex items-center">
+          <div class="laravel-color p-2 rounded-lg mr-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-10 w-10 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+              />
+            </svg>
+          </div>
+          <div>
+            <h1 class="text-3xl md:text-4xl font-extrabold text-red-400">
+              Laravel — Documentation Complète
+            </h1>
+            <p class="text-gray-400 mt-1 text-lg">
+              Framework PHP élégant et expressif pour le développement web
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <!-- INTRO -->
+      <section class="mt-10 bg-gray-900 p-6 rounded-xl border border-gray-800">
+        <h2 class="text-2xl font-bold text-red-400 mb-3 flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 mr-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          Qu'est-ce que Laravel ?
+        </h2>
+        <p class="text-gray-300 leading-relaxed">
+          Laravel est un framework PHP open-source, créé par Taylor Otwell, qui
+          suit le modèle architectural MVC (Model-View-Controller). Il est conçu
+          pour développer des applications web en suivant les bonnes pratiques
+          et en utilisant une syntaxe élégante et expressive.
+        </p>
+        <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="font-bold text-red-400">MVC</h3>
+            <p class="text-sm text-gray-400">
+              Architecture Modèle-Vue-Contrôleur
+            </p>
+          </div>
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="font-bold text-red-400">Eloquent ORM</h3>
+            <p class="text-sm text-gray-400">ORM puissant et intuitif</p>
+          </div>
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="font-bold text-red-400">Ecosystème</h3>
+            <p class="text-sm text-gray-400">Forge, Vapor, Nova, Echo</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- INSTALLATION -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-red-400 mb-3">Installation</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-bash"># Via Composer (recommandé)
+composer create-project laravel/laravel mon-projet
+
+# Via Laravel Installer global
+composer global require laravel/installer
+laravel new mon-projet
+
+# Via Docker
+curl -s https://laravel.build/mon-projet | bash
+
+# Démarrer le serveur de développement
+php artisan serve
+
+# Vérifier les prérequis
+php artisan about</code></pre>
+          </div>
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-php"># .env - Configuration environnement
+APP_NAME="Mon Application"
+APP_ENV=local
+APP_KEY=base64:...
+APP_DEBUG=true
+APP_URL=http://localhost
+
+# Base de données
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
+
+# Cache, Session, Queue
+CACHE_DRIVER=file
+SESSION_DRIVER=file
+QUEUE_CONNECTION=sync</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ARCHITECTURE MVC -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-red-400 mb-3">Architecture MVC</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="font-bold text-red-400 mb-2">Models</h3>
+            <div class="code-block bg-gray-900 p-3 rounded overflow-x-auto">
+              <pre><code class="language-php">&lt;?php
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class User extends Model
+{
+    protected $fillable = ['name', 'email'];
+}
+?&gt;</code></pre>
+            </div>
+          </div>
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="font-bold text-red-400 mb-2">Views</h3>
+            <div class="code-block bg-gray-900 p-3 rounded overflow-x-auto">
+              <pre><code class="language-php">// Blade template
+&lt;h1&gt;{{ $title }}&lt;/h1&gt;
+@foreach($users as $user)
+    &lt;p&gt;{{ $user-&gt;name }}&lt;/p&gt;
+@endforeach</code></pre>
+            </div>
+          </div>
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="font-bold text-red-400 mb-2">Controllers</h3>
+            <div class="code-block bg-gray-900 p-3 rounded overflow-x-auto">
+              <pre><code class="language-php">&lt;?php
+namespace App\Http\Controllers;
+
+use App\Models\User;
+
+class UserController extends Controller
+{
+    public function index()
+    {
+        return view('users', [
+            'users' => User::all()
+        ]);
+    }
+}
+?&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ROUTES -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-red-400 mb-3">Routes</h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-php">&lt;?php
+// routes/web.php
+
+// Route basique
+Route::get('/', function () {
+    return view('welcome');
+});
+
+// Route avec contrôleur
+Route::get('/users', [UserController::class, 'index']);
+
+// Route avec paramètres
+Route::get('/user/{id}', function ($id) {
+    return "Utilisateur $id";
+});
+
+// Route avec contraintes
+Route::get('/user/{id}', function ($id) {
+    // ...
+})->where('id', '[0-9]+');
+
+// Route nommée
+Route::get('/user/profile', function () {
+    // ...
+})->name('profile');
+
+// Groupe de routes avec middleware
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    });
+});
+
+// Resource routes (CRUD)
+Route::resource('users', UserController::class);
+
+// Routes API
+Route::apiResource('posts', PostController::class);
+?&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- CONTROLEURS -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-red-400 mb-3">Contrôleurs</h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-php">&lt;?php
+namespace App\Http\Controllers;
+
+use App\Models\User;
+use Illuminate\Http\Request;
+
+class UserController extends Controller
+{
+    // Afficher la liste
+    public function index()
+    {
+        $users = User::all();
+        return view('users.index', compact('users'));
+    }
+
+    // Afficher un élément
+    public function show(User $user)
+    {
+        return view('users.show', compact('user'));
+    }
+
+    // Afficher le formulaire de création
+    public function create()
+    {
+        return view('users.create');
+    }
+
+    // Stocker un nouvel élément
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|email|unique:users',
+        ]);
+
+        User::create($validated);
+
+        return redirect()->route('users.index')
+            ->with('success', 'Utilisateur créé avec succès.');
+    }
+
+    // Mettre à jour un élément
+    public function update(Request $request, User $user)
+    {
+        $user->update($request->all());
+        return redirect()->route('users.index');
+    }
+
+    // Supprimer un élément
+    public function destroy(User $user)
+    {
+        $user->delete();
+        return redirect()->route('users.index');
+    }
+}
+?&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- ELOQUENT ORM -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-red-400 mb-3">Eloquent ORM</h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-php">&lt;?php
+// Modèle complet
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+class User extends Model
+{
+    use HasFactory;
+
+    protected $table = 'users';
+    protected $primaryKey = 'id';
+    public $timestamps = true;
+
+    protected $fillable = ['name', 'email', 'password'];
+    protected $hidden = ['password', 'remember_token'];
+    protected $casts = ['email_verified_at' => 'datetime'];
+
+    // Relations
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
+
+    // Scopes
+    public function scopeActive($query)
+    {
+        return $query->where('active', true);
+    }
+
+    // Accessors/Mutators
+    public function getNameAttribute($value)
+    {
+        return ucfirst($value);
+    }
+
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
+}
+
+// Utilisation du modèle
+$user = User::find(1);
+$activeUsers = User::active()->get();
+$user = User::where('email', 'test@example.com')->first();
+$newUser = User::create(['name' => 'John', 'email' => 'john@example.com']);
+?&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- MIGRATIONS -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-red-400 mb-3">Migrations</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-php">&lt;?php
+// Créer une migration
+php artisan make:migration create_users_table
+
+// database/migrations/xxxx_create_users_table.php
+public function up()
+{
+    Schema::create('users', function (Blueprint $table) {
+        $table->id();
+        $table->string('name');
+        $table->string('email')->unique();
+        $table->timestamp('email_verified_at')->nullable();
+        $table->string('password');
+        $table->rememberToken();
+        $table->timestamps();
+    });
+}
+
+public function down()
+{
+    Schema::dropIfExists('users');
+}
+
+// Exécuter les migrations
+php artisan migrate
+php artisan migrate:rollback
+php artisan migrate:fresh
+php artisan migrate:status
+?&gt;</code></pre>
+          </div>
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-php">&lt;?php
+// Types de colonnes
+$table->string('name', 100);
+$table->text('description');
+$table->integer('age');
+$table->bigInteger('votes');
+$table->boolean('is_active');
+$table->date('birth_date');
+$table->datetime('created_at');
+$table->decimal('amount', 8, 2);
+$table->json('meta');
+
+// Contraintes
+$table->string('email')->unique();
+$table->integer('user_id')->unsigned();
+$table->foreign('user_id')->references('id')->on('users');
+$table->primary(['first_name', 'last_name']);
+$table->index('email');
+
+// Modifier une table
+Schema::table('users', function (Blueprint $table) {
+    $table->string('phone')->after('email')->nullable();
+    $table->dropColumn('votes');
+});
+
+// Seeders
+php artisan make:seeder UserSeeder
+
+public function run()
+{
+    User::factory(10)->create();
+}
+
+php artisan db:seed
+php artisan migrate:fresh --seed
+?&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- BLADE TEMPLATES -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-red-400 mb-3">Blade Templates</h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-php">// resources/views/users/index.blade.php
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;{{ $title ?? 'Mon App' }}&lt;/title&gt;
+    @stack('styles')
+&lt;/head&gt;
+&lt;body&gt;
+    @include('partials.header')
+
+    &lt;div class="container"&gt;
+        @yield('content')
+    &lt;/div&gt;
+
+    // Boucles et conditions
+    @if($users->count() > 0)
+        @foreach($users as $user)
+            &lt;div class="user"&gt;
+                &lt;h2&gt;{{ $user->name }}&lt;/h2&gt;
+                &lt;p&gt;{{ $user->email }}&lt;/p&gt;
+            &lt;/div&gt;
+        @endforeach
+    @else
+        &lt;p&gt;Aucun utilisateur trouvé.&lt;/p&gt;
+    @endif
+
+    // Forms et CSRF
+    &lt;form method="POST" action="/users"&gt;
+        @csrf
+        &lt;input type="text" name="name" value="{{ old('name') }}"&gt;
+        @error('name')
+            &lt;div class="error"&gt;{{ $message }}&lt;/div&gt;
+        @enderror
+        &lt;button type="submit"&gt;Créer&lt;/button&gt;
+    &lt;/form&gt;
+
+    // Layouts et sections
+    @extends('layouts.app')
+
+    @section('content')
+        &lt;h1&gt;Liste des utilisateurs&lt;/h1&gt;
+        // Contenu...
+    @endsection
+
+    @push('scripts')
+        &lt;script src="/js/users.js"&gt;&lt;/script&gt;
+    @endpush
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- FORMULAIRES ET VALIDATION -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-red-400 mb-3">
+          Formulaires et Validation
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-php">&lt;?php
+// Validation dans le contrôleur
+public function store(Request $request)
+{
+    $validated = $request->validate([
+        'title' => 'required|string|max:255',
+        'body' => 'required|string',
+        'publish_at' => 'nullable|date',
+        'email' => 'required|email|unique:users',
+        'password' => 'required|min:8|confirmed',
+        'age' => 'required|integer|min:18',
+        'website' => 'nullable|url',
+        'avatar' => 'image|mimes:jpeg,png,jpg|max:2048',
+        'tags' => 'array',
+        'tags.*' => 'string|distinct|min:3',
+    ], [
+        'title.required' => 'Le titre est obligatoire',
+        'email.unique' => 'Cet email est déjà utilisé',
+    ]);
+
+    // Si la validation échoue, redirection automatique
+    Post::create($validated);
+
+    return redirect()->route('posts.index');
+}
+
+// Validation manuelle
+$validator = Validator::make($request->all(), [
+    'name' => 'required',
+]);
+
+if ($validator->fails()) {
+    return redirect('post/create')
+        ->withErrors($validator)
+        ->withInput();
+}
+?&gt;</code></pre>
+          </div>
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-php">&lt;?php
+// Form Requests
+php artisan make:request StorePostRequest
+
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class StorePostRequest extends FormRequest
+{
+    public function authorize()
+    {
+        return true; // Ou logique métier
+    }
+
+    public function rules()
+    {
+        return [
+            'title' => 'required|unique:posts|max:255',
+            'body' => 'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'Un titre est requis',
+        ];
+    }
+}
+
+// Utilisation dans le contrôleur
+public function store(StorePostRequest $request)
+{
+    // La requête est déjà validée
+    $validated = $request->validated();
+    Post::create($validated);
+}
+?&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- AUTHENTIFICATION -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-red-400 mb-3">Authentification</h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-php">&lt;?php
+// Installation de l'auth
+composer require laravel/breeze --dev
+php artisan breeze:install
+
+// Ou avec Jetstream
+composer require laravel/jetstream
+php artisan jetstream:install livewire
+
+// Middleware d'auth
+Route::get('/profile', function () {
+    // Only authenticated users...
+})->middleware('auth');
+
+// Contrôleur d'auth généré
+class AuthController extends Controller
+{
+    public function showLoginForm() { /* ... */ }
+    public function login(Request $request) { /* ... */ }
+    public function logout(Request $request) { /* ... */ }
+}
+
+// Protection des routes
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+});
+
+// Gates et Policies
+// Dans AuthServiceProvider
+Gate::define('edit-post', function (User $user, Post $post) {
+    return $user->id === $post->user_id;
+});
+
+// Dans un contrôleur
+if (Gate::allows('edit-post', $post)) {
+    // L'utilisateur peut éditer le post
+}
+
+// Ou avec policies
+php artisan make:policy PostPolicy --model=Post
+
+class PostPolicy
+{
+    public function update(User $user, Post $post)
+    {
+        return $user->id === $post->user_id;
+    }
+}
+
+// Utilisation
+$this->authorize('update', $post);
+?&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- MIDDLEWARE -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-red-400 mb-3">Middleware</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-php">&lt;?php
+// Créer un middleware
+php artisan make:middleware CheckAge
+
+namespace App\Http\Middleware;
+
+use Closure;
+
+class CheckAge
+{
+    public function handle($request, Closure $next)
+    {
+        if ($request->age <= 200) {
+            return redirect('home');
+        }
+
+        return $next($request);
+    }
+}
+
+// Enregistrer le middleware
+// Dans app/Http/Kernel.php
+protected $routeMiddleware = [
+    'age' => \App\Http\Middleware\CheckAge::class,
+];
+
+// Utilisation sur les routes
+Route::get('/admin', function () {
+    //
+})->middleware('age');
+
+// Groupe de middleware
+Route::middleware(['first', 'second'])->group(function () {
+    Route::get('/', function () { /* */ });
+    Route::get('/user/profile', function () { /* */ });
+});
+?&gt;</code></pre>
+          </div>
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-php">&lt;?php
+// Middleware après la requête
+public function handle($request, Closure $next)
+{
+    $response = $next($request);
+
+    // Effectuer une action
+
+    return $response;
+}
+
+// Middleware avec paramètres
+Route::put('/post/{id}', function ($id) {
+    //
+})->middleware('role:editor');
+
+// Dans le middleware
+public function handle($request, Closure $next, $role)
+{
+    if (! $request->user()->hasRole($role)) {
+        // Redirection...
+    }
+
+    return $next($request);
+}
+
+// Middleware global
+protected $middleware = [
+    \App\Http\Middleware\TrustProxies::class,
+    \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
+];
+
+// Middleware de groupe
+protected $middlewareGroups = [
+    'web' => [
+        \App\Http\Middleware\EncryptCookies::class,
+        \App\Http\Middleware\VerifyCsrfToken::class,
+    ],
+
+    'api' => [
+        'throttle:api',
+        \Illuminate\Routing\Middleware\SubstituteBindings::class,
+    ],
+];
+?&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- COLLECTIONS ET HELPERS -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-red-400 mb-3">
+          Collections et Helpers
+        </h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-php">&lt;?php
+// Collections Eloquent
+$users = User::all();
+
+// Filtrer
+$activeUsers = $users->filter(function ($user) {
+    return $user->active;
+});
+
+// Transformer
+$names = $users->map(function ($user) {
+    return $user->name;
+});
+
+// Grouper
+$grouped = $users->groupBy('active');
+
+// Trier
+$sorted = $users->sortBy('name');
+
+// Agrégations
+$total = $users->sum('votes');
+$average = $users->avg('age');
+$max = $users->max('score');
+
+// Helpers utiles
+$value = old('name', 'default');
+$errors = $errors->all();
+session()->flash('status', 'Task was successful!');
+return redirect()->route('home');
+return back()->withInput();
+return response()->json($data);
+abort(404);
+view('welcome', compact('users'));
+
+// Strings
+Str::slug('Hello World'); // hello-world
+Str::random(40);
+Str::limit('The quick brown fox...', 20);
+
+// Arrays
+Arr::get($array, 'foo.bar');
+Arr::pluck($array, 'name');
+Arr::only($array, ['key1', 'key2']);
+
+// URLs
+url('/path');
+route('profile', ['id' => 1]);
+asset('img/photo.jpg');
+storage_path('app/files');
+?&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- ARTISAN COMMANDES -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-red-400 mb-3">Commandes Artisan</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-bash"># Génération de code
+php artisan make:model Post -mcr
+php artisan make:controller UserController --resource
+php artisan make:middleware AuthAdmin
+php artisan make:request StoreUserRequest
+php artisan make:policy PostPolicy --model=Post
+php artisan make:event OrderShipped
+php artisan make:listener SendShipmentNotification --event=OrderShipped
+php artisan make:mail OrderShipped
+php artisan make:notification InvoicePaid
+php artisan make:factory PostFactory --model=Post
+php artisan make:seeder UserSeeder
+php artisan make:job ProcessPodcast
+php artisan make:command SendEmails
+
+# Base de données
+php artisan migrate
+php artisan migrate:rollback
+php artisan migrate:fresh --seed
+php artisan db:seed
+php artisan make:migration create_users_table
+php artisan schema:dump
+
+# Cache et optimisation
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+php artisan event:cache
+php artisan optimize
+php artisan cache:clear
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear</code></pre>
+          </div>
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-bash"># Authentification
+php artisan make:auth
+php artisan ui:auth
+php artisan ui bootstrap --auth
+
+# Débogage et tests
+php artisan tinker
+php artisan serve
+php artisan queue:work
+php artisan schedule:work
+php artisan test
+php artisan dusk
+
+# Maintenance
+php artisan down
+php artisan up
+php artisan down --secret="1630542a-246b-4b66-afa1-dd72a4c43515"
+
+# Packages et vendor
+php artisan vendor:publish
+php artisan vendor:publish --provider="Vendor\Package\ServiceProvider"
+
+# Custom commands
+php artisan app:name NewName
+php artisan inspire
+php artisan list
+php artisan help migrate
+
+# Créer une commande personnalisée
+php artisan make:command SendEmails
+
+class SendEmails extends Command
+{
+    protected $signature = 'mail:send {user}';
+    protected $description = 'Send emails to users';
+
+    public function handle()
+    {
+        $userId = $this->argument('user');
+        // Logique de la commande...
+    }
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- BONNES PRATIQUES -->
+      <section
+        class="mt-10 mb-20 bg-gray-900 p-6 rounded-xl border border-gray-800"
+      >
+        <h2 class="text-2xl font-bold text-red-400 mb-4">
+          Bonnes pratiques Laravel
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">Fat Models, Thin Controllers</h3>
+              <p class="text-sm text-gray-400">
+                Logique métier dans les modèles
+              </p>
+            </div>
+          </div>
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">
+                Validation dans Form Requests
+              </h3>
+              <p class="text-sm text-gray-400">
+                Séparer la logique de validation
+              </p>
+            </div>
+          </div>
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">Eager Loading</h3>
+              <p class="text-sm text-gray-400">
+                Utiliser with() pour éviter le N+1
+              </p>
+            </div>
+          </div>
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">Services et Repositories</h3>
+              <p class="text-sm text-gray-400">Séparer les responsabilités</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESSOURCES -->
+      <section
+        class="mt-10 mb-20 bg-gray-900 p-6 rounded-xl border border-gray-800"
+      >
+        <h2 class="text-2xl font-bold text-red-400 mb-4">Ressources Laravel</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <a
+            href="https://laravel.com/docs"
+            class="flex items-center p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-red-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
+            </svg>
+            Documentation officielle
+          </a>
+          <a
+            href="https://laracasts.com/"
+            class="flex items-center p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-red-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            Laracasts
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      function copyCode(button) {
+        const codeBlock = button.parentElement;
+        const code = codeBlock.querySelector("code").textContent;
+
+        navigator.clipboard.writeText(code).then(() => {
+          const originalText = button.textContent;
+          button.textContent = "Copié!";
+          setTimeout(() => {
+            button.textContent = originalText;
+          }, 2000);
+        });
+      }
+    </script>
+  </body>
+</html>

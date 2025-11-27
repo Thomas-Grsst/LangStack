@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentation CSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-css.min.js"></script>
+    <style>
+      .code-block {
+        position: relative;
+      }
+      .copy-btn {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: rgba(107, 114, 128, 0.7);
+        border: none;
+        border-radius: 4px;
+        color: white;
+        padding: 4px 8px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .copy-btn:hover {
+        background: rgba(107, 114, 128, 0.9);
+      }
+      .css-color {
+        background: linear-gradient(135deg, #264de4, #2965f1);
+      }
+      .demo-box {
+        border: 2px dashed #4b5563;
+        padding: 20px;
+        margin: 10px 0;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-950 text-white min-h-screen p-4 md:p-10 font-sans">
+    <div class="max-w-5xl mx-auto">
+      <a
+        href="index.html"
+        class="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 mr-1"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        Retour
+      </a>
+
+      <header class="mt-6 mb-10">
+        <div class="flex items-center">
+          <div class="css-color p-2 rounded-lg mr-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-10 w-10 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+              />
+            </svg>
+          </div>
+          <div>
+            <h1 class="text-3xl md:text-4xl font-extrabold text-blue-400">
+              CSS — Documentation Complète
+            </h1>
+            <p class="text-gray-400 mt-1 text-lg">
+              Cascading Style Sheets - Feuilles de style en cascade
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <!-- INTRO -->
+      <section class="mt-10 bg-gray-900 p-6 rounded-xl border border-gray-800">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3 flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 mr-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          Qu'est-ce que le CSS ?
+        </h2>
+        <p class="text-gray-300 leading-relaxed">
+          CSS (Cascading Style Sheets) est un langage utilisé pour décrire la
+          présentation des documents HTML et XML. Il permet de contrôler la mise
+          en page, les couleurs, les polices et l'apparence générale des pages
+          web.
+        </p>
+        <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="font-bold text-blue-400">Présentation</h3>
+            <p class="text-sm text-gray-400">Contrôle l'apparence visuelle</p>
+          </div>
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="font-bold text-blue-400">Responsive</h3>
+            <p class="text-sm text-gray-400">
+              Adaptation aux différentes tailles d'écran
+            </p>
+          </div>
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="font-bold text-blue-400">Animation</h3>
+            <p class="text-sm text-gray-400">
+              Création d'animations et transitions
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SYNTAXE DE BASE -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">Syntaxe de base</h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-css">/* Commentaire CSS */
+selecteur {
+    propriete: valeur;
+    autre-propriete: valeur;
+}
+
+/* Exemple */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+}</code></pre>
+        </div>
+      </section>
+
+      <!-- SÉLECTEURS -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">Sélecteurs CSS</h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-css">/* Sélecteur d'élément */
+p {
+    color: blue;
+}
+
+/* Sélecteur de classe */
+.ma-classe {
+    font-size: 16px;
+}
+
+/* Sélecteur d'ID */
+#mon-id {
+    background: yellow;
+}
+
+/* Sélecteur multiple */
+h1, h2, h3 {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Sélecteur d'enfant */
+div > p {
+    margin: 10px;
+}
+
+/* Sélecteur de descendant */
+article p {
+    line-height: 1.6;
+}
+
+/* Sélecteur d'attribut */
+input[type="text"] {
+    border: 1px solid #ccc;
+}
+
+/* Pseudo-classes */
+a:hover {
+    color: red;
+}
+
+button:active {
+    transform: scale(0.98);
+}</code></pre>
+        </div>
+      </section>
+
+      <!-- PROPRIÉTÉS DE TEXTE -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">
+          Propriétés de texte
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-css">.texte-exemple {
+    /* Police */
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: italic;
+    
+    /* Couleur et décoration */
+    color: white;
+    text-align: center;
+    text-decoration: underline;
+    
+    /* Espacement */
+    line-height: 1.5;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    
+    /* Transformation */
+    text-transform: uppercase;
+}</code></pre>
+          </div>
+          <div
+            class="demo-box bg-gray-800 p-6 rounded-xl border border-gray-700"
+          >
+            <h3 class="text-blue-300 font-bold mb-3">Résultat :</h3>
+            <div
+              class="texte-exemple"
+              style="
+                font-family: Arial, sans-serif;
+                font-size: 16px;
+                font-weight: bold;
+                font-style: italic;
+                color: white;
+                text-align: center;
+                text-decoration: underline;
+                line-height: 1.5;
+                letter-spacing: 1px;
+                word-spacing: 2px;
+                text-transform: uppercase;
+              "
+            >
+              Ce texte montre les propriétés CSS appliquées
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOX MODEL -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">Box Model</h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-css">.boite {
+    /* Dimensions */
+    width: 300px;
+    height: 200px;
+    
+    /* Marges */
+    margin: 20px;
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    
+    /* Bordures */
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    
+    /* Remplissage */
+    padding: 15px;
+    padding: 10px 20px; /* vertical horizontal */
+    
+    /* Arrière-plan */
+    background-color: #f8f9fa;
+    
+    /* Box-sizing */
+    box-sizing: border-box;
+}
+
+/* Centrage horizontal */
+.centre {
+    margin: 0 auto;
+}</code></pre>
+        </div>
+      </section>
+
+      <!-- FLEXBOX -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">Flexbox</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-css">.conteneur-flex {
+    display: flex;
+    flex-direction: row; /* row | row-reverse | column | column-reverse */
+    justify-content: center; /* flex-start | flex-end | center | space-between | space-around */
+    align-items: center; /* stretch | flex-start | flex-end | center | baseline */
+    flex-wrap: wrap; /* nowrap | wrap | wrap-reverse */
+    gap: 10px; /* Espace entre les éléments */
+}
+
+.element-flex {
+    flex: 1; /* grow shrink basis */
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 200px;
+    
+    /* Alignement individuel */
+    align-self: flex-start;
+}
+
+/* Exemple pratique */
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}</code></pre>
+          </div>
+          <div
+            class="demo-box bg-gray-800 p-6 rounded-xl border border-gray-700"
+          >
+            <h3 class="text-blue-300 font-bold mb-3">Exemple Flexbox :</h3>
+            <div
+              style="
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                gap: 10px;
+                padding: 10px;
+                background: #374151;
+                border-radius: 6px;
+              "
+            >
+              <div
+                style="
+                  background: #3b82f6;
+                  padding: 15px;
+                  border-radius: 4px;
+                  color: white;
+                "
+              >
+                Item 1
+              </div>
+              <div
+                style="
+                  background: #3b82f6;
+                  padding: 15px;
+                  border-radius: 4px;
+                  color: white;
+                "
+              >
+                Item 2
+              </div>
+              <div
+                style="
+                  background: #3b82f6;
+                  padding: 15px;
+                  border-radius: 4px;
+                  color: white;
+                "
+              >
+                Item 3
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GRID -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">CSS Grid</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-css">.conteneur-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; /* 3 colonnes */
+    grid-template-rows: 100px auto 100px; /* 3 lignes */
+    gap: 20px; /* Espace entre les cellules */
+    grid-template-areas: 
+        "header header header"
+        "sidebar main aside"
+        "footer footer footer";
+}
+
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main { grid-area: main; }
+.aside { grid-area: aside; }
+.footer { grid-area: footer; }
+
+/* Placement manuel */
+.element-specifique {
+    grid-column: 1 / 3; /* De la ligne 1 à 3 */
+    grid-row: 2; /* Ligne 2 */
+}
+
+/* Grid implicite */
+.grid-auto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}</code></pre>
+          </div>
+          <div
+            class="demo-box bg-gray-800 p-6 rounded-xl border border-gray-700"
+          >
+            <h3 class="text-blue-300 font-bold mb-3">Exemple Grid :</h3>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: 1fr 2fr 1fr;
+                gap: 10px;
+                padding: 10px;
+                background: #374151;
+                border-radius: 6px;
+              "
+            >
+              <div
+                style="
+                  background: #10b981;
+                  padding: 20px;
+                  border-radius: 4px;
+                  color: white;
+                "
+              >
+                Col 1
+              </div>
+              <div
+                style="
+                  background: #10b981;
+                  padding: 20px;
+                  border-radius: 4px;
+                  color: white;
+                "
+              >
+                Col 2
+              </div>
+              <div
+                style="
+                  background: #10b981;
+                  padding: 20px;
+                  border-radius: 4px;
+                  color: white;
+                "
+              >
+                Col 3
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COULEURS ET ARRIÈRE-PLANS -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">
+          Couleurs et arrière-plans
+        </h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-css">.couleurs {
+    /* Formats de couleur */
+    color: #ff0000; /* Hexadécimal */
+    color: rgb(255, 0, 0); /* RGB */
+    color: rgba(255, 0, 0, 0.5); /* RGB avec alpha */
+    color: hsl(0, 100%, 50%); /* HSL */
+    color: hsla(0, 100%, 50%, 0.5); /* HSL avec alpha */
+    
+    /* Arrière-plans */
+    background-color: #ffffff;
+    background-image: url('image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Dégradés */
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    background: radial-gradient(circle, #ff6b6b, #4ecdc4);
+}
+
+/* Variables CSS */
+:root {
+    --couleur-primaire: #3498db;
+    --couleur-secondaire: #2ecc71;
+    --espacement: 1rem;
+}
+
+.utilisation-variables {
+    color: var(--couleur-primaire);
+    margin: var(--espacement);
+}</code></pre>
+        </div>
+      </section>
+
+      <!-- ANIMATIONS ET TRANSITIONS -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">
+          Animations et transitions
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-css">/* Transitions */
+.bouton {
+    background-color: #3498db;
+    transition: all 0.3s ease-in-out;
+    transition-property: background-color, transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+}
+
+.bouton:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.element-anime {
+    animation: fadeIn 0.5s ease-in-out;
+    animation-delay: 0.2s;
+    animation-fill-mode: both;
+}
+
+/* Animation continue */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.loader {
+    animation: spin 1s linear infinite;
+}</code></pre>
+          </div>
+          <div
+            class="demo-box bg-gray-800 p-6 rounded-xl border border-gray-700"
+          >
+            <h3 class="text-blue-300 font-bold mb-3">Exemple animation :</h3>
+            <button
+              onclick="this.classList.toggle('animate-pulse')"
+              class="px-4 py-2 bg-blue-500 text-white rounded transition-all duration-300 hover:bg-blue-600 hover:scale-105"
+            >
+              Clique pour animer
+            </button>
+            <div class="mt-4 flex space-x-4">
+              <div class="w-4 h-4 bg-red-500 rounded-full animate-bounce"></div>
+              <div
+                class="w-4 h-4 bg-green-500 rounded-full animate-bounce"
+                style="animation-delay: 0.1s"
+              ></div>
+              <div
+                class="w-4 h-4 bg-blue-500 rounded-full animate-bounce"
+                style="animation-delay: 0.2s"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESPONSIVE DESIGN -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">Responsive Design</h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-css">/* Media Queries */
+/* Mobile First */
+.conteneur {
+    padding: 1rem;
+    font-size: 14px;
+}
+
+/* Tablettes */
+@media (min-width: 768px) {
+    .conteneur {
+        padding: 2rem;
+        font-size: 16px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .conteneur {
+        padding: 3rem;
+        font-size: 18px;
+    }
+}
+
+/* Points de rupture courants */
+@media (max-width: 640px) { /* Mobile */ }
+@media (min-width: 641px) and (max-width: 768px) { /* Tablette */ }
+@media (min-width: 769px) and (max-width: 1024px) { /* Petit desktop */ }
+@media (min-width: 1025px) and (max-width: 1280px) { /* Desktop */ }
+@media (min-width: 1281px) { /* Grand écran */ }
+
+/* Orientation */
+@media (orientation: landscape) {
+    .conteneur {
+        flex-direction: row;
+    }
+}
+
+@media (orientation: portrait) {
+    .conteneur {
+        flex-direction: column;
+    }
+}</code></pre>
+        </div>
+      </section>
+
+      <!-- BONNES PRATIQUES -->
+      <section
+        class="mt-10 mb-20 bg-gray-900 p-6 rounded-xl border border-gray-800"
+      >
+        <h2 class="text-2xl font-bold text-blue-400 mb-4">
+          Bonnes pratiques CSS
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">Mobile First</h3>
+              <p class="text-sm text-gray-400">Commencer par le mobile</p>
+            </div>
+          </div>
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">Variables CSS</h3>
+              <p class="text-sm text-gray-400">
+                Utiliser les custom properties
+              </p>
+            </div>
+          </div>
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">Flexbox/Grid</h3>
+              <p class="text-sm text-gray-400">Préférer aux floats</p>
+            </div>
+          </div>
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">Performance</h3>
+              <p class="text-sm text-gray-400">
+                Éviter les sélecteurs complexes
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESSOURCES -->
+      <section
+        class="mt-10 mb-20 bg-gray-900 p-6 rounded-xl border border-gray-800"
+      >
+        <h2 class="text-2xl font-bold text-blue-400 mb-4">Ressources CSS</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <a
+            href="https://developer.mozilla.org/fr/docs/Web/CSS"
+            class="flex items-center p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-blue-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
+            </svg>
+            Documentation MDN
+          </a>
+          <a
+            href="https://css-tricks.com/"
+            class="flex items-center p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-blue-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+              />
+            </svg>
+            CSS-Tricks
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      function copyCode(button) {
+        const codeBlock = button.parentElement;
+        const code = codeBlock.querySelector("code").textContent;
+
+        navigator.clipboard.writeText(code).then(() => {
+          const originalText = button.textContent;
+          button.textContent = "Copié!";
+          setTimeout(() => {
+            button.textContent = originalText;
+          }, 2000);
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentation Tailwind CSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+      .code-block {
+        position: relative;
+      }
+      .copy-btn {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: rgba(107, 114, 128, 0.7);
+        border: none;
+        border-radius: 4px;
+        color: white;
+        padding: 4px 8px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .copy-btn:hover {
+        background: rgba(107, 114, 128, 0.9);
+      }
+      .tailwind-color {
+        background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+      }
+      .demo-box {
+        border: 2px dashed #4b5563;
+        padding: 20px;
+        margin: 10px 0;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-950 text-white min-h-screen p-4 md:p-10 font-sans">
+    <div class="max-w-5xl mx-auto">
+      <a
+        href="index.html"
+        class="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 mr-1"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        Retour
+      </a>
+
+      <header class="mt-6 mb-10">
+        <div class="flex items-center">
+          <div class="tailwind-color p-2 rounded-lg mr-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-10 w-10 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 10V3L4 14h7v7l9-11h-7z"
+              />
+            </svg>
+          </div>
+          <div>
+            <h1 class="text-3xl md:text-4xl font-extrabold text-cyan-400">
+              Tailwind CSS — Documentation Complète
+            </h1>
+            <p class="text-gray-400 mt-1 text-lg">
+              Framework CSS utility-first pour un développement rapide
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <!-- INTRO -->
+      <section class="mt-10 bg-gray-900 p-6 rounded-xl border border-gray-800">
+        <h2 class="text-2xl font-bold text-cyan-400 mb-3 flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 mr-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          Qu'est-ce que Tailwind CSS ?
+        </h2>
+        <p class="text-gray-300 leading-relaxed">
+          Tailwind CSS est un framework CSS utility-first qui permet de
+          construire des designs personnalisés rapidement sans avoir à écrire du
+          CSS personnalisé. Au lieu de classes prédéfinies comme Bootstrap,
+          Tailwind fournit des classes utilitaires bas niveau.
+        </p>
+        <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="font-bold text-cyan-400">Utility-First</h3>
+            <p class="text-sm text-gray-400">Classes utilitaires pour tout</p>
+          </div>
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="font-bold text-cyan-400">Personnalisable</h3>
+            <p class="text-sm text-gray-400">Configuration totale</p>
+          </div>
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="font-bold text-cyan-400">Performance</h3>
+            <p class="text-sm text-gray-400">Purge CSS intégré</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- INSTALLATION -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-cyan-400 mb-3">Installation</h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-html">&lt;!-- Via CDN --&gt;
+&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+
+&lt;!-- Via npm --&gt;
+npm install -D tailwindcss
+
+&lt;!-- Fichier de configuration --&gt;
+npx tailwindcss init
+
+&lt;!-- tailwind.config.js --&gt;
+module.exports = {
+  content: ["./src/**/*.{html,js}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+&lt;!-- Fichier CSS --&gt;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;</code></pre>
+        </div>
+      </section>
+
+      <!-- SYNTAXE DE BASE -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-cyan-400 mb-3">Syntaxe de base</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-html">&lt;!-- Structure typique --&gt;
+&lt;div class="bg-white rounded-lg shadow-md p-6"&gt;
+  &lt;h2 class="text-2xl font-bold text-gray-800"&gt;
+    Titre
+  &lt;/h2&gt;
+  &lt;p class="text-gray-600 mt-2"&gt;
+    Contenu du composant
+  &lt;/p&gt;
+  &lt;button class="bg-blue-500 hover:bg-blue-600 
+                text-white px-4 py-2 rounded 
+                transition-colors mt-4"&gt;
+    Bouton
+  &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+          <div
+            class="demo-box bg-gray-800 p-6 rounded-xl border border-gray-700"
+          >
+            <h3 class="text-cyan-300 font-bold mb-3">Résultat :</h3>
+            <div
+              class="bg-gray-700 rounded-lg shadow-md p-6 border border-gray-600"
+            >
+              <h2 class="text-2xl font-bold text-white">Titre</h2>
+              <p class="text-gray-300 mt-2">Contenu du composant</p>
+              <button
+                class="bg-cyan-500 hover:bg-cyan-600 text-white px-4 py-2 rounded transition-colors mt-4"
+              >
+                Bouton
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ESPACEMENT -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-cyan-400 mb-3">
+          Espacing (Margin & Padding)
+        </h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-html">&lt;!-- Margin --&gt;
+&lt;div class="m-4"&gt;margin: 1rem&lt;/div&gt;
+&lt;div class="mx-4"&gt;margin horizontal&lt;/div&gt;
+&lt;div class="my-4"&gt;margin vertical&lt;/div&gt;
+&lt;div class="mt-4"&gt;margin top&lt;/div&gt;
+&lt;div class="mr-4"&gt;margin right&lt;/div&gt;
+&lt;div class="mb-4"&gt;margin bottom&lt;/div&gt;
+&lt;div class="ml-4"&gt;margin left&lt;/div&gt;
+
+&lt;!-- Padding --&gt;
+&lt;div class="p-4"&gt;padding: 1rem&lt;/div&gt;
+&lt;div class="px-4"&gt;padding horizontal&lt;/div&gt;
+&lt;div class="py-4"&gt;padding vertical&lt;/div&gt;
+
+&lt;!-- Tailles --&gt;
+&lt;div class="m-0"&gt;0&lt;/div&gt;
+&lt;div class="m-1"&gt;0.25rem&lt;/div&gt;
+&lt;div class="m-2"&gt;0.5rem&lt;/div&gt;
+&lt;div class="m-4"&gt;1rem&lt;/div&gt;
+&lt;div class="m-8"&gt;2rem&lt;/div&gt;
+&lt;div class="m-16"&gt;4rem&lt;/div&gt;
+
+&lt;!-- Auto --&gt;
+&lt;div class="mx-auto"&gt;centré horizontalement&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- COULEURS ET TYPOGRAPHIE -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-cyan-400 mb-3">
+          Couleurs et Typographie
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-html">&lt;!-- Couleurs de texte --&gt;
+&lt;p class="text-red-500"&gt;Rouge&lt;/p&gt;
+&lt;p class="text-blue-500"&gt;Bleu&lt;/p&gt;
+&lt;p class="text-green-500"&gt;Vert&lt;/p&gt;
+&lt;p class="text-gray-500"&gt;Gris&lt;/p&gt;
+
+&lt;!-- Couleurs de fond --&gt;
+&lt;div class="bg-red-500"&gt;Fond rouge&lt;/div&gt;
+&lt;div class="bg-blue-500"&gt;Fond bleu&lt;/div&gt;
+&lt;div class="bg-green-500"&gt;Fond vert&lt;/div&gt;
+
+&lt;!-- Typographie --&gt;
+&lt;h1 class="text-4xl font-bold"&gt;Titre 1&lt;/h1&gt;
+&lt;h2 class="text-3xl font-semibold"&gt;Titre 2&lt;/h2&gt;
+&lt;h3 class="text-2xl font-medium"&gt;Titre 3&lt;/h3&gt;
+&lt;p class="text-base"&gt;Paragraphe normal&lt;/p&gt;
+&lt;p class="text-sm text-gray-600"&gt;Petit texte&lt;/p&gt;
+
+&lt;!-- Alignement --&gt;
+&lt;p class="text-left"&gt;Gauche&lt;/p&gt;
+&lt;p class="text-center"&gt;Centre&lt;/p&gt;
+&lt;p class="text-right"&gt;Droite&lt;/p&gt;
+
+&lt;!-- Style --&gt;
+&lt;p class="italic"&gt;Italique&lt;/p&gt;
+&lt;p class="uppercase"&gt;Majuscules&lt;/p&gt;
+&lt;p class="underline"&gt;Souligné&lt;/p&gt;</code></pre>
+          </div>
+          <div
+            class="demo-box bg-gray-800 p-6 rounded-xl border border-gray-700"
+          >
+            <h3 class="text-cyan-300 font-bold mb-3">Exemples :</h3>
+            <div class="space-y-4">
+              <p class="text-red-500">Rouge</p>
+              <p class="text-blue-500">Bleu</p>
+              <p class="text-green-500">Vert</p>
+              <div class="bg-cyan-500 p-2 rounded text-white">Fond cyan</div>
+              <h3 class="text-2xl font-bold text-white">Titre important</h3>
+              <p class="text-sm text-gray-300">Petit texte secondaire</p>
+              <p class="text-center italic">Texte centré et italique</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FLEXBOX -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-cyan-400 mb-3">Flexbox</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-html">&lt;!-- Conteneur flex --&gt;
+&lt;div class="flex"&gt;
+  &lt;div&gt;Item 1&lt;/div&gt;
+  &lt;div&gt;Item 2&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Direction --&gt;
+&lt;div class="flex flex-row"&gt;Row (défaut)&lt;/div&gt;
+&lt;div class="flex flex-col"&gt;Column&lt;/div&gt;
+&lt;div class="flex flex-row-reverse"&gt;Row reverse&lt;/div&gt;
+
+&lt;!-- Alignement --&gt;
+&lt;div class="flex justify-start"&gt;Start&lt;/div&gt;
+&lt;div class="flex justify-center"&gt;Center&lt;/div&gt;
+&lt;div class="flex justify-end"&gt;End&lt;/div&gt;
+&lt;div class="flex justify-between"&gt;Between&lt;/div&gt;
+&lt;div class="flex justify-around"&gt;Around&lt;/div&gt;
+
+&lt;!-- Alignement vertical --&gt;
+&lt;div class="flex items-start"&gt;Start&lt;/div&gt;
+&lt;div class="flex items-center"&gt;Center&lt;/div&gt;
+&lt;div class="flex items-end"&gt;End&lt;/div&gt;
+&lt;div class="flex items-stretch"&gt;Stretch&lt;/div&gt;
+
+&lt;!-- Wrap --&gt;
+&lt;div class="flex flex-wrap"&gt;Wrap&lt;/div&gt;
+&lt;div class="flex flex-nowrap"&gt;No wrap&lt;/div&gt;
+
+&lt;!-- Gap --&gt;
+&lt;div class="flex gap-4"&gt;Gap 1rem&lt;/div&gt;</code></pre>
+          </div>
+          <div
+            class="demo-box bg-gray-800 p-6 rounded-xl border border-gray-700"
+          >
+            <h3 class="text-cyan-300 font-bold mb-3">Exemples Flexbox :</h3>
+            <div class="flex gap-2 mb-4">
+              <div class="bg-cyan-500 p-2 rounded text-white">Item 1</div>
+              <div class="bg-cyan-500 p-2 rounded text-white">Item 2</div>
+              <div class="bg-cyan-500 p-2 rounded text-white">Item 3</div>
+            </div>
+            <div class="flex justify-between mb-4">
+              <div class="bg-green-500 p-2 rounded text-white">Gauche</div>
+              <div class="bg-green-500 p-2 rounded text-white">Droite</div>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="bg-purple-500 p-2 rounded text-white">Ligne 1</div>
+              <div class="bg-purple-500 p-2 rounded text-white">Ligne 2</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GRID -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-cyan-400 mb-3">Grid</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-html">&lt;!-- Grid basique --&gt;
+&lt;div class="grid grid-cols-3 gap-4"&gt;
+  &lt;div&gt;1&lt;/div&gt;
+  &lt;div&gt;2&lt;/div&gt;
+  &lt;div&gt;3&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Responsive grid --&gt;
+&lt;div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"&gt;
+  &lt;div&gt;Colonne&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Span --&gt;
+&lt;div class="grid grid-cols-3 gap-4"&gt;
+  &lt;div class="col-span-2"&gt;Span 2 colonnes&lt;/div&gt;
+  &lt;div&gt;Normal&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Placement --&gt;
+&lt;div class="grid grid-cols-3 gap-4"&gt;
+  &lt;div class="col-start-2"&gt;Commence à col 2&lt;/div&gt;
+  &lt;div class="row-span-2"&gt;Span 2 lignes&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Auto grid --&gt;
+&lt;div class="grid grid-cols-1 sm:grid-cols-2 
+            lg:grid-cols-3 xl:grid-cols-4 gap-4"&gt;
+  &lt;div&gt;Responsive&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+          <div
+            class="demo-box bg-gray-800 p-6 rounded-xl border border-gray-700"
+          >
+            <h3 class="text-cyan-300 font-bold mb-3">Exemples Grid :</h3>
+            <div class="grid grid-cols-3 gap-2 mb-4">
+              <div class="bg-cyan-500 p-3 rounded text-white text-center">
+                1
+              </div>
+              <div class="bg-cyan-500 p-3 rounded text-white text-center">
+                2
+              </div>
+              <div class="bg-cyan-500 p-3 rounded text-white text-center">
+                3
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <div
+                class="bg-green-500 p-3 rounded text-white text-center col-span-2"
+              >
+                Span 2
+              </div>
+              <div class="bg-green-500 p-3 rounded text-white text-center">
+                A
+              </div>
+              <div class="bg-green-500 p-3 rounded text-white text-center">
+                B
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BORDURES ET OMBRES -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-cyan-400 mb-3">
+          Bordures et Ombres
+        </h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-html">&lt;!-- Bordures --&gt;
+&lt;div class="border"&gt;Bordure par défaut&lt;/div&gt;
+&lt;div class="border-2"&gt;Bordure épaisse&lt;/div&gt;
+&lt;div class="border-4"&gt;Bordure très épaisse&lt;/div&gt;
+
+&lt;!-- Couleurs de bordure --&gt;
+&lt;div class="border border-red-500"&gt;Rouge&lt;/div&gt;
+&lt;div class="border border-blue-500"&gt;Bleu&lt;/div&gt;
+&lt;div class="border border-green-500"&gt;Vert&lt;/div&gt;
+
+&lt;!-- Côtés spécifiques --&gt;
+&lt;div class="border-t"&gt;Top&lt;/div&gt;
+&lt;div class="border-r"&gt;Right&lt;/div&gt;
+&lt;div class="border-b"&gt;Bottom&lt;/div&gt;
+&lt;div class="border-l"&gt;Left&lt;/div&gt;
+
+&lt;!-- Radius --&gt;
+&lt;div class="rounded"&gt;Petit radius&lt;/div&gt;
+&lt;div class="rounded-lg"&gt;Large radius&lt;/div&gt;
+&lt;div class="rounded-full"&gt;Circle&lt;/div&gt;
+
+&lt;!-- Ombres --&gt;
+&lt;div class="shadow-sm"&gt;Petite ombre&lt;/div&gt;
+&lt;div class="shadow"&gt;Ombre normale&lt;/div&gt;
+&lt;div class="shadow-md"&gt;Ombre moyenne&lt;/div&gt;
+&lt;div class="shadow-lg"&gt;Grande ombre&lt;/div&gt;
+&lt;div class="shadow-xl"&gt;Très grande ombre&lt;/div&gt;
+
+&lt;!-- Hover --&gt;
+&lt;div class="shadow hover:shadow-lg 
+            transition-shadow"&gt;
+  Hover effect
+&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- RESPONSIVE DESIGN -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-cyan-400 mb-3">Design Responsive</h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-html">&lt;!-- Breakpoints --&gt;
+&lt;div class="text-sm md:text-base lg:text-lg"&gt;
+  Taille responsive
+&lt;/div&gt;
+
+&lt;!-- Grid responsive --&gt;
+&lt;div class="grid grid-cols-1 md:grid-cols-2 
+            lg:grid-cols-3 gap-4"&gt;
+  &lt;div&gt;Colonne&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Display responsive --&gt;
+&lt;div class="block md:hidden"&gt;Visible mobile&lt;/div&gt;
+&lt;div class="hidden md:block"&gt;Visible desktop&lt;/div&gt;
+
+&lt;!-- Flex responsive --&gt;
+&lt;div class="flex flex-col md:flex-row"&gt;
+  &lt;div&gt;Colonne mobile, ligne desktop&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Espacing responsive --&gt;
+&lt;div class="p-4 md:p-8"&gt;
+  Padding responsive
+&lt;/div&gt;
+
+&lt;!-- Breakpoints disponibles :
+sm: 640px   (mobile)
+md: 768px   (tablette)
+lg: 1024px  (desktop)
+xl: 1280px  (large desktop)
+2xl: 1536px (extra large)
+--&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- COMPOSANTS COURANTS -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-cyan-400 mb-3">
+          Composants courants
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-html">&lt;!-- Bouton --&gt;
+&lt;button class="bg-blue-500 hover:bg-blue-600 
+              text-white font-bold py-2 px-4 
+              rounded transition-colors"&gt;
+  Bouton primaire
+&lt;/button&gt;
+
+&lt;!-- Carte --&gt;
+&lt;div class="bg-white rounded-lg shadow-md 
+            p-6 max-w-sm"&gt;
+  &lt;h3 class="text-xl font-bold mb-2"&gt;Titre&lt;/h3&gt;
+  &lt;p class="text-gray-600"&gt;Contenu de la carte&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Navigation --&gt;
+&lt;nav class="bg-gray-800 p-4"&gt;
+  &lt;div class="flex justify-between items-center"&gt;
+    &lt;div class="text-white font-bold"&gt;Logo&lt;/div&gt;
+    &lt;div class="flex gap-4"&gt;
+      &lt;a href="#" class="text-gray-300 hover:text-white"&gt;Lien&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+
+&lt;!-- Formulaire --&gt;
+&lt;input class="border border-gray-300 rounded 
+              px-3 py-2 focus:outline-none 
+              focus:ring-2 focus:ring-blue-500" 
+       placeholder="Input field"&gt;
+
+&lt;!-- Alert --&gt;
+&lt;div class="bg-green-100 border border-green-400 
+            text-green-700 px-4 py-3 rounded"&gt;
+  Message de succès
+&lt;/div&gt;</code></pre>
+          </div>
+          <div
+            class="demo-box bg-gray-800 p-6 rounded-xl border border-gray-700"
+          >
+            <h3 class="text-cyan-300 font-bold mb-3">Composants :</h3>
+            <div class="space-y-4">
+              <button
+                class="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded transition-colors"
+              >
+                Bouton primaire
+              </button>
+              <div
+                class="bg-gray-700 rounded-lg shadow-md p-4 border border-gray-600"
+              >
+                <h3 class="text-lg font-bold text-white mb-2">Carte exemple</h3>
+                <p class="text-gray-300">Contenu de la carte</p>
+              </div>
+              <input
+                class="border border-gray-600 bg-gray-700 rounded px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 w-full"
+                placeholder="Input field"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BONNES PRATIQUES -->
+      <section
+        class="mt-10 mb-20 bg-gray-900 p-6 rounded-xl border border-gray-800"
+      >
+        <h2 class="text-2xl font-bold text-cyan-400 mb-4">
+          Bonnes pratiques Tailwind
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">Mobile First</h3>
+              <p class="text-sm text-gray-400">
+                Commencer par les styles mobile
+              </p>
+            </div>
+          </div>
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">@apply</h3>
+              <p class="text-sm text-gray-400">
+                Extraire les classes répétitives
+              </p>
+            </div>
+          </div>
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">Purge CSS</h3>
+              <p class="text-sm text-gray-400">
+                Configurer le purge pour la production
+              </p>
+            </div>
+          </div>
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">Composants</h3>
+              <p class="text-sm text-gray-400">
+                Créer des composants réutilisables
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESSOURCES -->
+      <section
+        class="mt-10 mb-20 bg-gray-900 p-6 rounded-xl border border-gray-800"
+      >
+        <h2 class="text-2xl font-bold text-cyan-400 mb-4">
+          Ressources Tailwind
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <a
+            href="https://tailwindcss.com/docs"
+            class="flex items-center p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-cyan-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
+            </svg>
+            Documentation officielle
+          </a>
+          <a
+            href="https://tailwindui.com/"
+            class="flex items-center p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-cyan-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+              />
+            </svg>
+            Tailwind UI
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      function copyCode(button) {
+        const codeBlock = button.parentElement;
+        const code = codeBlock.querySelector("code").textContent;
+
+        navigator.clipboard.writeText(code).then(() => {
+          const originalText = button.textContent;
+          button.textContent = "Copié!";
+          setTimeout(() => {
+            button.textContent = originalText;
+          }, 2000);
+        });
+      }
+    </script>
+  </body>
+</html>

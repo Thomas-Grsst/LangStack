@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentation Livewire</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-php.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-javascript.min.js"></script>
+    <style>
+      .code-block {
+        position: relative;
+      }
+      .copy-btn {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: rgba(107, 114, 128, 0.7);
+        border: none;
+        border-radius: 4px;
+        color: white;
+        padding: 4px 8px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .copy-btn:hover {
+        background: rgba(107, 114, 128, 0.9);
+      }
+      .livewire-color {
+        background: linear-gradient(135deg, #4e56ff, #6b75ff);
+      }
+      .demo-box {
+        border: 2px dashed #4b5563;
+        padding: 20px;
+        margin: 10px 0;
+        border-radius: 8px;
+        background: #1f2937;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-950 text-white min-h-screen p-4 md:p-10 font-sans">
+    <div class="max-w-6xl mx-auto">
+      <a
+        href="index.html"
+        class="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 mr-1"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        Retour
+      </a>
+
+      <header class="mt-6 mb-10">
+        <div class="flex items-center">
+          <div class="livewire-color p-2 rounded-lg mr-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-10 w-10 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 10V3L4 14h7v7l9-11h-7z"
+              />
+            </svg>
+          </div>
+          <div>
+            <h1 class="text-3xl md:text-4xl font-extrabold text-blue-400">
+              Livewire — Documentation Complète
+            </h1>
+            <p class="text-gray-400 mt-1 text-lg">
+              Framework full-stack pour Laravel - Créez des interfaces
+              dynamiques sans JavaScript
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <!-- INTRO -->
+      <section class="mt-10 bg-gray-900 p-6 rounded-xl border border-gray-800">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3 flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 mr-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          Qu'est-ce que Livewire ?
+        </h2>
+        <p class="text-gray-300 leading-relaxed">
+          Livewire est un framework full-stack pour Laravel qui permet de créer
+          des interfaces utilisateur dynamiques et réactives directement en PHP,
+          sans avoir à écrire du JavaScript. Il rend le développement
+          d'applications modernes aussi simple que le développement
+          d'applications traditionnelles côté serveur.
+        </p>
+        <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="font-bold text-blue-400">Full-Stack PHP</h3>
+            <p class="text-sm text-gray-400">Pas de JavaScript nécessaire</p>
+          </div>
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="font-bold text-blue-400">Temps Réel</h3>
+            <p class="text-sm text-gray-400">
+              Interfaces réactives et dynamiques
+            </p>
+          </div>
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="font-bold text-blue-400">Intégration Laravel</h3>
+            <p class="text-sm text-gray-400">
+              Utilise tout l'écosystème Laravel
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- INSTALLATION -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">Installation</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-bash"># Installation via Composer
+composer require livewire/livewire
+
+# Publier les assets (optionnel)
+php artisan livewire:publish --assets
+
+# Créer un composant
+php artisan make:livewire CreatePost
+
+# Créer un composant avec une vue spécifique
+php artisan make:livewire Forms\\ContactForm
+
+# Créer un composant inline
+php artisan make:livewire ShowPosts --inline
+
+# Structure générée
+app/Http/Livewire/
+├── CreatePost.php
+└── ShowPosts.php
+
+resources/views/livewire/
+├── create-post.blade.php
+└── show-posts.blade.php</code></pre>
+          </div>
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-html">&lt;!-- Inclure les assets Livewire --&gt;
+&lt;!-- Dans le layout principal --&gt;
+&lt;head&gt;
+    @livewireStyles
+&lt;/head&gt;
+&lt;body&gt;
+    {{-- Contenu --}}
+    
+    @livewireScripts
+&lt;/body&gt;
+
+&lt;!-- Utiliser un composant --&gt;
+&lt;div&gt;
+    &lt;h1&gt;Ma Page&lt;/h1&gt;
+    @livewire('create-post')
+    @livewire('show-posts')
+&lt;/div&gt;
+
+&lt;!-- Avec des paramètres --&gt;
+@livewire('user-profile', ['user' => $user])
+
+&lt;!-- Via balise --&gt;
+&lt;livewire:create-post /&gt;
+&lt;livewire:show-posts :user="$user" /&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMPOSANTS DE BASE -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">
+          Composants de Base
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-php">&lt;?php
+namespace App\Http\Livewire;
+
+use Livewire\Component;
+
+class Counter extends Component
+{
+    public $count = 0;
+    public $name = '';
+
+    public function increment()
+    {
+        $this->count++;
+    }
+
+    public function decrement()
+    {
+        $this->count--;
+    }
+
+    public function resetCount()
+    {
+        $this->count = 0;
+    }
+
+    public function render()
+    {
+        return view('livewire.counter');
+    }
+}
+?&gt;</code></pre>
+          </div>
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-html">&lt;!-- resources/views/livewire/counter.blade.php --&gt;
+&lt;div&gt;
+    &lt;h1 class="text-2xl font-bold"&gt;Compteur: {{ $count }}&lt;/h1&gt;
+    
+    &lt;button wire:click="increment" 
+            class="bg-blue-500 text-white px-4 py-2 rounded"&gt;
+        +
+    &lt;/button&gt;
+    
+    &lt;button wire:click="decrement" 
+            class="bg-red-500 text-white px-4 py-2 rounded"&gt;
+        -
+    &lt;/button&gt;
+    
+    &lt;button wire:click="resetCount" 
+            class="bg-gray-500 text-white px-4 py-2 rounded"&gt;
+        Reset
+    &lt;/button&gt;
+
+    &lt;div class="mt-4"&gt;
+        &lt;input type="text" wire:model="name" 
+               class="border p-2 rounded" 
+               placeholder="Votre nom"&gt;
+        &lt;p&gt;Bonjour, {{ $name }}&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROPRIÉTÉS ET DATA BINDING -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">
+          Propriétés et Data Binding
+        </h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-php">&lt;?php
+namespace App\Http\Livewire;
+
+use Livewire\Component;
+
+class UserForm extends Component
+{
+    // Propriétés publiques (réactives)
+    public $name;
+    public $email;
+    public $age;
+    public $is_active = true;
+    public $interests = [];
+    public $user;
+
+    // Propriétés avec valeurs par défaut
+    public $search = '';
+    public $sortBy = 'name';
+    public $sortDirection = 'asc';
+
+    // Tableaux et collections
+    public $users = [];
+    public $selectedUsers = [];
+
+    // Propriétés calculées
+    public function getUsersCountProperty()
+    {
+        return count($this->users);
+    }
+
+    // Initialisation
+    public function mount($user = null)
+    {
+        $this->user = $user;
+        $this->name = $user?->name ?? '';
+        $this->email = $user?->email ?? '';
+    }
+
+    // Règles de validation
+    protected $rules = [
+        'name' => 'required|min:3',
+        'email' => 'required|email',
+        'age' => 'nullable|numeric|min:18',
+    ];
+
+    public function render()
+    {
+        return view('livewire.user-form');
+    }
+}
+?&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- FORMULAIRES ET VALIDATION -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">
+          Formulaires et Validation
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-php">&lt;?php
+namespace App\Http\Livewire;
+
+use App\Models\User;
+use Livewire\Component;
+
+class CreateUser extends Component
+{
+    public $name;
+    public $email;
+    public $password;
+    public $role = 'user';
+
+    protected $rules = [
+        'name' => 'required|min:3|max:255',
+        'email' => 'required|email|unique:users',
+        'password' => 'required|min:8',
+        'role' => 'required|in:user,admin,moderator',
+    ];
+
+    protected $messages = [
+        'name.required' => 'Le nom est obligatoire.',
+        'email.unique' => 'Cet email est déjà utilisé.',
+    ];
+
+    // Validation en temps réel
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
+
+    public function save()
+    {
+        $this->validate();
+
+        User::create([
+            'name' => $this->name,
+            'email' => $this->email,
+            'password' => bcrypt($this->password),
+            'role' => $this->role,
+        ]);
+
+        session()->flash('message', 'Utilisateur créé avec succès!');
+        $this->reset();
+    }
+
+    public function render()
+    {
+        return view('livewire.create-user');
+    }
+}
+?&gt;</code></pre>
+          </div>
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-html">&lt;div&gt;
+    @if (session()->has('message'))
+        &lt;div class="alert alert-success"&gt;
+            {{ session('message') }}
+        &lt;/div&gt;
+    @endif
+
+    &lt;form wire:submit.prevent="save"&gt;
+        &lt;div class="mb-4"&gt;
+            &lt;label&gt;Nom&lt;/label&gt;
+            &lt;input type="text" wire:model="name" 
+                   class="border rounded p-2 w-full"&gt;
+            @error('name') &lt;span class="error"&gt;{{ $message }}&lt;/span&gt; @enderror
+        &lt;/div&gt;
+
+        &lt;div class="mb-4"&gt;
+            &lt;label&gt;Email&lt;/label&gt;
+            &lt;input type="email" wire:model="email" 
+                   class="border rounded p-2 w-full"&gt;
+            @error('email') &lt;span class="error"&gt;{{ $message }}&lt;/span&gt; @enderror
+        &lt;/div&gt;
+
+        &lt;div class="mb-4"&gt;
+            &lt;label&gt;Mot de passe&lt;/label&gt;
+            &lt;input type="password" wire:model="password" 
+                   class="border rounded p-2 w-full"&gt;
+            @error('password') &lt;span class="error"&gt;{{ $message }}&lt;/span&gt; @enderror
+        &lt;/div&gt;
+
+        &lt;div class="mb-4"&gt;
+            &lt;label&gt;Rôle&lt;/label&gt;
+            &lt;select wire:model="role" class="border rounded p-2 w-full"&gt;
+                &lt;option value="user"&gt;Utilisateur&lt;/option&gt;
+                &lt;option value="admin"&gt;Administrateur&lt;/option&gt;
+                &lt;option value="moderator"&gt;Modérateur&lt;/option&gt;
+            &lt;/select&gt;
+            @error('role') &lt;span class="error"&gt;{{ $message }}&lt;/span&gt; @enderror
+        &lt;/div&gt;
+
+        &lt;button type="submit" 
+                class="bg-blue-500 text-white px-4 py-2 rounded"&gt;
+            Créer Utilisateur
+        &lt;/button&gt;
+    &lt;/form&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- LIFECYCLE HOOKS -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">Lifecycle Hooks</h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-php">&lt;?php
+namespace App\Http\Livewire;
+
+use Livewire\Component;
+
+class ProductList extends Component
+{
+    public $products = [];
+    public $search = '';
+    public $sortBy = 'name';
+
+    // Appelé une fois au début du cycle de vie
+    public function mount($category = null)
+    {
+        $this->loadProducts($category);
+    }
+
+    // Appelé à chaque mise à jour du composant
+    public function hydrate()
+    {
+        // Préparer les données avant le rendu
+    }
+
+    // Appelé quand une propriété est mise à jour
+    public function updated($property, $value)
+    {
+        if ($property === 'search') {
+            $this->searchProducts();
+        }
+        
+        if ($property === 'sortBy') {
+            $this->sortProducts();
+        }
+    }
+
+    // Hook spécifique à une propriété
+    public function updatedSearch()
+    {
+        $this->resetPage();
+    }
+
+    // Appelé avant la validation
+    public function updating($property, $value)
+    {
+        // Intercepter avant la mise à jour
+    }
+
+    // Appelé après la validation
+    public function updatedSelectedUsers($value)
+    {
+        // Logique après mise à jour
+    }
+
+    // Appelé avant le rendu
+    public function rendering($view, $data)
+    {
+        // Modifier la vue ou les données
+    }
+
+    // Appelé après le rendu
+    public function rendered($view, $html)
+    {
+        // Traiter le HTML rendu
+    }
+
+    private function loadProducts($category = null)
+    {
+        // Charger les produits
+    }
+
+    public function render()
+    {
+        return view('livewire.product-list');
+    }
+}
+?&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- EVENTS ET ACTIONS -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">
+          Événements et Actions
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-php">&lt;?php
+namespace App\Http\Livewire;
+
+use Livewire\Component;
+
+class TodoList extends Component
+{
+    public $todos = [];
+    public $newTodo = '';
+
+    // Actions simples
+    public function addTodo()
+    {
+        if ($this->newTodo !== '') {
+            $this->todos[] = [
+                'id' => uniqid(),
+                'text' => $this->newTodo,
+                'completed' => false
+            ];
+            $this->newTodo = '';
+        }
+    }
+
+    public function toggleTodo($todoId)
+    {
+        foreach ($this->todos as &$todo) {
+            if ($todo['id'] === $todoId) {
+                $todo['completed'] = !$todo['completed'];
+                break;
+            }
+        }
+    }
+
+    public function deleteTodo($todoId)
+    {
+        $this->todos = array_filter($this->todos, 
+            fn($todo) => $todo['id'] !== $todoId
+        );
+    }
+
+    // Actions avec confirmation
+    public function clearCompleted()
+    {
+        $this->todos = array_filter($this->todos, 
+            fn($todo) => !$todo['completed']
+        );
+    }
+
+    // Émettre des événements
+    public function exportTodos()
+    {
+        $this->emit('todosExported', $this->todos);
+    }
+
+    // Écouter les événements
+    protected $listeners = [
+        'todoAdded' => 'handleTodoAdded',
+        'refresh' => '$refresh',
+    ];
+
+    public function handleTodoAdded($todo)
+    {
+        $this->todos[] = $todo;
+    }
+
+    public function render()
+    {
+        return view('livewire.todo-list');
+    }
+}
+?&gt;</code></pre>
+          </div>
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-html">&lt;div&gt;
+    &lt;!-- Ajouter une todo --&gt;
+    &lt;div class="mb-4"&gt;
+        &lt;input type="text" wire:model="newTodo" 
+               wire:keydown.enter="addTodo"
+               placeholder="Nouvelle todo..." 
+               class="border rounded p-2 w-full"&gt;
+        &lt;button wire:click="addTodo" 
+                class="bg-green-500 text-white px-4 py-2 rounded mt-2"&gt;
+            Ajouter
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Liste des todos --&gt;
+    &lt;ul&gt;
+        @foreach($todos as $todo)
+            &lt;li class="flex items-center justify-between p-2 border-b"&gt;
+                &lt;div class="flex items-center"&gt;
+                    &lt;input type="checkbox" 
+                           wire:click="toggleTodo('{{ $todo['id'] }}')"
+                           {{ $todo['completed'] ? 'checked' : '' }}&gt;
+                    &lt;span class="ml-2 {{ $todo['completed'] ? 'line-through text-gray-500' : '' }}"&gt;
+                        {{ $todo['text'] }}
+                    &lt;/span&gt;
+                &lt;/div&gt;
+                &lt;button wire:click="deleteTodo('{{ $todo['id'] }}')"
+                        class="text-red-500 hover:text-red-700"&gt;
+                    ✕
+                &lt;/button&gt;
+            &lt;/li&gt;
+        @endforeach
+    &lt;/ul&gt;
+
+    &lt;!-- Actions globales --&gt;
+    &lt;div class="mt-4"&gt;
+        &lt;button wire:click="clearCompleted" 
+                class="bg-yellow-500 text-white px-4 py-2 rounded mr-2"&gt;
+            Supprimer terminés
+        &lt;/button&gt;
+        &lt;button wire:click="exportTodos" 
+                class="bg-blue-500 text-white px-4 py-2 rounded"&gt;
+            Exporter
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Émettre des événements depuis JavaScript --&gt;
+    &lt;script&gt;
+        // Émettre un événement vers Livewire
+        Livewire.emit('todoAdded', {
+            id: Date.now(),
+            text: 'Nouvelle todo JS',
+            completed: false
+        });
+
+        // Écouter les événements de Livewire
+        Livewire.on('todosExported', todos => {
+            console.log('Todos exportés:', todos);
+        });
+    &lt;/script&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAGINATION ET RECHERCHE -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">
+          Pagination et Recherche
+        </h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-php">&lt;?php
+namespace App\Http\Livewire;
+
+use App\Models\Post;
+use Livewire\Component;
+use Livewire\WithPagination;
+
+class PostList extends Component
+{
+    use WithPagination;
+
+    public $search = '';
+    public $sortField = 'created_at';
+    public $sortDirection = 'desc';
+    public $perPage = 10;
+    public $status = '';
+
+    protected $queryString = [
+        'search' => ['except' => ''],
+        'sortField' => ['except' => 'created_at'],
+        'sortDirection' => ['except' => 'desc'],
+        'perPage' => ['except' => 10],
+        'status' => ['except' => ''],
+    ];
+
+    public function sortBy($field)
+    {
+        if ($this->sortField === $field) {
+            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
+        } else {
+            $this->sortDirection = 'asc';
+        }
+
+        $this->sortField = $field;
+    }
+
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingPerPage()
+    {
+        $this->resetPage();
+    }
+
+    public function render()
+    {
+        $query = Post::query()
+            ->when($this->search, function ($query) {
+                $query->where(function ($q) {
+                    $q->where('title', 'like', '%' . $this->search . '%')
+                      ->orWhere('content', 'like', '%' . $this->search . '%');
+                });
+            })
+            ->when($this->status, function ($query) {
+                $query->where('status', $this->status);
+            })
+            ->orderBy($this->sortField, $this->sortDirection);
+
+        return view('livewire.post-list', [
+            'posts' => $query->paginate($this->perPage),
+        ]);
+    }
+
+    // Méthodes pratiques
+    public function getSortIcon($field)
+    {
+        if ($this->sortField !== $field) {
+            return '⇅';
+        }
+
+        return $this->sortDirection === 'asc' ? '↑' : '↓';
+    }
+}
+?&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- COMPOSANTS IMBRIQUÉS -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">
+          Composants Imbriqués
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-php">&lt;?php
+// Composant parent
+namespace App\Http\Livewire;
+
+use Livewire\Component;
+
+class UserDashboard extends Component
+{
+    public $user;
+    public $activeTab = 'profile';
+
+    protected $listeners = [
+        'userUpdated' => 'refreshUser',
+        'tabChanged' => 'changeTab',
+    ];
+
+    public function mount($user)
+    {
+        $this->user = $user;
+    }
+
+    public function refreshUser()
+    {
+        $this->user->refresh();
+    }
+
+    public function changeTab($tab)
+    {
+        $this->activeTab = $tab;
+    }
+
+    public function render()
+    {
+        return view('livewire.user-dashboard');
+    }
+}
+
+// Composant enfant
+namespace App\Http\Livewire;
+
+use Livewire\Component;
+
+class UserProfile extends Component
+{
+    public $user;
+    public $editing = false;
+    public $name;
+    public $email;
+
+    public function mount($user)
+    {
+        $this->user = $user;
+        $this->name = $user->name;
+        $this->email = $user->email;
+    }
+
+    public function edit()
+    {
+        $this->editing = true;
+    }
+
+    public function save()
+    {
+        $this->user->update([
+            'name' => $this->name,
+            'email' => $this->email,
+        ]);
+
+        $this->editing = false;
+        $this->emit('userUpdated');
+        $this->emit('tabChanged', 'profile');
+    }
+
+    public function cancel()
+    {
+        $this->editing = false;
+        $this->name = $this->user->name;
+        $this->email = $this->user->email;
+    }
+
+    public function render()
+    {
+        return view('livewire.user-profile');
+    }
+}
+?&gt;</code></pre>
+          </div>
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-html">&lt;!-- Parent: user-dashboard.blade.php --&gt;
+&lt;div&gt;
+    &lt;h1&gt;Tableau de bord de {{ $user->name }}&lt;/h1&gt;
+    
+    &lt;!-- Navigation par onglets --&gt;
+    &lt;div class="tabs"&gt;
+        &lt;button wire:click="changeTab('profile')" 
+                class="{{ $activeTab === 'profile' ? 'active' : '' }}"&gt;
+            Profil
+        &lt;/button&gt;
+        &lt;button wire:click="changeTab('settings')" 
+                class="{{ $activeTab === 'settings' ? 'active' : '' }}"&gt;
+            Paramètres
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Contenu des onglets --&gt;
+    &lt;div class="tab-content"&gt;
+        @if($activeTab === 'profile')
+            &lt;livewire:user-profile :user="$user" /&gt;
+        @endif
+
+        @if($activeTab === 'settings')
+            &lt;livewire:user-settings :user="$user" /&gt;
+        @endif
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Enfant: user-profile.blade.php --&gt;
+&lt;div&gt;
+    @if(!$editing)
+        &lt;div&gt;
+            &lt;h3&gt;Profil Utilisateur&lt;/h3&gt;
+            &lt;p&gt;&lt;strong&gt;Nom:&lt;/strong&gt; {{ $user->name }}&lt;/p&gt;
+            &lt;p&gt;&lt;strong&gt;Email:&lt;/strong&gt; {{ $user->email }}&lt;/p&gt;
+            &lt;button wire:click="edit" 
+                    class="bg-blue-500 text-white px-4 py-2 rounded"&gt;
+                Modifier
+            &lt;/button&gt;
+        &lt;/div&gt;
+    @else
+        &lt;div&gt;
+            &lt;h3&gt;Modifier le Profil&lt;/h3&gt;
+            &lt;div class="mb-4"&gt;
+                &lt;label&gt;Nom&lt;/label&gt;
+                &lt;input type="text" wire:model="name" class="border rounded p-2 w-full"&gt;
+            &lt;/div&gt;
+            &lt;div class="mb-4"&gt;
+                &lt;label&gt;Email&lt;/label&gt;
+                &lt;input type="email" wire:model="email" class="border rounded p-2 w-full"&gt;
+            &lt;/div&gt;
+            &lt;button wire:click="save" 
+                    class="bg-green-500 text-white px-4 py-2 rounded mr-2"&gt;
+                Sauvegarder
+            &lt;/button&gt;
+            &lt;button wire:click="cancel" 
+                    class="bg-gray-500 text-white px-4 py-2 rounded"&gt;
+                Annuler
+            &lt;/button&gt;
+        &lt;/div&gt;
+    @endif
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECURITE ET OPTIMISATION -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">
+          Sécurité et Optimisation
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-php">&lt;?php
+namespace App\Http\Livewire;
+
+use Livewire\Component;
+
+class SecureComponent extends Component
+{
+    // Propriétés sécurisées
+    public $publicData;
+    protected $privateData;
+
+    // Validation des données
+    protected $rules = [
+        'email' => 'required|email',
+    ];
+
+    // Autorisation d'accès
+    public function mount()
+    {
+        // Vérifier les permissions
+        if (!auth()->user()->can('view-secure-data')) {
+            abort(403);
+        }
+    }
+
+    // Méthodes protégées
+    public function deleteUser($userId)
+    {
+        $user = User::findOrFail($userId);
+        
+        // Vérifier l'autorisation
+        $this->authorize('delete', $user);
+        
+        $user->delete();
+        
+        session()->flash('message', 'Utilisateur supprimé');
+    }
+
+    // Protection contre les attaques
+    public function getUsersWithRolesProperty()
+    {
+        // Ne jamais exposer les relations sensibles
+        return User::with('roles:name')->get()
+            ->map(function ($user) {
+                return [
+                    'id' => $user->id,
+                    'name' => $user->name,
+                    'role_names' => $user->roles->pluck('name')
+                ];
+            });
+    }
+
+    // Debouncing pour les recherches
+    use WithPagination;
+
+    protected $queryString = [
+        'search' => ['except' => '', 'as' => 'q'],
+    ];
+
+    // Optimisation des performances
+    public function dehydrate()
+    {
+        // Nettoyer les données avant envoi au client
+        unset($this->sensitiveData);
+    }
+
+    public function render()
+    {
+        return view('livewire.secure-component');
+    }
+}
+?&gt;</code></pre>
+          </div>
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-html">&lt;!-- Optimisations côté client --&gt;
+&lt;div&gt;
+    &lt;!-- Debouncing automatique --&gt;
+    &lt;input type="text" wire:model.debounce.500ms="search" 
+           placeholder="Rechercher..."&gt;
+
+    &lt;!-- Lazy loading --&gt;
+    &lt;input type="text" wire:model.lazy="email" 
+           placeholder="Email"&gt;
+
+    &lt;!-- Déferred updates --&gt;
+    &lt;input type="text" wire:model.defer="temporaryData" 
+           placeholder="Données temporaires"&gt;
+
+    &lt;!-- Modifier seulement après blur --&gt;
+    &lt;input type="text" wire:model.blur="importantField"&gt;
+
+    &lt;!-- Polling --&gt;
+    &lt;div wire:poll.5s&gt;
+        Dernière mise à jour: {{ now() }}
+    &lt;/div&gt;
+
+    &lt;!-- Polling conditionnel --&gt;
+    &lt;div wire:poll.visible.10s="updateData"&gt;
+        Mise à jour automatique quand visible
+    &lt;/div&gt;
+
+    &lt;!-- Loading states --&gt;
+    &lt;button wire:click="processData" 
+            wire:loading.attr="disabled" 
+            wire:loading.class="opacity-50"&gt;
+        &lt;span wire:loading.remove&gt;Traiter&lt;/span&gt;
+        &lt;span wire:loading&gt;Traitement...&lt;/span&gt;
+    &lt;/button&gt;
+
+    &lt;!-- Target specific actions --&gt;
+    &lt;button wire:click="action1" 
+            wire:target="action1" 
+            wire:loading.attr="disabled"&gt;
+        Action 1
+    &lt;/button&gt;
+    &lt;button wire:click="action2" 
+            wire:target="action2" 
+            wire:loading.attr="disabled"&gt;
+        Action 2
+    &lt;/button&gt;
+
+    &lt;!-- Offline indicator --&gt;
+    &lt;div wire:offline.class="bg-red-500" 
+         class="p-2 text-white"&gt;
+        Hors ligne
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTING ET DEBUGGING -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">
+          Testing et Debugging
+        </h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-php">&lt;?php
+namespace Tests\Feature\Livewire;
+
+use App\Http\Livewire\ContactForm;
+use Livewire\Livewire;
+use Tests\TestCase;
+
+class ContactFormTest extends TestCase
+{
+    /** @test */
+    public function contact_form_can_be_rendered()
+    {
+        Livewire::test(ContactForm::class)
+            ->assertSee('Contactez-nous');
+    }
+
+    /** @test */
+    public function can_send_contact_form()
+    {
+        Livewire::test(ContactForm::class)
+            ->set('name', 'John Doe')
+            ->set('email', 'john@example.com')
+            ->set('message', 'Ceci est un message test')
+            ->call('submit')
+            ->assertHasNoErrors()
+            ->assertSee('Message envoyé avec succès');
+    }
+
+    /** @test */
+    public function email_is_required()
+    {
+        Livewire::test(ContactForm::class)
+            ->set('email', '')
+            ->call('submit')
+            ->assertHasErrors(['email' => 'required']);
+    }
+
+    /** @test */
+    public function email_must_be_valid()
+    {
+        Livewire::test(ContactForm::class)
+            ->set('email', 'invalid-email')
+            ->call('submit')
+            ->assertHasErrors(['email' => 'email']);
+    }
+
+    /** @test */
+    public function can_handle_events()
+    {
+        Livewire::test(ContactForm::class)
+            ->emit('formSubmitted')
+            ->assertEmitted('formProcessed');
+    }
+
+    /** @test */
+    public function can_test_computed_properties()
+    {
+        Livewire::test(ContactForm::class)
+            ->set('name', 'John')
+            ->assertSet('formattedName', 'JOHN');
+    }
+
+    /** @test */
+    public function can_test_redirects()
+    {
+        Livewire::test(ContactForm::class)
+            ->call('processAndRedirect')
+            ->assertRedirect('/success');
+    }
+}
+
+// Debugging en développement
+namespace App\Http\Livewire;
+
+use Livewire\Component;
+
+class DebugComponent extends Component
+{
+    public function mount()
+    {
+        // Logging
+        \Log::debug('Component mounted');
+        
+        // Dumping (seulement en développement)
+        dump($this->data);
+        
+        // Browser console
+        $this->dispatchBrowserEvent('console.log', ['data' => $this->data]);
+    }
+
+    public function updated($property, $value)
+    {
+        // Voir les mises à jour en temps réel
+        \Log::info("Property {$property} updated to: " . json_encode($value));
+    }
+}
+?&gt;</code></pre>
+        </div>
+      </section>
+
+      <!-- BONNES PRATIQUES -->
+      <section
+        class="mt-10 mb-20 bg-gray-900 p-6 rounded-xl border border-gray-800"
+      >
+        <h2 class="text-2xl font-bold text-blue-400 mb-4">
+          Bonnes pratiques Livewire
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">Validation en temps réel</h3>
+              <p class="text-sm text-gray-400">
+                Utiliser validateOnly() pour les champs individuels
+              </p>
+            </div>
+          </div>
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">Debouncing</h3>
+              <p class="text-sm text-gray-400">
+                Limiter les requêtes avec .debounce
+              </p>
+            </div>
+          </div>
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">Sécurité</h3>
+              <p class="text-sm text-gray-400">
+                Toujours valider et autoriser les actions
+              </p>
+            </div>
+          </div>
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">Performance</h3>
+              <p class="text-sm text-gray-400">
+                Utiliser lazy loading et deferred updates
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESSOURCES -->
+      <section
+        class="mt-10 mb-20 bg-gray-900 p-6 rounded-xl border border-gray-800"
+      >
+        <h2 class="text-2xl font-bold text-blue-400 mb-4">
+          Ressources Livewire
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <a
+            href="https://laravel-livewire.com/docs"
+            class="flex items-center p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-blue-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
+            </svg>
+            Documentation officielle
+          </a>
+          <a
+            href="https://laravel-livewire.com/screencasts"
+            class="flex items-center p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-blue-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            Screencasts
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      function copyCode(button) {
+        const codeBlock = button.parentElement;
+        const code = codeBlock.querySelector("code").textContent;
+
+        navigator.clipboard.writeText(code).then(() => {
+          const originalText = button.textContent;
+          button.textContent = "Copié!";
+          setTimeout(() => {
+            button.textContent = originalText;
+          }, 2000);
+        });
+      }
+    </script>
+  </body>
+</html>
