@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentation SQL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-sql.min.js"></script>
+    <style>
+      .code-block {
+        position: relative;
+      }
+      .copy-btn {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: rgba(107, 114, 128, 0.7);
+        border: none;
+        border-radius: 4px;
+        color: white;
+        padding: 4px 8px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .copy-btn:hover {
+        background: rgba(107, 114, 128, 0.9);
+      }
+      .sql-color {
+        background: linear-gradient(135deg, #336791, #4a8cbf);
+      }
+      .demo-box {
+        border: 2px dashed #4b5563;
+        padding: 20px;
+        margin: 10px 0;
+        border-radius: 8px;
+        background: #1f2937;
+      }
+      .table-demo {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 10px 0;
+      }
+      .table-demo th,
+      .table-demo td {
+        border: 1px solid #4b5563;
+        padding: 8px;
+        text-align: left;
+      }
+      .table-demo th {
+        background: #374151;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-950 text-white min-h-screen p-4 md:p-10 font-sans">
+    <div class="max-w-6xl mx-auto">
+      <a
+        href="index.html"
+        class="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 mr-1"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        Retour
+      </a>
+
+      <header class="mt-6 mb-10">
+        <div class="flex items-center">
+          <div class="sql-color p-2 rounded-lg mr-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-10 w-10 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"
+              />
+            </svg>
+          </div>
+          <div>
+            <h1 class="text-3xl md:text-4xl font-extrabold text-blue-400">
+              SQL — Documentation Complète
+            </h1>
+            <p class="text-gray-400 mt-1 text-lg">
+              Structured Query Language - Langage de requêtes structurées
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <!-- INTRO -->
+      <section class="mt-10 bg-gray-900 p-6 rounded-xl border border-gray-800">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3 flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 mr-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          Qu'est-ce que le SQL ?
+        </h2>
+        <p class="text-gray-300 leading-relaxed">
+          SQL (Structured Query Language) est un langage de programmation
+          utilisé pour gérer et manipuler les bases de données relationnelles.
+          Il permet de créer, modifier, interroger et administrer des bases de
+          données de manière standardisée.
+        </p>
+        <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="font-bold text-blue-400">Standardisé</h3>
+            <p class="text-sm text-gray-400">ANSI/ISO standard</p>
+          </div>
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="font-bold text-blue-400">Relationnel</h3>
+            <p class="text-sm text-gray-400">Bases de données relationnelles</p>
+          </div>
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="font-bold text-blue-400">Multi-SGBD</h3>
+            <p class="text-sm text-gray-400">
+              MySQL, PostgreSQL, SQL Server, Oracle
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TYPES DE DONNEES -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">Types de Données</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-sql">-- NUMÉRIQUES
+INT                 -- Entier standard
+BIGINT              -- Grand entier
+SMALLINT            -- Petit entier
+TINYINT             -- Très petit entier (0-255)
+DECIMAL(10, 2)      -- Nombre décimal précis
+NUMERIC(8, 3)       -- Équivalent à DECIMAL
+FLOAT               -- Nombre à virgule flottante
+REAL                -- Réel simple précision
+DOUBLE              -- Réel double précision
+
+-- CHAINES DE CARACTÈRES
+CHAR(10)            -- Chaine fixe (remplie d'espaces)
+VARCHAR(255)        -- Chaine variable (max 255)
+TEXT                -- Texte long
+TINYTEXT            -- Texte très court
+MEDIUMTEXT          -- Texte moyen
+LONGTEXT            -- Texte très long
+
+-- BINAIRES
+BLOB                -- Données binaires
+LONGBLOB            -- Grandes données binaires
+BINARY(16)          -- Binaire fixe
+VARBINARY(255)      -- Binaire variable
+
+-- TEMPORELS
+DATE                -- Date (YYYY-MM-DD)
+TIME                -- Heure (HH:MM:SS)
+DATETIME            -- Date et heure
+TIMESTAMP           -- Horodatage
+YEAR                -- Année
+
+-- AUTRES
+BOOLEAN             -- Booléen
+ENUM('val1', 'val2')-- Liste de valeurs
+SET('a', 'b', 'c')  -- Ensemble de valeurs
+JSON                -- Données JSON (MySQL 5.7+)
+UUID                -- Identifiant universel</code></pre>
+          </div>
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-sql">-- EXEMPLES D'UTILISATION
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    age TINYINT UNSIGNED,
+    salary DECIMAL(10, 2),
+    birth_date DATE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    is_active BOOLEAN DEFAULT TRUE,
+    preferences JSON
+);
+
+CREATE TABLE products (
+    product_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    description TEXT,
+    price DECIMAL(8, 2) NOT NULL,
+    category ENUM('electronics', 'clothing', 'books'),
+    tags SET('new', 'sale', 'featured'),
+    image_data BLOB,
+    metadata JSON
+);
+
+-- PostgreSQL spécifique
+CREATE TABLE posts (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(200) NOT NULL,
+    content TEXT,
+    author_uuid UUID,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    status VARCHAR(20) CHECK (status IN ('draft', 'published', 'archived'))
+);</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- CREATION DE TABLES -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">
+          Création de Tables
+        </h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-sql">-- SYNTAXE DE BASE
+CREATE TABLE table_name (
+    column1 datatype constraints,
+    column2 datatype constraints,
+    ...
+    table_constraints
+);
+
+-- EXEMPLE COMPLET
+CREATE TABLE employees (
+    -- Colonnes de base
+    employee_id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    phone VARCHAR(20),
+    
+    -- Informations professionnelles
+    department_id INT,
+    job_title VARCHAR(100),
+    salary DECIMAL(10, 2) CHECK (salary > 0),
+    hire_date DATE NOT NULL,
+    
+    -- Statut
+    is_active BOOLEAN DEFAULT TRUE,
+    
+    -- Horodatages
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
+                 ON UPDATE CURRENT_TIMESTAMP,
+    
+    -- Contraintes de table
+    FOREIGN KEY (department_id) REFERENCES departments(department_id),
+    CONSTRAINT chk_email CHECK (email LIKE '%@%')
+);
+
+-- TABLE AVEC CLÉ PRIMAIRE COMPOSITE
+CREATE TABLE order_items (
+    order_id INT,
+    product_id INT,
+    quantity INT NOT NULL CHECK (quantity > 0),
+    unit_price DECIMAL(10, 2) NOT NULL,
+    
+    PRIMARY KEY (order_id, product_id),
+    FOREIGN KEY (order_id) REFERENCES orders(order_id),
+    FOREIGN KEY (product_id) REFERENCES products(product_id)
+);
+
+-- COPIE DE STRUCTURE
+CREATE TABLE employees_backup LIKE employees;
+
+-- TABLE TEMPORAIRE
+CREATE TEMPORARY TABLE temp_sales AS
+SELECT * FROM sales WHERE sale_date = CURDATE();</code></pre>
+        </div>
+      </section>
+
+      <!-- CONTRAINTES -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">Contraintes</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-sql">-- CONTRAINTES DE COLONNE
+CREATE TABLE users (
+    id INT PRIMARY KEY,                    -- Clé primaire
+    username VARCHAR(50) UNIQUE,           -- Valeur unique
+    email VARCHAR(100) NOT NULL,           -- Non null
+    age INT CHECK (age >= 18),             -- Validation
+    status VARCHAR(10) DEFAULT 'active'    -- Valeur par défaut
+);
+
+-- CONTRAINTES DE TABLE
+CREATE TABLE orders (
+    order_id INT,
+    customer_id INT,
+    order_date DATE,
+    total_amount DECIMAL(10,2),
+    
+    -- Contraintes au niveau table
+    PRIMARY KEY (order_id),
+    UNIQUE KEY unique_order (customer_id, order_date),
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
+    CHECK (total_amount >= 0)
+);
+
+-- AJOUTER DES CONTRAINTES
+ALTER TABLE users 
+ADD CONSTRAINT pk_users PRIMARY KEY (id);
+
+ALTER TABLE users 
+ADD CONSTRAINT uk_email UNIQUE (email);
+
+ALTER TABLE orders 
+ADD CONSTRAINT fk_customer 
+FOREIGN KEY (customer_id) REFERENCES customers(id);
+
+ALTER TABLE products 
+ADD CONSTRAINT chk_price 
+CHECK (price > 0);
+
+-- SUPPRIMER DES CONTRAINTES
+ALTER TABLE users DROP PRIMARY KEY;
+ALTER TABLE users DROP CONSTRAINT uk_email;
+ALTER TABLE orders DROP FOREIGN KEY fk_customer;</code></pre>
+          </div>
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-sql">-- CONTRAINTES AVANCÉES
+CREATE TABLE bank_accounts (
+    account_id INT PRIMARY KEY,
+    account_number VARCHAR(20) UNIQUE NOT NULL,
+    balance DECIMAL(15,2) NOT NULL DEFAULT 0.00,
+    account_type ENUM('checking', 'savings') NOT NULL,
+    opened_date DATE NOT NULL,
+    closed_date DATE,
+    
+    -- Contraintes complexes
+    CONSTRAINT chk_dates CHECK (closed_date IS NULL OR closed_date > opened_date),
+    CONSTRAINT chk_balance CHECK (balance >= 0),
+    CONSTRAINT chk_account_type CHECK (
+        (account_type = 'checking' AND balance >= -1000) OR
+        (account_type = 'savings' AND balance >= 0)
+    )
+);
+
+-- CONTRAINTES D'INTÉGRITÉ RÉFÉENTIELLE
+CREATE TABLE departments (
+    dept_id INT PRIMARY KEY,
+    dept_name VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE employees (
+    emp_id INT PRIMARY KEY,
+    dept_id INT,
+    -- Actions sur suppression/mise à jour
+    FOREIGN KEY (dept_id) REFERENCES departments(dept_id)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE
+);
+
+-- OPTIONS DISPONIBLES:
+-- ON DELETE RESTRICT    (empêche la suppression)
+-- ON DELETE CASCADE     (supprime les lignes enfants)
+-- ON DELETE SET NULL    (met NULL dans les clés étrangères)
+-- ON DELETE NO ACTION   (similaire à RESTRICT)
+-- ON UPDATE CASCADE     (propage les mises à jour)
+
+-- CONTRAINTES CONDITIONNELLES
+CREATE TABLE products (
+    product_id INT PRIMARY KEY,
+    name VARCHAR(100),
+    price DECIMAL(10,2),
+    discount_price DECIMAL(10,2),
+    
+    CONSTRAINT chk_discount CHECK (discount_price IS NULL OR discount_price < price)
+);</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- REQUETES SELECT -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">Requêtes SELECT</h2>
+        <div class="demo-box mb-4">
+          <h3 class="text-blue-300 font-bold mb-3">
+            Tables de démonstration :
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <h4 class="text-green-400 mb-2">Table: employees</h4>
+              <table class="table-demo">
+                <tr>
+                  <th>id</th>
+                  <th>name</th>
+                  <th>department</th>
+                  <th>salary</th>
+                  <th>hire_date</th>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>Alice</td>
+                  <td>IT</td>
+                  <td>5000</td>
+                  <td>2020-01-15</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Bob</td>
+                  <td>HR</td>
+                  <td>4500</td>
+                  <td>2019-03-20</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Charlie</td>
+                  <td>IT</td>
+                  <td>6000</td>
+                  <td>2021-06-10</td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <h4 class="text-green-400 mb-2">Table: departments</h4>
+              <table class="table-demo">
+                <tr>
+                  <th>dept_id</th>
+                  <th>dept_name</th>
+                  <th>location</th>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>IT</td>
+                  <td>Paris</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>HR</td>
+                  <td>Lyon</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Sales</td>
+                  <td>Marseille</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-sql">-- SYNTAXE DE BASE
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition
+ORDER BY column
+LIMIT number;
+
+-- SÉLECTION SIMPLE
+SELECT * FROM employees;
+SELECT name, salary FROM employees;
+SELECT id, name AS employee_name FROM employees;
+
+-- AVEC CONDITIONS
+SELECT * FROM employees WHERE salary > 5000;
+SELECT * FROM employees WHERE department = 'IT' AND salary > 4000;
+SELECT * FROM employees WHERE hire_date BETWEEN '2020-01-01' AND '2021-12-31';
+
+-- OPÉRATEURS LOGIQUES
+SELECT * FROM employees 
+WHERE department = 'IT' OR department = 'HR';
+
+SELECT * FROM employees 
+WHERE NOT department = 'Sales';
+
+SELECT * FROM employees 
+WHERE salary BETWEEN 4000 AND 6000;
+
+SELECT * FROM employees 
+WHERE name LIKE 'A%';  -- Commence par A
+
+SELECT * FROM employees 
+WHERE name IN ('Alice', 'Bob');
+
+-- TRI ET LIMITATION
+SELECT * FROM employees 
+ORDER BY salary DESC;
+
+SELECT * FROM employees 
+ORDER BY department ASC, salary DESC;
+
+SELECT * FROM employees 
+LIMIT 10;
+
+SELECT * FROM employees 
+ORDER BY hire_date DESC 
+LIMIT 5;
+
+-- CALCULS ET EXPRESSIONS
+SELECT name, salary, salary * 1.1 AS new_salary 
+FROM employees;
+
+SELECT name, 
+       DATEDIFF(CURDATE(), hire_date) AS days_employed
+FROM employees;
+
+-- AGRÉGATIONS
+SELECT COUNT(*) AS total_employees FROM employees;
+SELECT AVG(salary) AS average_salary FROM employees;
+SELECT MAX(salary) AS highest_salary FROM employees;
+SELECT MIN(salary) AS lowest_salary FROM employees;
+SELECT SUM(salary) AS total_salary FROM employees;
+
+-- GROUP BY
+SELECT department, AVG(salary) AS avg_salary
+FROM employees
+GROUP BY department;
+
+SELECT department, COUNT(*) AS employee_count
+FROM employees
+GROUP BY department
+HAVING COUNT(*) > 2;
+
+-- DISTINCT
+SELECT DISTINCT department FROM employees;
+SELECT COUNT(DISTINCT department) FROM employees;</code></pre>
+        </div>
+      </section>
+
+      <!-- JOINS -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">Jointures (JOINS)</h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-sql">-- INNER JOIN (défaut)
+SELECT e.name, e.salary, d.dept_name
+FROM employees e
+INNER JOIN departments d ON e.department_id = d.dept_id;
+
+-- LEFT JOIN
+SELECT e.name, d.dept_name
+FROM employees e
+LEFT JOIN departments d ON e.department_id = d.dept_id;
+
+-- RIGHT JOIN
+SELECT e.name, d.dept_name
+FROM employees e
+RIGHT JOIN departments d ON e.department_id = d.dept_id;
+
+-- FULL OUTER JOIN (MySQL ne supporte pas directement)
+SELECT e.name, d.dept_name
+FROM employees e
+LEFT JOIN departments d ON e.department_id = d.dept_id
+UNION
+SELECT e.name, d.dept_name
+FROM employees e
+RIGHT JOIN departments d ON e.department_id = d.dept_id;
+
+-- SELF JOIN
+SELECT e1.name AS employee, e2.name AS manager
+FROM employees e1
+LEFT JOIN employees e2 ON e1.manager_id = e2.id;
+
+-- MULTIPLES JOINTURES
+SELECT 
+    e.name AS employee_name,
+    d.dept_name AS department,
+    p.project_name
+FROM employees e
+JOIN departments d ON e.department_id = d.dept_id
+JOIN projects p ON e.id = p.lead_id;
+
+-- CROSS JOIN
+SELECT e.name, d.dept_name
+FROM employees e
+CROSS JOIN departments d;
+
+-- NATURAL JOIN (jointure sur colonnes de même nom)
+SELECT e.name, d.dept_name
+FROM employees e
+NATURAL JOIN departments d;
+
+-- JOIN AVEC CONDITIONS COMPLEXES
+SELECT 
+    e.name,
+    e.salary,
+    d.dept_name,
+    p.project_name
+FROM employees e
+JOIN departments d ON e.department_id = d.dept_id
+LEFT JOIN employee_projects ep ON e.id = ep.employee_id
+LEFT JOIN projects p ON ep.project_id = p.project_id
+WHERE d.location = 'Paris'
+AND e.salary > 5000
+ORDER BY e.salary DESC;
+
+-- USING (quand les colonnes ont le même nom)
+SELECT e.name, d.dept_name
+FROM employees e
+JOIN departments d USING (department_id);</code></pre>
+        </div>
+      </section>
+
+      <!-- SOUS-REQUETES -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">Sous-requêtes</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-sql">-- SOUS-REQUÊTE DANS WHERE
+SELECT name, salary
+FROM employees
+WHERE salary > (SELECT AVG(salary) FROM employees);
+
+-- AVEC IN
+SELECT name
+FROM employees
+WHERE department_id IN (
+    SELECT dept_id 
+    FROM departments 
+    WHERE location = 'Paris'
+);
+
+-- AVEC EXISTS
+SELECT name
+FROM employees e
+WHERE EXISTS (
+    SELECT 1 
+    FROM projects p 
+    WHERE p.lead_id = e.id
+);
+
+-- SOUS-REQUÊTE DANS SELECT
+SELECT 
+    name,
+    salary,
+    (SELECT AVG(salary) FROM employees) AS avg_salary,
+    salary - (SELECT AVG(salary) FROM employees) AS diff_from_avg
+FROM employees;
+
+-- DANS FROM (table dérivée)
+SELECT dept_name, employee_count
+FROM (
+    SELECT 
+        d.dept_name,
+        COUNT(e.id) AS employee_count
+    FROM departments d
+    LEFT JOIN employees e ON d.dept_id = e.department_id
+    GROUP BY d.dept_name
+) AS dept_stats
+WHERE employee_count > 0;
+
+-- CORRÉLÉE
+SELECT 
+    e1.name,
+    e1.salary,
+    e1.department
+FROM employees e1
+WHERE e1.salary > (
+    SELECT AVG(e2.salary)
+    FROM employees e2
+    WHERE e2.department = e1.department
+);</code></pre>
+          </div>
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-sql">-- ANY/SOME
+SELECT name, salary
+FROM employees
+WHERE salary > ANY (
+    SELECT salary 
+    FROM employees 
+    WHERE department = 'IT'
+);
+
+-- ALL
+SELECT name, salary
+FROM employees
+WHERE salary > ALL (
+    SELECT salary 
+    FROM employees 
+    WHERE department = 'HR'
+);
+
+-- SOUS-REQUÊTE DANS INSERT
+INSERT INTO high_paid_employees
+SELECT * FROM employees
+WHERE salary > 5000;
+
+-- DANS UPDATE
+UPDATE employees
+SET salary = salary * 1.1
+WHERE department_id IN (
+    SELECT dept_id 
+    FROM departments 
+    WHERE dept_name = 'IT'
+);
+
+-- DANS DELETE
+DELETE FROM employees
+WHERE id IN (
+    SELECT employee_id
+    FROM performance_reviews
+    WHERE rating = 'Poor'
+);
+
+-- CTE (Common Table Expressions)
+WITH department_stats AS (
+    SELECT 
+        department,
+        AVG(salary) AS avg_salary,
+        COUNT(*) AS emp_count
+    FROM employees
+    GROUP BY department
+)
+SELECT * FROM department_stats
+WHERE avg_salary > 4500;
+
+-- CTE RÉCURSIVE (hiérarchie)
+WITH RECURSIVE employee_hierarchy AS (
+    -- Ancrage
+    SELECT id, name, manager_id, 1 AS level
+    FROM employees
+    WHERE manager_id IS NULL
+    
+    UNION ALL
+    
+    -- Récursion
+    SELECT e.id, e.name, e.manager_id, eh.level + 1
+    FROM employees e
+    JOIN employee_hierarchy eh ON e.manager_id = eh.id
+)
+SELECT * FROM employee_hierarchy
+ORDER BY level, name;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- INSERT, UPDATE, DELETE -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">
+          INSERT, UPDATE, DELETE
+        </h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-sql">-- INSERT SIMPLE
+INSERT INTO employees (name, department, salary, hire_date)
+VALUES ('John Doe', 'IT', 5500, '2023-01-15');
+
+-- INSERT MULTIPLE
+INSERT INTO employees (name, department, salary, hire_date)
+VALUES 
+    ('Jane Smith', 'HR', 4800, '2023-02-01'),
+    ('Mike Johnson', 'Sales', 5200, '2023-02-15'),
+    ('Sarah Wilson', 'IT', 6000, '2023-03-01');
+
+-- INSERT FROM SELECT
+INSERT INTO managers (name, department, salary)
+SELECT name, department, salary
+FROM employees
+WHERE id IN (SELECT manager_id FROM departments);
+
+-- INSERT IGNORE (ignore les erreurs)
+INSERT IGNORE INTO employees (id, name, email)
+VALUES (1, 'John', 'john@email.com');
+
+-- REPLACE (supprime et insère si conflit)
+REPLACE INTO employees (id, name, email)
+VALUES (1, 'John Updated', 'john@email.com');
+
+-- UPDATE SIMPLE
+UPDATE employees
+SET salary = 6000
+WHERE name = 'John Doe';
+
+-- UPDATE MULTIPLE COLONNES
+UPDATE employees
+SET 
+    salary = salary * 1.05,
+    department = 'IT',
+    updated_at = NOW()
+WHERE department = 'Development';
+
+-- UPDATE AVEC JOIN
+UPDATE employees e
+JOIN departments d ON e.department_id = d.dept_id
+SET e.salary = e.salary * 1.1
+WHERE d.location = 'Paris';
+
+-- UPDATE AVEC SOUS-REQUÊTE
+UPDATE employees
+SET salary = (
+    SELECT AVG(salary) 
+    FROM employees 
+    WHERE department = 'IT'
+)
+WHERE department = 'HR';
+
+-- DELETE SIMPLE
+DELETE FROM employees
+WHERE id = 1;
+
+-- DELETE AVEC CONDITIONS COMPLEXES
+DELETE FROM employees
+WHERE hire_date < '2020-01-01'
+AND department = 'HR';
+
+-- DELETE AVEC JOIN
+DELETE e
+FROM employees e
+JOIN departments d ON e.department_id = d.dept_id
+WHERE d.dept_name = 'Obsolete';
+
+-- TRUNCATE (plus rapide que DELETE)
+TRUNCATE TABLE temp_data;
+
+-- UPSERT (INSERT ... ON DUPLICATE KEY UPDATE)
+INSERT INTO employees (id, name, email, salary)
+VALUES (1, 'John Doe', 'john@email.com', 5000)
+ON DUPLICATE KEY UPDATE
+    name = VALUES(name),
+    email = VALUES(email),
+    salary = VALUES(salary);</code></pre>
+        </div>
+      </section>
+
+      <!-- FONCTIONS -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">Fonctions SQL</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-sql">-- FONCTIONS DE CHAÎNES
+SELECT 
+    UPPER(name) AS upper_name,
+    LOWER(name) AS lower_name,
+    LENGTH(name) AS name_length,
+    CONCAT(first_name, ' ', last_name) AS full_name,
+    SUBSTRING(name, 1, 3) AS name_prefix,
+    REPLACE(description, 'old', 'new') AS new_desc,
+    TRIM('   hello   ') AS trimmed,
+    REVERSE(name) AS reversed_name
+FROM employees;
+
+-- FONCTIONS NUMÉRIQUES
+SELECT 
+    ABS(-10) AS absolute,
+    ROUND(15.75, 1) AS rounded,
+    CEIL(15.2) AS ceiling,
+    FLOOR(15.8) AS floor,
+    POWER(2, 3) AS power,
+    SQRT(16) AS square_root,
+    MOD(10, 3) AS modulus,
+    RAND() AS random_number;
+
+-- FONCTIONS DE DATE
+SELECT 
+    NOW() AS current_datetime,
+    CURDATE() AS current_date,
+    CURTIME() AS current_time,
+    DATE_ADD(NOW(), INTERVAL 7 DAY) AS next_week,
+    DATE_SUB(NOW(), INTERVAL 1 MONTH) AS last_month,
+    DATEDIFF('2023-12-31', '2023-01-01') AS days_diff,
+    YEAR(hire_date) AS hire_year,
+    MONTHNAME(hire_date) AS hire_month,
+    DAYNAME(hire_date) AS hire_day,
+    DATE_FORMAT(hire_date, '%d/%m/%Y') AS french_date;
+
+-- FONCTIONS D'AGRÉGATION
+SELECT 
+    COUNT(*) AS total_rows,
+    COUNT(DISTINCT department) AS unique_depts,
+    AVG(salary) AS avg_salary,
+    SUM(salary) AS total_salary,
+    MAX(salary) AS max_salary,
+    MIN(salary) AS min_salary,
+    GROUP_CONCAT(name) AS all_names,
+    STDDEV(salary) AS salary_stddev,
+    VARIANCE(salary) AS salary_variance
+FROM employees;</code></pre>
+          </div>
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-sql">-- FONCTIONS CONDITIONNELLES
+SELECT 
+    name,
+    salary,
+    CASE 
+        WHEN salary > 6000 THEN 'High'
+        WHEN salary BETWEEN 4000 AND 6000 THEN 'Medium'
+        ELSE 'Low'
+    END AS salary_level,
+    IF(salary > 5000, 'Above Average', 'Below Average') AS salary_status,
+    COALESCE(phone, 'No Phone') AS contact_phone,
+    NULLIF(department, '') AS valid_department
+FROM employees;
+
+-- FONCTIONS DE WINDOW
+SELECT 
+    name,
+    department,
+    salary,
+    RANK() OVER (PARTITION BY department ORDER BY salary DESC) AS dept_rank,
+    DENSE_RANK() OVER (ORDER BY salary DESC) AS overall_rank,
+    ROW_NUMBER() OVER (PARTITION BY department ORDER BY hire_date) AS dept_row_num,
+    LAG(salary) OVER (ORDER BY hire_date) AS prev_salary,
+    LEAD(salary) OVER (ORDER BY hire_date) AS next_salary,
+    AVG(salary) OVER (PARTITION BY department) AS dept_avg_salary,
+    SUM(salary) OVER (ORDER BY hire_date) AS running_total
+FROM employees;
+
+-- FONCTIONS JSON (MySQL 5.7+)
+SELECT 
+    id,
+    JSON_EXTRACT(metadata, '$.department') AS dept,
+    JSON_SEARCH(metadata, 'one', 'IT') AS it_position,
+    JSON_LENGTH(metadata) AS metadata_size,
+    JSON_KEYS(metadata) AS metadata_keys
+FROM employees
+WHERE JSON_CONTAINS(metadata, '"IT"', '$.skills');
+
+-- FONCTIONS SPATIALES
+SELECT 
+    name,
+    ST_Distance(point1, point2) AS distance,
+    ST_Contains(polygon, point) AS is_inside,
+    ST_Area(polygon) AS area
+FROM locations;
+
+-- FONCTIONS PERSONNALISÉES
+DELIMITER //
+CREATE FUNCTION calculate_bonus(salary DECIMAL(10,2), performance INT)
+RETURNS DECIMAL(10,2)
+DETERMINISTIC
+BEGIN
+    DECLARE bonus DECIMAL(10,2);
+    SET bonus = salary * performance * 0.01;
+    RETURN bonus;
+END//
+DELIMITER ;
+
+SELECT name, salary, calculate_bonus(salary, 10) AS bonus
+FROM employees;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- VUES ET INDEX -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">Vues et Index</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-sql">-- CRÉATION DE VUES
+CREATE VIEW employee_summary AS
+SELECT 
+    e.id,
+    e.name,
+    e.salary,
+    d.dept_name,
+    d.location
+FROM employees e
+JOIN departments d ON e.department_id = d.dept_id
+WHERE e.is_active = TRUE;
+
+-- VUE AVEC AGRÉGATION
+CREATE VIEW department_stats AS
+SELECT 
+    d.dept_name,
+    COUNT(e.id) AS employee_count,
+    AVG(e.salary) AS avg_salary,
+    MAX(e.salary) AS max_salary
+FROM departments d
+LEFT JOIN employees e ON d.dept_id = e.department_id
+GROUP BY d.dept_name;
+
+-- VUE MISE À JOUR
+CREATE OR REPLACE VIEW high_paid_employees AS
+SELECT id, name, salary
+FROM employees
+WHERE salary > 6000
+WITH CHECK OPTION;
+
+-- UTILISATION DES VUES
+SELECT * FROM employee_summary;
+SELECT * FROM department_stats WHERE avg_salary > 5000;
+
+-- MODIFICATION DE VUE
+ALTER VIEW employee_summary AS
+SELECT 
+    e.id,
+    e.name,
+    e.salary,
+    d.dept_name,
+    d.location,
+    e.hire_date
+FROM employees e
+JOIN departments d ON e.department_id = d.dept_id;
+
+-- SUPPRESSION DE VUE
+DROP VIEW IF EXISTS employee_summary;
+
+-- VUE MATÉRIALISÉE (PostgreSQL)
+CREATE MATERIALIZED VIEW monthly_sales AS
+SELECT 
+    DATE_TRUNC('month', sale_date) AS month,
+    SUM(amount) AS total_sales
+FROM sales
+GROUP BY DATE_TRUNC('month', sale_date');
+
+REFRESH MATERIALIZED VIEW monthly_sales;</code></pre>
+          </div>
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-sql">-- CRÉATION D'INDEX
+CREATE INDEX idx_employee_name ON employees(name);
+CREATE INDEX idx_employee_dept_salary ON employees(department, salary);
+CREATE UNIQUE INDEX idx_unique_email ON employees(email);
+
+-- INDEX COMPOSITE
+CREATE INDEX idx_employee_dept_date 
+ON employees(department_id, hire_date);
+
+-- INDEX SUR EXPRESSION
+CREATE INDEX idx_name_lower ON employees(LOWER(name));
+
+-- INDEX PARTIEL
+CREATE INDEX idx_active_employees 
+ON employees(department) 
+WHERE is_active = TRUE;
+
+-- INDEX DE TEXT COMPLET
+CREATE FULLTEXT INDEX idx_product_description 
+ON products(description);
+
+-- RECHERCHE TEXT COMPLETE
+SELECT * FROM products
+WHERE MATCH(description) AGAINST('wireless bluetooth' IN NATURAL LANGUAGE MODE);
+
+-- SUPPRESSION D'INDEX
+DROP INDEX idx_employee_name ON employees;
+
+-- CONSULTER LES INDEX
+SHOW INDEX FROM employees;
+
+-- ANALYSE DES PERFORMANCES
+EXPLAIN SELECT * FROM employees WHERE name = 'John Doe';
+
+-- FORCER L'UTILISATION D'INDEX
+SELECT * FROM employees USE INDEX (idx_employee_name) 
+WHERE name LIKE 'A%';
+
+-- IGNORER LES INDEX
+SELECT * FROM employees IGNORE INDEX (idx_employee_name) 
+WHERE name LIKE 'A%';
+
+-- TYPES D'INDEX
+-- B-Tree (défaut) : recherches par plage, égalité
+-- Hash : uniquement égalité
+-- R-Tree : données spatiales
+-- Full-Text : recherche textuelle
+
+-- CONSIDÉRATIONS SUR LES INDEX
+-- Améliore les SELECT mais ralentit les INSERT/UPDATE/DELETE
+-- Créer sur les colonnes fréquemment utilisées dans WHERE, JOIN, ORDER BY
+-- Éviter sur les colonnes avec peu de cardinalité (booléens, enum)
+-- Surveiller la fragmentation</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRANSACTIONS ET SECURITE -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-blue-400 mb-3">
+          Transactions et Sécurité
+        </h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-sql">-- GESTION DES TRANSACTIONS
+START TRANSACTION;
+
+INSERT INTO orders (customer_id, total_amount)
+VALUES (1, 100.00);
+
+INSERT INTO order_items (order_id, product_id, quantity, price)
+VALUES (LAST_INSERT_ID(), 1, 2, 50.00);
+
+-- Validation de la transaction
+COMMIT;
+
+-- Ou annulation en cas d'erreur
+ROLLBACK;
+
+-- TRANSACTION AVEC POINTS DE SAUVEGARDE
+START TRANSACTION;
+
+INSERT INTO accounts (account_id, balance) VALUES (1, 1000);
+SAVEPOINT after_insert;
+
+UPDATE accounts SET balance = balance - 100 WHERE account_id = 1;
+SAVEPOINT after_withdrawal;
+
+-- Retour à un point de sauvegarde spécifique
+ROLLBACK TO SAVEPOINT after_insert;
+
+-- NIVEUX D'ISOLATION
+SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+SET TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+
+-- GESTION DES UTILISATEURS
+CREATE USER 'app_user'@'localhost' IDENTIFIED BY 'password';
+CREATE USER 'readonly_user'@'%' IDENTIFIED BY 'readonly_pass';
+
+-- ATTRIBUTION DE PRIVILÈGES
+GRANT SELECT, INSERT, UPDATE ON company.* TO 'app_user'@'localhost';
+GRANT SELECT ON company.employees TO 'readonly_user'@'%';
+GRANT ALL PRIVILEGES ON company.* TO 'admin_user'@'localhost';
+
+-- RÉVOCATION DE PRIVILÈGES
+REVOKE DELETE ON company.* FROM 'app_user'@'localhost';
+
+-- SUPPRESSION D'UTILISATEUR
+DROP USER 'old_user'@'localhost';
+
+-- CONSULTATION DES PRIVILÈGES
+SHOW GRANTS FOR 'app_user'@'localhost';
+
+-- RÔLES (MySQL 8.0+)
+CREATE ROLE data_reader;
+GRANT SELECT ON company.* TO data_reader;
+GRANT data_reader TO 'app_user'@'localhost';
+
+-- SÉCURITÉ AVANCÉE
+-- Chiffrement des données
+CREATE TABLE sensitive_data (
+    id INT PRIMARY KEY,
+    encrypted_data VARBINARY(255)
+);
+
+-- Audit des actions
+CREATE TABLE audit_log (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    action VARCHAR(50),
+    table_name VARCHAR(50),
+    record_id INT,
+    old_values JSON,
+    new_values JSON,
+    changed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Déclencheurs d'audit
+DELIMITER //
+CREATE TRIGGER audit_employee_changes
+    AFTER UPDATE ON employees
+    FOR EACH ROW
+BEGIN
+    INSERT INTO audit_log (user_id, action, table_name, record_id, old_values, new_values)
+    VALUES (USER(), 'UPDATE', 'employees', NEW.id, 
+           JSON_OBJECT('name', OLD.name, 'salary', OLD.salary),
+           JSON_OBJECT('name', NEW.name, 'salary', NEW.salary));
+END//
+DELIMITER ;
+
+-- VÉRIFICATION DES CONTRAINTES
+SET FOREIGN_KEY_CHECKS = 1;
+SET UNIQUE_CHECKS = 1;
+SET SQL_MODE = 'STRICT_ALL_TABLES';
+
+-- SAUVEGARDES
+-- Sauvegarde complète
+mysqldump -u root -p company > backup.sql
+
+-- Sauvegarde partielle
+mysqldump -u root -p company employees departments > partial_backup.sql
+
+-- Restauration
+mysql -u root -p company < backup.sql</code></pre>
+        </div>
+      </section>
+
+      <!-- BONNES PRATIQUES -->
+      <section
+        class="mt-10 mb-20 bg-gray-900 p-6 rounded-xl border border-gray-800"
+      >
+        <h2 class="text-2xl font-bold text-blue-400 mb-4">
+          Bonnes pratiques SQL
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">Normalisation</h3>
+              <p class="text-sm text-gray-400">
+                Éviter la redondance des données
+              </p>
+            </div>
+          </div>
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">Index stratégiques</h3>
+              <p class="text-sm text-gray-400">
+                Créer des index sur les colonnes fréquemment interrogées
+              </p>
+            </div>
+          </div>
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">Requêtes paramétrées</h3>
+              <p class="text-sm text-gray-400">Prévenir les injections SQL</p>
+            </div>
+          </div>
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">EXPLAIN PLAN</h3>
+              <p class="text-sm text-gray-400">
+                Analyser les performances des requêtes
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESSOURCES -->
+      <section
+        class="mt-10 mb-20 bg-gray-900 p-6 rounded-xl border border-gray-800"
+      >
+        <h2 class="text-2xl font-bold text-blue-400 mb-4">Ressources SQL</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <a
+            href="https://www.w3schools.com/sql/"
+            class="flex items-center p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-blue-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
+            </svg>
+            W3Schools SQL Tutorial
+          </a>
+          <a
+            href="https://dev.mysql.com/doc/"
+            class="flex items-center p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-blue-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+              />
+            </svg>
+            Documentation MySQL
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      function copyCode(button) {
+        const codeBlock = button.parentElement;
+        const code = codeBlock.querySelector("code").textContent;
+
+        navigator.clipboard.writeText(code).then(() => {
+          const originalText = button.textContent;
+          button.textContent = "Copié!";
+          setTimeout(() => {
+            button.textContent = originalText;
+          }, 2000);
+        });
+      }
+    </script>
+  </body>
+</html>
