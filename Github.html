@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation GitHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-git.min.js"></script>
+    <style>
+        .code-block {
+            position: relative;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: rgba(107, 114, 128, 0.7);
+            border: none;
+            border-radius: 4px;
+            color: white;
+            padding: 4px 8px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .copy-btn:hover {
+            background: rgba(107, 114, 128, 0.9);
+        }
+        .github-color {
+            background: linear-gradient(135deg, #24292e, #2b3137);
+        }
+        .demo-box {
+            border: 2px dashed #4B5563;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            background: #1f2937;
+        }
+        .workflow-step {
+            border-left: 3px solid #3B82F6;
+            padding-left: 1rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-white min-h-screen p-4 md:p-10 font-sans">
+    <div class="max-w-6xl mx-auto">
+        <a href="index.html" class="inline-flex items-center text-gray-300 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+            </svg>
+            Retour
+        </a>
+
+        <header class="mt-6 mb-10">
+            <div class="flex items-center">
+                <div class="github-color p-2 rounded-lg mr-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-extrabold text-gray-300">GitHub — Documentation Complète</h1>
+                    <p class="text-gray-400 mt-1 text-lg">Plateforme de développement collaboratif et d'hébergement de code</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- INTRO -->
+        <section class="mt-10 bg-gray-900 p-6 rounded-xl border border-gray-800">
+            <h2 class="text-2xl font-bold text-gray-300 mb-3 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Qu'est-ce que GitHub ?
+            </h2>
+            <p class="text-gray-300 leading-relaxed">
+                GitHub est une plateforme d'hébergement de code basée sur Git qui permet le développement collaboratif de projets. Elle offre des fonctionnalités de gestion de versions, de collaboration en équipe, de revue de code, d'intégration continue et bien plus encore.
+            </p>
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <h3 class="font-bold text-gray-300">Collaboration</h3>
+                    <p class="text-sm text-gray-400">Travail d'équipe sur le code</p>
+                </div>
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <h3 class="font-bold text-gray-300">Versioning</h3>
+                    <p class="text-sm text-gray-400">Gestion des versions avec Git</p>
+                </div>
+                <div class="bg-gray-800 p-4 rounded-lg">
+                    <h3 class="font-bold text-gray-300">CI/CD</h3>
+                    <p class="text-sm text-gray-400">Intégration et déploiement continus</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONFIGURATION INITIALE -->
+        <section class="mt-10">
+            <h2 class="text-2xl font-bold text-gray-300 mb-3">Configuration Initiale</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800">
+                    <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+                    <pre><code class="language-bash"># Installation de Git
+# Ubuntu/Debian
+sudo apt update && sudo apt install git
+
+# macOS
+brew install git
+
+# Windows
+# Télécharger depuis git-scm.com
+
+# Configuration globale
+git config --global user.name "Votre Nom"
+git config --global user.email "votre@email.com"
+git config --global init.defaultBranch main
+
+# Configuration supplémentaire
+git config --global core.editor "code --wait"  # VS Code
+git config --global merge.tool vscode
+git config --global pull.rebase false
+
+# Vérification de la configuration
+git config --list
+
+# Génération de clé SSH
+ssh-keygen -t ed25519 -C "votre@email.com"
+# Copier le contenu de ~/.ssh/id_ed25519.pub
+# et l'ajouter dans GitHub Settings → SSH and GPG keys
+
+# Test de la connexion SSH
+ssh -T git@github.com</code></pre>
+                </div>
+                <div class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800">
+                    <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+                    <pre><code class="language-bash"># CLONAGE DE DÉPART
+# Cloner un repository existant
+git clone https://github.com/utilisateur/repo.git
+git clone git@github.com:utilisateur/repo.git  # Via SSH
+
+# Cloner avec un nom spécifique
+git clone https://github.com/utilisateur/repo.git mon-projet
+
+# Cloner une branche spécifique
+git clone -b develop https://github.com/utilisateur/repo.git
+
+# INITIALISATION D'UN NOUVEAU PROJET
+# Créer un nouveau repository local
+mkdir mon-projet
+cd mon-projet
+git init
+
+# Lier au repository GitHub
+git remote add origin https://github.com/utilisateur/repo.git
+
+# Premier commit
+echo "# Mon Projet" >> README.md
+git add README.md
+git commit -m "Initial commit"
+
+# Pousser vers GitHub
+git push -u origin main
+
+# WORKFLOW DE BASE
+git status                    # Voir l'état
+git add .                    # Ajouter tous les fichiers
+git add fichier.txt          # Ajouter un fichier spécifique
+git commit -m "Message"      # Committer les changements
+git push                     # Pousser vers GitHub
+git pull                     # Récupérer les changements</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORKFLOW GIT ESSENTIEL -->
+        <section class="mt-10">
+            <h2 class="text-2xl font-bold text-gray-300 mb-3">Workflow Git Essentiel</h2>
+            <div class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800">
+                <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+                <pre><code class="language-bash"># WORKFLOW QUOTIDIEN COMPLET
+
+# 1. METTRE À JOUR LE CODE LOCAL
+git pull origin main
+
+# 2. TRAVAILLER SUR UNE NOUVELLE FONCTIONNALITÉ
+git checkout -b feature/nouvelle-fonctionnalite
+
+# 3. FAIRE DES CHANGEMENTS
+# Éditer les fichiers...
+echo "Nouvelle fonctionnalité" >> feature.txt
+
+# 4. SUIVI DES CHANGEMENTS
+git status                  # Voir les fichiers modifiés
+git diff                    # Voir les changements détaillés
+git diff --staged           # Voir les changements staged
+
+# 5. AJOUTER LES CHANGEMENTS
+git add .                   # Ajouter tous les fichiers
+# OU
+git add feature.txt         # Ajouter un fichier spécifique
+git add -p                  # Ajouter interactivement
+
+# 6. COMMITTER
+git commit -m "feat: ajouter nouvelle fonctionnalité
+
+- Implémenter la fonction X
+- Ajouter les tests unitaires
+- Mettre à jour la documentation"
+
+# 7. PUSHER LA BRANCHE
+git push -u origin feature/nouvelle-fonctionnalite
+
+# 8. CRÉER UNE PULL REQUEST SUR GITHUB
+# Aller sur GitHub → New Pull Request
+
+# 9. SYNCHRONISER AVEC MAIN
+git checkout main
+git pull origin main
+git checkout feature/nouvelle-fonctionnalite
+git rebase main
+
+# 10. RÉSOUDRE LES CONFLITS SI NÉCESSAIRE
+# Éditer les fichiers en conflit...
+git add .
+git rebase --continue
+
+# 11. METTRE À JOUR LA BRANCHE DISTANTE
+git push -f
+
+# 12. APRÈS MERGE SUR GITHUB
+git checkout main
+git pull origin main
+git branch -d feature/nouvelle-fonctionnalite</code></pre>
+            </div>
+        </section>
+
+        <!-- BRANCHES ET STRATÉGIES -->
+        <section class="mt-10">
+            <h2 class="text-2xl font-bold text-gray-300 mb-3">Gestion des Branches</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800">
+                    <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+                    <pre><code class="language-bash"># GESTION DES BRANCHES
+
+# Lister les branches
+git branch                  # Branches locales
+git branch -r              # Branches distantes
+git branch -a              # Toutes les branches
+
+# Créer et switcher de branche
+git branch nouvelle-branche
+git checkout nouvelle-branche
+git checkout -b nouvelle-branche  # En une commande
+
+# Convention de nommage
+git checkout -b feature/authentification-oauth
+git checkout -b fix/correction-bug-login
+git checkout -b hotfix/urgence-production
+git checkout -b docs/ajout-documentation-api
+
+# Supprimer des branches
+git branch -d branche-locale      # Suppression sûre
+git branch -D branche-locale      # Suppression forcée
+git push origin --delete branche-distante
+
+# Synchroniser les branches distantes
+git fetch --all                   # Récupérer toutes les branches
+git checkout -b local-branch origin/remote-branch
+
+# Suivre une branche distante
+git branch -u origin/ma-branche ma-branche
+
+# RENOMMER DES BRANCHES
+git branch -m ancien-nom nouveau-nom    # Locale
+git push origin :ancien-nom nouveau-nom # Distante
+git push origin -u nouveau-nom</code></pre>
+                </div>
+                <div class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800">
+                    <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+                    <pre><code class="language-bash"># STRATÉGIES DE BRANCHING
+
+# Git Flow
+main                    # Production
+develop                 # Développement
+feature/feature-name    # Nouvelles fonctionnalités
+release/1.2.0          # Préparation de release
+hotfix/urgent-fix      Corrections urgentes
+
+# GitHub Flow (simplifié)
+main                    # Déploiement continu
+feature-branches        # Toutes les fonctionnalités
+
+# GitLab Flow
+production              # Production
+pre-production          # Staging
+main                    # Développement
+feature-branches        # Fonctionnalités
+
+# EXEMPLES PRATIQUES
+
+# Développer une feature
+git checkout -b feature/user-dashboard
+# ... travail ...
+git push -u origin feature/user-dashboard
+
+# Préparer une release
+git checkout -b release/1.3.0
+# ... finaliser ...
+git merge release/1.3.0
+git tag v1.3.0
+
+# Correction urgente
+git checkout -b hotfix/critical-security-fix
+# ... correction ...
+git merge hotfix/critical-security-fix
+
+# MERGE VS REBASE
+git merge feature-branch        # Préserve l'historique
+git rebase main                # Historique linéaire
+
+# Rebase interactif
+git rebase -i HEAD~3          # Réorganiser les 3 derniers commits
+
+# Stash pour changer de branche
+git stash                     # Sauvegarder les changements
+git checkout autre-branche
+# ... travail ...
+git checkout premiere-branche
+git stash pop                 # Restaurer les changements</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMMITS ET HISTORIQUE -->
+        <section class="mt-10">
+            <h2 class="text-2xl font-bold text-gray-300 mb-3">Commits et Historique</h2>
+            <div class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800">
+                <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+                <pre><code class="language-bash"># GESTION DES COMMITS
+
+# Commit conventionnel
+git commit -m "feat: ajouter l'authentification OAuth
+
+- Implémenter Google OAuth2
+- Ajouter la configuration Firebase
+- Créer les tests d'intégration
+
+BREAKING CHANGE: modification de la structure de la base de données"
+
+# Types de commits conventionnels
+feat:     # Nouvelle fonctionnalité
+fix:      # Correction de bug
+docs:     # Documentation
+style:    # Formatage, point-virgule manquant...
+refactor: # Refactoring du code
+test:     # Ajout de tests
+chore:    # Tâches de maintenance
+
+# MODIFICATION DE L'HISTORIQUE
+
+# Modifier le dernier commit
+git commit --amend -m "Nouveau message"
+
+# Ajouter des fichiers au dernier commit
+git add fichier-oublié.py
+git commit --amend --no-edit
+
+# Rebase interactif
+git rebase -i HEAD~5
+
+# Commandes disponibles:
+# pick - utiliser le commit
+# reword - utiliser le commit, modifier le message
+# edit - utiliser le commit, mais s'arrêter pour amend
+# squash - fusionner avec le commit précédent
+# fixup - comme squash, mais supprimer le message
+# drop - supprimer le commit
+
+# EXEMPLE DE REBASE INTERACTIF
+pick a1b2c3d feat: ajouter fonction X
+pick d4e5f6g fix: corriger bug Y
+pick g7h8i9j docs: mettre à jour README
+
+# Devenir:
+pick a1b2c3d feat: ajouter fonction X
+fixup d4e5f6g fix: corriger bug Y
+reword g7h8i9j docs: mise à jour documentation
+
+# RÉCUPÉRATION DE COMMITS
+
+# Voir l'historique
+git log --oneline --graph --all
+git log --since="2023-01-01" --until="2023-12-31"
+git log --author="John"
+git log -S "fonctionnalité"   # Recherche dans le code
+
+# Réinitialiser un commit
+git reset --soft HEAD~1      # Garde les changements staged
+git reset --mixed HEAD~1     # Garde les changements non staged (défaut)
+git reset --hard HEAD~1      # Supprime tous les changements
+
+# Récupérer un commit supprimé
+git reflog                   # Voir l'historique des actions
+git checkout commit-hash     # Se positionner sur un commit
+git checkout -b new-branch   # Créer une branche à partir du commit
+
+# Stash temporaire
+git stash                    # Sauvegarder les modifications
+git stash list               # Lister les stashs
+git stash apply              # Appliquer le dernier stash
+git stash pop                # Appliquer et supprimer
+git stash drop               # Supprimer le stash</code></pre>
+            </div>
+        </section>
+
+        <!-- PULL REQUESTS ET CODE REVIEW -->
+        <section class="mt-10">
+            <h2 class="text-2xl font-bold text-gray-300 mb-3">Pull Requests et Code Review</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800">
+                    <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+                    <pre><code class="language-bash"># PRÉPARATION D'UNE PULL REQUEST
+
+# 1. Synchroniser avec main
+git checkout main
+git pull origin main
+
+# 2. Mettre à jour la feature branch
+git checkout ma-feature
+git rebase main
+
+# 3. Résoudre les conflits si nécessaire
+# Éditer les fichiers en conflit...
+git add .
+git rebase --continue
+
+# 4. Pousser les changements
+git push -f origin ma-feature
+
+# 5. Créer la PR sur GitHub
+# Aller sur Repository → Pull Requests → New Pull Request
+
+# BONNES PRATIQUES POUR LES PR
+
+# Titre clair et descriptif
+feat: implémenter l'authentification deux facteurs
+
+# Description détaillée
+## Description
+Implémente l'authentification 2FA via Google Authenticator
+
+## Changements
+- Ajouter le modèle User avec champ two_factor_secret
+- Créer le service TwoFactorService
+- Ajouter les vues pour activation/désactivation
+- Implémenter la vérification lors du login
+
+## Tests
+- [x] Tests unitaires pour TwoFactorService
+- [x] Tests d'intégration pour les vues
+- [x] Tests avec scan QR code
+
+## Screenshots
+![Activation 2FA](lien-image)
+
+## Checklist
+- [ ] Mon code suit les guidelines du projet
+- [ ] J'ai ajouté les tests nécessaires
+- [ ] J'ai mis à jour la documentation
+- [ ] J'ai vérifié les performances</code></pre>
+                </div>
+                <div class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800">
+                    <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+                    <pre><code class="language-markdown"># TEMPLATE DE PULL REQUEST
+
+```markdown
+## Description
+[Description claire et concise des changements]
+
+## Type de changement
+- [ ] Correction de bug
+- [ ] Nouvelle fonctionnalité
+- [ ] Changement cassant (BREAKING CHANGE)
+- [ ] Cette changement nécessite une mise à jour de la documentation
+
+## Comment tester?
+[Instructions pour tester les changements]
+
+1. Aller sur la page '/nouvelle-fonctionnalite'
+2. Cliquer sur le bouton 'Action'
+3. Vérifier que le résultat est correct
+
+## Captures d'écran
+| Avant | Après |
+|-------|-------|
+| image | image |
+
+## Checklist
+- [ ] Mon code suit le style de code du projet
+- [ ] J'ai effectué une revue de mon propre code
+- [ ] J'ai commenté mon code, si nécessaire
+- [ ] J'ai mis à jour la documentation
+- [ ] Mes changements ne génèrent pas de nouveaux warnings
+- [ ] J'ai ajouté des tests qui prouvent que ma correction est efficace
+- [ ] Les tests unitaires et d'intégration passent localement
+- [ ] Toutes les fonctionnalités touchées ont été testées
