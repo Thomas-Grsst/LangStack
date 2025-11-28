@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documentation Java</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-java.min.js"></script>
+    <style>
+      .code-block {
+        position: relative;
+      }
+      .copy-btn {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: rgba(107, 114, 128, 0.7);
+        border: none;
+        border-radius: 4px;
+        color: white;
+        padding: 4px 8px;
+        font-size: 12px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .copy-btn:hover {
+        background: rgba(107, 114, 128, 0.9);
+      }
+      .java-color {
+        background: linear-gradient(135deg, #ed8b00, #f8981d);
+      }
+      .demo-box {
+        border: 2px dashed #4b5563;
+        padding: 20px;
+        margin: 10px 0;
+        border-radius: 8px;
+        background: #1f2937;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-950 text-white min-h-screen p-4 md:p-10 font-sans">
+    <div class="max-w-6xl mx-auto">
+      <a
+        href="index.html"
+        class="inline-flex items-center text-orange-400 hover:text-orange-300 transition-colors"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-5 w-5 mr-1"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        Retour
+      </a>
+
+      <header class="mt-6 mb-10">
+        <div class="flex items-center">
+          <div class="java-color p-2 rounded-lg mr-4">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-10 w-10 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+              />
+            </svg>
+          </div>
+          <div>
+            <h1 class="text-3xl md:text-4xl font-extrabold text-orange-400">
+              Java — Documentation Complète
+            </h1>
+            <p class="text-gray-400 mt-1 text-lg">
+              Langage de programmation orienté objet, robuste et portable
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <!-- INTRO -->
+      <section class="mt-10 bg-gray-900 p-6 rounded-xl border border-gray-800">
+        <h2 class="text-2xl font-bold text-orange-400 mb-3 flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 mr-2"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          Qu'est-ce que Java ?
+        </h2>
+        <p class="text-gray-300 leading-relaxed">
+          Java est un langage de programmation orienté objet, robuste, portable
+          et multiplateforme. Développé par Sun Microsystems (maintenant
+          Oracle), il suit le principe "Write Once, Run Anywhere" grâce à la
+          machine virtuelle Java (JVM).
+        </p>
+        <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="font-bold text-orange-400">Orienté Objet</h3>
+            <p class="text-sm text-gray-400">
+              Programmation purement orientée objet
+            </p>
+          </div>
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="font-bold text-orange-400">Portable</h3>
+            <p class="text-sm text-gray-400">JVM pour multiplateforme</p>
+          </div>
+          <div class="bg-gray-800 p-4 rounded-lg">
+            <h3 class="font-bold text-orange-400">Robuste</h3>
+            <p class="text-sm text-gray-400">
+              Gestion mémoire automatique, exceptions
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- INSTALLATION ET PREMIER PROGRAMME -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-orange-400 mb-3">
+          Installation et Premier Programme
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-bash"># INSTALLATION JDK
+
+# Ubuntu/Debian
+sudo apt update
+sudo apt install openjdk-17-jdk
+
+# macOS avec Homebrew
+brew install openjdk@17
+
+# Windows
+# Télécharger depuis oracle.com ou adoptium.net
+
+# Vérification
+java -version
+javac -version
+
+# Configuration des variables d'environnement
+# JAVA_HOME=/usr/lib/jvm/java-17-openjdk
+# PATH=$JAVA_HOME/bin:$PATH
+
+# PREMIER PROGRAMME
+
+# HelloWorld.java
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+
+# COMPILATION ET EXÉCUTION
+
+# Compilation
+javac HelloWorld.java
+
+# Exécution
+java HelloWorld
+
+# AVEC CLASSPATH
+java -cp . HelloWorld
+
+# COMPILATION AVEC PLUSIEURS FICHIERS
+javac *.java
+javac -d build src/*.java</code></pre>
+          </div>
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-java">// STRUCTURE D'UN PROGRAMME JAVA
+
+// Déclaration de package (optionnel)
+package com.monentreprise.monprojet;
+
+// Imports
+import java.util.ArrayList;
+import java.util.List;
+import static java.lang.Math.PI;
+
+// Classe principale
+public class MonProgramme {
+    
+    // Variable de classe (static)
+    private static final String NOM_APPLICATION = "Mon App";
+    
+    // Méthode principale - point d'entrée
+    public static void main(String[] args) {
+        System.out.println("Démarrage de " + NOM_APPLICATION);
+        
+        // Création d'objets
+        Utilisateur user = new Utilisateur("Alice", 25);
+        user.afficherInfo();
+        
+        // Utilisation des collections
+        List&lt;String&gt; noms = new ArrayList&lt;&gt;();
+        noms.add("Alice");
+        noms.add("Bob");
+        
+        // Boucle for-each
+        for (String nom : noms) {
+            System.out.println("Nom: " + nom);
+        }
+    }
+}
+
+// AUTRE CLASSE DANS LE MÊME FICHIER
+class Utilisateur {
+    private String nom;
+    private int age;
+    
+    // Constructeur
+    public Utilisateur(String nom, int age) {
+        this.nom = nom;
+        this.age = age;
+    }
+    
+    // Méthode d'instance
+    public void afficherInfo() {
+        System.out.println(nom + " - " + age + " ans");
+    }
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- SYNTAXE DE BASE -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-orange-400 mb-3">Syntaxe de Base</h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-java">// TYPES PRIMITIFS ET VARIABLES
+
+// Types entiers
+byte petitNombre = 127;          // 8 bits (-128 à 127)
+short nombreCourt = 32000;       // 16 bits
+int nombre = 2147483647;         // 32 bits (défaut)
+long grandNombre = 9223372036854775807L; // 64 bits
+
+// Types décimaux
+float decimal = 3.14f;           // 32 bits
+double grandDecimal = 3.141592653589793; // 64 bits (défaut)
+
+// Autres types
+char caractere = 'A';            // 16 bits Unicode
+boolean vraiFaux = true;         // true ou false
+
+// TYPE RÉFÉRENCE
+String chaine = "Hello Java";    // Objet String
+
+// DÉCLARATION ET INITIALISATION
+int x;                          // Déclaration
+x = 10;                         // Initialisation
+int y = 20;                     // Déclaration + initialisation
+
+// CONSTANTES
+final double PI = 3.14159;
+final int HEURES_PAR_JOUR = 24;
+
+// OPÉRATEURS
+
+// Arithmétiques
+int a = 10, b = 3;
+a + b;   // 13
+a - b;   // 7
+a * b;   // 30
+a / b;   // 3 (division entière)
+a % b;   // 1 (modulo)
+a++;     // 11 (post-incrément)
+++a;     // 12 (pré-incrément)
+
+// Comparaison
+a == b;  // false
+a != b;  // true
+a > b;   // true
+a <= b;  // false
+
+// Logiques
+boolean c = true, d = false;
+c && d;  // false (ET)
+c || d;  // true (OU)
+!c;      // false (NON)
+
+// Affectation
+a += 5;  // a = a + 5
+a -= 2;  // a = a - 2
+a *= 3;  // a = a * 3
+
+// STRUCTURES DE CONTRÔLE
+
+// Condition if-else
+int age = 18;
+if (age >= 18) {
+    System.out.println("Majeur");
+} else if (age >= 13) {
+    System.out.println("Adolescent");
+} else {
+    System.out.println("Enfant");
+}
+
+// Switch (traditionnel)
+int jour = 2;
+switch (jour) {
+    case 1:
+        System.out.println("Lundi");
+        break;
+    case 2:
+        System.out.println("Mardi");
+        break;
+    default:
+        System.out.println("Autre jour");
+}
+
+// Switch expression (Java 14+)
+String nomJour = switch (jour) {
+    case 1 -> "Lundi";
+    case 2 -> "Mardi";
+    default -> "Autre jour";
+};
+
+// Boucles
+// for
+for (int i = 0; i < 5; i++) {
+    System.out.println(i);
+}
+
+// while
+int i = 0;
+while (i < 5) {
+    System.out.println(i);
+    i++;
+}
+
+// do-while
+int j = 0;
+do {
+    System.out.println(j);
+    j++;
+} while (j < 5);
+
+// for-each
+int[] nombres = {1, 2, 3, 4, 5};
+for (int nombre : nombres) {
+    System.out.println(nombre);
+}
+
+// CONVERSION DE TYPES
+
+// Casting explicite
+double d = 3.14;
+int i = (int) d;  // 3 (troncature)
+
+// Conversion String vers nombre
+String str = "123";
+int num = Integer.parseInt(str);
+double dbl = Double.parseDouble("3.14");
+
+// Conversion nombre vers String
+String s1 = String.valueOf(123);
+String s2 = Integer.toString(456);
+String s3 = "" + 789;
+
+// TABLEAUX
+
+// Déclaration et initialisation
+int[] tableau1 = new int[5];          // [0, 0, 0, 0, 0]
+int[] tableau2 = {1, 2, 3, 4, 5};     // Initialisation directe
+String[] mots = {"hello", "world"};
+
+// Accès et modification
+tableau1[0] = 10;
+int premier = tableau2[0];
+int longueur = tableau1.length;
+
+// Parcours
+for (int k = 0; k < tableau2.length; k++) {
+    System.out.println(tableau2[k]);
+}
+
+for (int valeur : tableau2) {
+    System.out.println(valeur);
+}
+
+// Tableaux multidimensionnels
+int[][] matrice = new int[3][3];
+int[][] triangle = {{1}, {2, 3}, {4, 5, 6}};</code></pre>
+        </div>
+      </section>
+
+      <!-- PROGRAMMATION ORIENTÉE OBJET -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-orange-400 mb-3">
+          Programmation Orientée Objet
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-java">// CLASSES ET OBJETS
+
+// Définition d'une classe
+public class Personne {
+    // Champs d'instance (attributs)
+    private String nom;
+    private int age;
+    private String email;
+    
+    // Variable de classe (static)
+    private static int compteur = 0;
+    
+    // CONSTRUCTEURS
+    
+    // Constructeur par défaut
+    public Personne() {
+        this.nom = "Inconnu";
+        this.age = 0;
+        compteur++;
+    }
+    
+    // Constructeur avec paramètres
+    public Personne(String nom, int age) {
+        this.nom = nom;
+        this.age = age;
+        compteur++;
+    }
+    
+    // Constructeur de copie
+    public Personne(Personne autre) {
+        this.nom = autre.nom;
+        this.age = autre.age;
+        compteur++;
+    }
+    
+    // MÉTHODES D'ACCÈS (getters/setters)
+    
+    public String getNom() {
+        return nom;
+    }
+    
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+    
+    public int getAge() {
+        return age;
+    }
+    
+    public void setAge(int age) {
+        if (age >= 0) {
+            this.age = age;
+        }
+    }
+    
+    public String getEmail() {
+        return email;
+    }
+    
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    // MÉTHODES MÉTIER
+    
+    public void afficherInfo() {
+        System.out.println("Nom: " + nom + ", Age: " + age);
+    }
+    
+    public boolean estMajeur() {
+        return age >= 18;
+    }
+    
+    // Méthode de classe (static)
+    public static int getCompteur() {
+        return compteur;
+    }
+    
+    // REDÉFINITION DE MÉTHODES
+    
+    @Override
+    public String toString() {
+        return "Personne{nom='" + nom + "', age=" + age + "}";
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Personne personne = (Personne) obj;
+        return age == personne.age && nom.equals(personne.nom);
+    }
+    
+    @Override
+    public int hashCode() {
+        return Objects.hash(nom, age);
+    }
+}
+
+// UTILISATION
+
+public class Main {
+    public static void main(String[] args) {
+        // Création d'objets
+        Personne p1 = new Personne();
+        Personne p2 = new Personne("Alice", 25);
+        Personne p3 = new Personne(p2); // Copie
+        
+        // Utilisation des méthodes
+        p2.afficherInfo();
+        System.out.println("Est majeur: " + p2.estMajeur());
+        
+        // Accès aux getters/setters
+        p1.setNom("Bob");
+        p1.setAge(30);
+        
+        System.out.println("Nombre de personnes: " + Personne.getCompteur());
+    }
+}</code></pre>
+          </div>
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-java">// HÉRITAGE ET POLYMORPHISME
+
+// Classe mère
+public abstract class Animal {
+    protected String nom;
+    protected int age;
+    
+    public Animal(String nom, int age) {
+        this.nom = nom;
+        this.age = age;
+    }
+    
+    // Méthode concrète
+    public void dormir() {
+        System.out.println(nom + " dort...");
+    }
+    
+    // Méthode abstraite (doit être implémentée par les enfants)
+    public abstract void faireDuBruit();
+    
+    // Méthode finale (ne peut être redéfinie)
+    public final String getNom() {
+        return nom;
+    }
+}
+
+// Interface
+public interface Nageur {
+    void nager();
+    default void flotter() {
+        System.out.println("Je flotte sur l'eau");
+    }
+}
+
+// Classe fille
+public class Chien extends Animal {
+    private String race;
+    
+    public Chien(String nom, int age, String race) {
+        super(nom, age); // Appel du constructeur parent
+        this.race = race;
+    }
+    
+    @Override
+    public void faireDuBruit() {
+        System.out.println(nom + " dit: Ouaf Ouaf!");
+    }
+    
+    // Méthode spécifique à Chien
+    public void remuerLaQueue() {
+        System.out.println(nom + " remue la queue");
+    }
+    
+    @Override
+    public String toString() {
+        return "Chien{nom='" + nom + "', age=" + age + ", race='" + race + "'}";
+    }
+}
+
+// Classe implémentant une interface
+public class Poisson extends Animal implements Nageur {
+    public Poisson(String nom, int age) {
+        super(nom, age);
+    }
+    
+    @Override
+    public void faireDuBruit() {
+        System.out.println(nom + " fait: Bloup Bloup!");
+    }
+    
+    @Override
+    public void nager() {
+        System.out.println(nom + " nage rapidement");
+    }
+}
+
+// CLASSE INTERNE ET ANONYME
+
+// Classe interne
+public class Universite {
+    private String nom;
+    
+    // Classe interne
+    public class Etudiant {
+        private String nomEtudiant;
+        
+        public Etudiant(String nomEtudiant) {
+            this.nomEtudiant = nomEtudiant;
+        }
+        
+        public void afficherUniversite() {
+            System.out.println("Université: " + nom);
+        }
+    }
+}
+
+// Classe anonyme
+Animal animalAnonyme = new Animal("Médor", 3) {
+    @Override
+    public void faireDuBruit() {
+        System.out.println("Bruit anonyme!");
+    }
+};
+
+// ENUM
+
+public enum JourSemaine {
+    LUNDI("Lundi", true),
+    MARDI("Mardi", true),
+    MERCREDI("Mercredi", true),
+    JEUDI("Jeudi", true),
+    VENDREDI("Vendredi", true),
+    SAMEDI("Samedi", false),
+    DIMANCHE("Dimanche", false);
+    
+    private final String nom;
+    private final boolean estOuvre;
+    
+    JourSemaine(String nom, boolean estOuvre) {
+        this.nom = nom;
+        this.estOuvre = estOuvre;
+    }
+    
+    public String getNom() {
+        return nom;
+    }
+    
+    public boolean estOuvre() {
+        return estOuvre;
+    }
+    
+    public boolean estWeekend() {
+        return this == SAMEDI || this == DIMANCHE;
+    }
+}
+
+// Utilisation de l'enum
+JourSemaine aujourdhui = JourSemaine.LUNDI;
+System.out.println(aujourdhui.getNom()); // "Lundi"
+System.out.println(aujourdhui.estOuvre()); // true</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- COLLECTIONS ET GÉNÉRIQUES -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-orange-400 mb-3">
+          Collections et Génériques
+        </h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-java">// GÉNÉRIQUES
+
+// Classe générique
+public class Boite&lt;T&gt; {
+    private T contenu;
+    
+    public Boite(T contenu) {
+        this.contenu = contenu;
+    }
+    
+    public T getContenu() {
+        return contenu;
+    }
+    
+    public void setContenu(T contenu) {
+        this.contenu = contenu;
+    }
+    
+    public &lt;U&gt; void afficherAvec(U autre) {
+        System.out.println("Contenu: " + contenu + ", Autre: " + autre);
+    }
+}
+
+// Interface générique
+public interface Paire&lt;K, V&gt; {
+    K getCle();
+    V getValeur();
+}
+
+// Implémentation
+public class PaireSimple&lt;K, V&gt; implements Paire&lt;K, V&gt; {
+    private K cle;
+    private V valeur;
+    
+    public PaireSimple(K cle, V valeur) {
+        this.cle = cle;
+        this.valeur = valeur;
+    }
+    
+    @Override
+    public K getCle() {
+        return cle;
+    }
+    
+    @Override
+    public V getValeur() {
+        return valeur;
+    }
+}
+
+// COLLECTIONS - LIST
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+// ArrayList
+List&lt;String&gt; listeNoms = new ArrayList&lt;&gt;();
+listeNoms.add("Alice");
+listeNoms.add("Bob");
+listeNoms.add("Charlie");
+
+// Accès
+String premier = listeNoms.get(0);
+listeNoms.set(1, "Robert"); // Modifier
+listeNoms.remove(2); // Supprimer par index
+listeNoms.remove("Alice"); // Supprimer par objet
+
+// LinkedList
+List&lt;Integer&gt; listeChainee = new LinkedList&lt;&gt;();
+listeChainee.add(1);
+listeChainee.addFirst(0); // Ajouter au début
+listeChainee.addLast(2);  // Ajouter à la fin
+
+// Parcours des listes
+for (int i = 0; i < listeNoms.size(); i++) {
+    System.out.println(listeNoms.get(i));
+}
+
+for (String nom : listeNoms) {
+    System.out.println(nom);
+}
+
+// Avec Iterator
+Iterator&lt;String&gt; iterator = listeNoms.iterator();
+while (iterator.hasNext()) {
+    System.out.println(iterator.next());
+}
+
+// COLLECTIONS - SET
+
+// HashSet (non ordonné)
+Set&lt;String&gt; ensemble = new HashSet&lt;&gt;();
+ensemble.add("Pomme");
+ensemble.add("Banane");
+ensemble.add("Pomme"); // Duplicata ignoré
+
+// TreeSet (ordonné)
+Set&lt;Integer&gt; nombresTries = new TreeSet&lt;&gt;();
+nombresTries.add(3);
+nombresTries.add(1);
+nombresTries.add(2);
+// [1, 2, 3] - maintenu trié
+
+// LinkedHashSet (ordre d'insertion)
+Set&lt;String&gt; ordreInsertion = new LinkedHashSet&lt;&gt;();
+ordreInsertion.add("Premier");
+ordreInsertion.add("Deuxième");
+ordreInsertion.add("Troisième");
+
+// COLLECTIONS - MAP
+
+// HashMap
+Map&lt;String, Integer&gt; ages = new HashMap&lt;&gt;();
+ages.put("Alice", 25);
+ages.put("Bob", 30);
+ages.put("Charlie", 35);
+
+// Accès
+int ageAlice = ages.get("Alice");
+boolean contientBob = ages.containsKey("Bob");
+ages.replace("Alice", 26); // Modifier
+ages.remove("Bob");
+
+// TreeMap (clés triées)
+Map&lt;String, Integer&gt; agesTries = new TreeMap&lt;&gt;();
+agesTries.put("Charlie", 35);
+agesTries.put("Alice", 25);
+agesTries.put("Bob", 30);
+// Clés triées: Alice, Bob, Charlie
+
+// LinkedHashMap (ordre d'insertion)
+Map&lt;String, Integer&gt; ordreInsertionMap = new LinkedHashMap&lt;&gt;();
+
+// Parcours des maps
+for (Map.Entry&lt;String, Integer&gt; entry : ages.entrySet()) {
+    System.out.println(entry.getKey() + " : " + entry.getValue());
+}
+
+for (String cle : ages.keySet()) {
+    System.out.println(cle);
+}
+
+for (Integer valeur : ages.values()) {
+    System.out.println(valeur);
+}
+
+// OPÉRATIONS AVANCÉES SUR LES COLLECTIONS
+
+// Tri
+List&lt;String&gt; noms = new ArrayList&lt;&gt;(Arrays.asList("Charlie", "Alice", "Bob"));
+Collections.sort(noms); // Tri naturel
+Collections.sort(noms, Collections.reverseOrder()); // Tri inverse
+
+// Avec Comparator
+noms.sort((a, b) -> a.length() - b.length()); // Tri par longueur
+
+// Recherche
+int index = Collections.binarySearch(noms, "Alice");
+boolean contient = noms.contains("Bob");
+
+// Conversion
+Set&lt;String&gt; setFromList = new HashSet&lt;&gt;(noms);
+List&lt;String&gt; listFromSet = new ArrayList&lt;&gt;(setFromList);
+
+// Tableau vers liste
+String[] tableau = {"a", "b", "c"};
+List&lt;String&gt; liste = Arrays.asList(tableau);
+List&lt;String&gt; listeModifiable = new ArrayList&lt;&gt;(Arrays.asList(tableau));
+
+// Liste vers tableau
+String[] nouveauTableau = liste.toArray(new String[0]);
+
+// STREAMS (Java 8+)
+
+List&lt;String&gt; resultat = noms.stream()
+    .filter(nom -> nom.startsWith("A")) // Filtre
+    .map(String::toUpperCase)           // Transformation
+    .sorted()                           // Tri
+    .collect(Collectors.toList());      // Collecte
+
+// Opérations numériques
+List&lt;Integer&gt; nombres = Arrays.asList(1, 2, 3, 4, 5);
+int somme = nombres.stream().mapToInt(Integer::intValue).sum();
+double moyenne = nombres.stream().mapToInt(Integer::intValue).average().orElse(0);
+Optional&lt;Integer&gt; max = nombres.stream().max(Integer::compare);
+
+// Regroupement
+Map&lt;Integer, List&lt;String&gt;&gt; parLongueur = noms.stream()
+    .collect(Collectors.groupingBy(String::length));
+
+// COLLECTIONS IMMUTABLES (Java 9+)
+
+List&lt;String&gt; listeImmuable = List.of("a", "b", "c");
+Set&lt;Integer&gt; setImmuable = Set.of(1, 2, 3);
+Map&lt;String, Integer&gt; mapImmuable = Map.of("a", 1, "b", 2);
+
+// COLLECTIONS SYNCHRONISÉES
+
+List&lt;String&gt; listeSync = Collections.synchronizedList(new ArrayList&lt;&gt;());
+Map&lt;String, Integer&gt; mapSync = Collections.synchronizedMap(new HashMap&lt;&gt;());
+
+// FILE D'ATTENTE (Queue)
+
+Queue&lt;String&gt; file = new LinkedList&lt;&gt;();
+file.offer("Premier"); // Ajouter
+file.offer("Deuxième");
+String tete = file.peek(); // Voir sans retirer
+String retire = file.poll(); // Retirer et retourner
+
+// PriorityQueue
+Queue&lt;Integer&gt; filePriorite = new PriorityQueue&lt;&gt;();
+filePriorite.offer(3);
+filePriorite.offer(1);
+filePriorite.offer(2);
+// Retourne 1, 2, 3 (ordre naturel)</code></pre>
+        </div>
+      </section>
+
+      <!-- EXCEPTIONS ET GESTION D'ERREURS -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-orange-400 mb-3">
+          Exceptions et Gestion d'Erreurs
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-java">// HIÉRARCHIE DES EXCEPTIONS
+
+/*
+Throwable
+├── Error (ne pas catcher)
+│   ├── OutOfMemoryError
+│   └── StackOverflowError
+└── Exception
+    ├── RuntimeException (unchecked)
+    │   ├── NullPointerException
+    │   ├── IllegalArgumentException
+    │   ├── IndexOutOfBoundsException
+    │   └── IllegalStateException
+    └── IOException (checked)
+        ├── FileNotFoundException
+        └── EOFException
+*/
+
+// GESTION DES EXCEPTIONS AVEC TRY-CATCH
+
+public class GestionExceptions {
+    
+    // Méthode avec exceptions vérifiées
+    public void lireFichier(String chemin) {
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader(chemin));
+            String ligne;
+            while ((ligne = reader.readLine()) != null) {
+                System.out.println(ligne);
+            }
+        } catch (FileNotFoundException e) {
+            System.err.println("Fichier non trouvé: " + e.getMessage());
+        } catch (IOException e) {
+            System.err.println("Erreur de lecture: " + e.getMessage());
+        } finally {
+            // Toujours exécuté
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    System.err.println("Erreur fermeture: " + e.getMessage());
+                }
+            }
+        }
+    }
+    
+    // Try-with-resources (Java 7+)
+    public void lireFichierModerne(String chemin) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(chemin))) {
+            String ligne;
+            while ((ligne = reader.readLine()) != null) {
+                System.out.println(ligne);
+            }
+        } catch (FileNotFoundException e) {
+            System.err.println("Fichier non trouvé: " + e.getMessage());
+        } catch (IOException e) {
+            System.err.println("Erreur de lecture: " + e.getMessage());
+        }
+        // reader fermé automatiquement
+    }
+    
+    // Méthode qui propage l'exception
+    public void methodeAvecPropagation() throws IOException {
+        // Code qui peut lever IOException
+        Files.readAllBytes(Paths.get("fichier.txt"));
+    }
+    
+    // Exception personnalisée
+    public void traitementMetier(int valeur) throws MonException {
+        if (valeur < 0) {
+            throw new MonException("La valeur ne peut être négative");
+        }
+        // Traitement normal
+    }
+}
+
+// EXCEPTION PERSONNALISÉE
+
+// Exception vérifiée
+public class MonException extends Exception {
+    public MonException(String message) {
+        super(message);
+    }
+    
+    public MonException(String message, Throwable cause) {
+        super(message, cause);
+    }
+}
+
+// RuntimeException personnalisée
+public class MonRuntimeException extends RuntimeException {
+    public MonRuntimeException(String message) {
+        super(message);
+    }
+}
+
+// UTILISATION AVANCÉE
+
+public class UtilisateurService {
+    public Utilisateur trouverUtilisateur(String id) {
+        try {
+            // Simulation de recherche
+            if (id == null) {
+                throw new IllegalArgumentException("ID ne peut être null");
+            }
+            
+            if ("inconnu".equals(id)) {
+                throw new UtilisateurNonTrouveException("Utilisateur " + id + " non trouvé");
+            }
+            
+            return new Utilisateur(id, "Nom " + id);
+            
+        } catch (IllegalArgumentException e) {
+            // Log et relance comme runtime exception
+            System.err.println("Argument invalide: " + e.getMessage());
+            throw new MonRuntimeException("Erreur de validation", e);
+        }
+    }
+    
+    // Méthode avec gestion complète
+    public void traiterUtilisateurs(List&lt;String&gt; ids) {
+        for (String id : ids) {
+            try {
+                Utilisateur user = trouverUtilisateur(id);
+                System.out.println("Utilisateur trouvé: " + user.getNom());
+                
+            } catch (UtilisateurNonTrouveException e) {
+                System.err.println("Avertissement: " + e.getMessage());
+                // Continuer avec les autres utilisateurs
+                
+            } catch (MonRuntimeException e) {
+                System.err.println("Erreur critique: " + e.getMessage());
+                break; // Arrêter le traitement
+            }
+        }
+    }
+}</code></pre>
+          </div>
+          <div
+            class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+          >
+            <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+            <pre><code class="language-java">// BEST PRACTICES EXCEPTIONS
+
+public class BonnesPratiquesExceptions {
+    
+    // 1. Messages d'erreur informatifs
+    public void validationAge(int age) {
+        if (age < 0) {
+            throw new IllegalArgumentException(
+                "L'âge ne peut être négatif. Reçu: " + age
+            );
+        }
+        if (age > 150) {
+            throw new IllegalArgumentException(
+                "L'âge semble invalide. Reçu: " + age
+            );
+        }
+    }
+    
+    // 2. Utilisation correcte des types d'exceptions
+    public void operationFichier(String chemin) throws IOException {
+        // IOException pour les erreurs E/S
+        if (!Files.exists(Paths.get(chemin))) {
+            throw new FileNotFoundException("Fichier non trouvé: " + chemin);
+        }
+    }
+    
+    // 3. Exception chaining
+    public void traitementAvecChaining() {
+        try {
+            // Opération qui peut échouer
+            operationRisquee();
+        } catch (IOException e) {
+            // Encapsuler dans une exception métier
+            throw new MonException("Échec du traitement", e);
+        }
+    }
+    
+    // 4. Gestion resource propre
+    public void copierFichier(String source, String cible) {
+        try (InputStream in = new FileInputStream(source);
+             OutputStream out = new FileOutputStream(cible)) {
+            
+            byte[] buffer = new byte[1024];
+            int bytesLus;
+            while ((bytesLus = in.read(buffer)) != -1) {
+                out.write(buffer, 0, bytesLus);
+            }
+            
+        } catch (IOException e) {
+            throw new MonRuntimeException("Échec copie fichier", e);
+        }
+    }
+    
+    // 5. Validation des paramètres
+    public void traitementSecurise(String donnee, List&lt;String&gt; liste) {
+        // Validation des entrées
+        Objects.requireNonNull(donnee, "La donnée ne peut être null");
+        Objects.requireNonNull(liste, "La liste ne peut être null");
+        
+        if (liste.isEmpty()) {
+            throw new IllegalArgumentException("La liste ne peut être vide");
+        }
+        
+        if (donnee.trim().isEmpty()) {
+            throw new IllegalArgumentException("La donnée ne peut être vide");
+        }
+    }
+}
+
+// EXCEPTIONS AVEC LAMBDAS
+
+public class ExceptionsLambda {
+    
+    // Interface fonctionnelle qui peut lever une exception
+    @FunctionalInterface
+    public interface OperationRisquee {
+        void executer() throws Exception;
+    }
+    
+    // Wrapper pour gérer les exceptions dans les lambdas
+    public static void executerSansException(OperationRisquee operation) {
+        try {
+            operation.executer();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
+    // Utilisation
+    public void exempleLambda() {
+        List&lt;String&gt; fichiers = Arrays.asList("fichier1.txt", "fichier2.txt");
+        
+        fichiers.forEach(fichier -&gt; 
+            executerSansException(() -&gt; {
+                Files.readAllBytes(Paths.get(fichier));
+            })
+        );
+    }
+}
+
+// ASSERTIONS
+
+public class AssertionsExample {
+    
+    public void traitementAvecAssertions(int valeur) {
+        // Les assertions sont désactivées par défaut
+        // Activer avec -ea dans la JVM
+        assert valeur &gt;= 0 : "La valeur doit être positive: " + valeur;
+        
+        // Logique métier
+        double resultat = Math.sqrt(valeur);
+        
+        assert !Double.isNaN(resultat) : "Racine carrée invalide pour: " + valeur;
+    }
+}
+
+// LOGGING AVEC LES EXCEPTIONS
+
+import java.util.logging.*;
+
+public class LoggingExceptions {
+    private static final Logger logger = Logger.getLogger(LoggingExceptions.class.getName());
+    
+    public void operationAvecLogging() {
+        try {
+            // Code métier
+            traitementRisque();
+            
+        } catch (MonException e) {
+            // Log niveau warning
+            logger.log(Level.WARNING, "Erreur métier traitée", e);
+            
+        } catch (Exception e) {
+            // Log niveau sévère
+            logger.log(Level.SEVERE, "Erreur critique non traitée", e);
+            throw new MonRuntimeException("Erreur système", e);
+        }
+    }
+    
+    private void traitementRisque() throws MonException {
+        // Simulation d'erreur
+        throw new MonException("Erreur de traitement");
+    }
+}
+
+// EXCEPTIONS DANS LES THREADS
+
+public class ExceptionsThreads {
+    
+    public void traitementMultiThread() {
+        ExecutorService executor = Executors.newFixedThreadPool(3);
+        
+        List&lt;Future&lt;String&gt;&gt; futures = new ArrayList&lt;&gt;();
+        for (int i = 0; i &lt; 5; i++) {
+            final int id = i;
+            futures.add(executor.submit(() -&gt; {
+                if (id == 2) {
+                    throw new RuntimeException("Erreur dans le thread " + id);
+                }
+                return "Résultat " + id;
+            }));
+        }
+        
+        for (Future&lt;String&gt; future : futures) {
+            try {
+                String resultat = future.get();
+                System.out.println(resultat);
+            } catch (InterruptedException | ExecutionException e) {
+                System.err.println("Erreur dans le thread: " + e.getCause().getMessage());
+            }
+        }
+        
+        executor.shutdown();
+    }
+}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ENTREES/SORTIES ET FICHIERS -->
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-orange-400 mb-3">
+          Entrées/Sorties et Fichiers
+        </h2>
+        <div
+          class="code-block bg-gray-900 p-4 rounded-xl overflow-x-auto border border-gray-800"
+        >
+          <button class="copy-btn" onclick="copyCode(this)">Copier</button>
+          <pre><code class="language-java">// E/S AVEC JAVA.NIO (MODERNE)
+
+import java.nio.file.*;
+import java.io.*;
+import java.util.*;
+import java.util.stream.*;
+
+public class GestionFichiersNIO {
+    
+    // LECTURE DE FICHIERS
+    
+    public void lireFichierEntier(String chemin) throws IOException {
+        // Lecture en une fois
+        String contenu = Files.readString(Path.of(chemin));
+        System.out.println(contenu);
+    }
+    
+    public void lireLigneParLigne(String chemin) throws IOException {
+        // Lecture ligne par ligne
+        List&lt;String&gt; lignes = Files.readAllLines(Path.of(chemin));
+        for (String ligne : lignes) {
+            System.out.println(ligne);
+        }
+    }
+    
+    public void lireAvecStream(String chemin) throws IOException {
+        // Avec Stream (Java 8+)
+        try (Stream&lt;String&gt; stream = Files.lines(Path.of(chemin))) {
+            stream.filter(ligne -&gt; !ligne.isEmpty())
+                  .map(String::toUpperCase)
+                  .forEach(System.out::println);
+        }
+    }
+    
+    // ÉCRITURE DE FICHIERS
+    
+    public void ecrireFichier(String chemin, String contenu) throws IOException {
+        // Écriture simple
+        Files.writeString(Path.of(chemin), contenu);
+    }
+    
+    public void ecrireLignes(String chemin, List&lt;String&gt; lignes) throws IOException {
+        // Écriture avec liste
+        Files.write(Path.of(chemin), lignes);
+    }
+    
+    public void ajouterAuFichier(String chemin, String ligne) throws IOException {
+        // Ajout à la fin
+        Files.writeString(Path.of(chemin), ligne + System.lineSeparator(), 
+                         StandardOpenOption.APPEND, StandardOpenOption.CREATE);
+    }
+    
+    // GESTION DES FICHIERS ET RÉPERTOIRES
+    
+    public void operationsFichiers() throws IOException {
+        Path chemin = Path.of("monfichier.txt");
+        
+        // Vérifications
+        boolean existe = Files.exists(chemin);
+        boolean estFichier = Files.isRegularFile(chemin);
+        boolean estLisible = Files.isReadable(chemin);
+        boolean estExecutable = Files.isExecutable(chemin);
+        
+        // Métadonnées
+        long taille = Files.size(chemin);
+        FileTime dateModif = Files.getLastModifiedTime(chemin);
+        String type = Files.probeContentType(chemin);
+        
+        // Création de répertoire
+        Path repertoire = Path.of("monRepertoire");
+        Files.createDirectories(repertoire); // Crée tous les parents si nécessaire
+        
+        // Copie
+        Path destination = Path.of("copie.txt");
+        Files.copy(chemin, destination, StandardCopyOption.REPLACE_EXISTING);
+        
+        // Déplacement
+        Path nouveauNom = Path.of("renomme.txt");
+        Files.move(chemin, nouveauNom, StandardCopyOption.REPLACE_EXISTING);
+        
+        // Suppression
+        Files.deleteIfExists(nouveauNom);
+    }
+    
+    // PARCOURS DE RÉPERTOIRES
+    
+    public void listerRepertoire(String cheminRepertoire) throws IOException {
+        Path repertoire = Path.of(cheminRepertoire);
+        
+        // Liste simple
+        try (Stream&lt;Path&gt; stream = Files.list(repertoire)) {
+            stream.forEach(System.out::println);
+        }
+        
+        // Parcours récursif
+        try (Stream&lt;Path&gt; stream = Files.walk(repertoire)) {
+            stream.filter(Files::isRegularFile)
+                  .filter(p -&gt; p.toString().endsWith(".java"))
+                  .forEach(System.out::println);
+        }
+        
+        // Recherche avec pattern
+        PathMatcher matcher = FileSystems.getDefault().getPathMatcher("glob:**/*.java");
+        try (Stream&lt;Path&gt; stream = Files.find(repertoire, Integer.MAX_VALUE, 
+                (path, attr) -&gt; matcher.matches(path))) {
+            stream.forEach(System.out::println);
+        }
+    }
+    
+    // E/S AVEC BUFFER
+    
+    public void copierAvecBuffer(String source, String cible) throws IOException {
+        try (InputStream in = new BufferedInputStream(new FileInputStream(source));
+             OutputStream out = new BufferedOutputStream(new FileOutputStream(cible))) {
+            
+            byte[] buffer = new byte[8192]; // 8KB buffer
+            int bytesLus;
+            while ((bytesLus = in.read(buffer)) != -1) {
+                out.write(buffer, 0, bytesLus);
+            }
+        }
+    }
+    
+    // LECTURE/ÉCRITURE AVEC READER/WRITER
+    
+    public void lireFichierTexte(String chemin) throws IOException {
+        try (BufferedReader reader = Files.newBufferedReader(Path.of(chemin))) {
+            String ligne;
+            while ((ligne = reader.readLine()) != null) {
+                System.out.println(ligne);
+            }
+        }
+    }
+    
+    public void ecrireFichierTexte(String chemin, List&lt;String&gt; lignes) throws IOException {
+        try (BufferedWriter writer = Files.newBufferedWriter(Path.of(chemin))) {
+            for (String ligne : lignes) {
+                writer.write(ligne);
+                writer.newLine();
+            }
+        }
+    }
+    
+    // SERIALIZATION D'OBJETS
+    
+    public void serialiserObjet(MonObjet obj, String chemin) throws IOException {
+        try (ObjectOutputStream out = new ObjectOutputStream(
+                new FileOutputStream(chemin))) {
+            out.writeObject(obj);
+        }
+    }
+    
+    public MonObjet deserialiserObjet(String chemin) 
+            throws IOException, ClassNotFoundException {
+        try (ObjectInputStream in = new ObjectInputStream(
+                new FileInputStream(chemin))) {
+            return (MonObjet) in.readObject();
+        }
+    }
+}
+
+// E/S STANDARD (CONSOLE)
+
+public class EStandard {
+    
+    public void entreeSortieStandard() {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Entrez votre nom: ");
+        String nom = scanner.nextLine();
+        
+        System.out.print("Entrez votre âge: ");
+        int age = scanner.nextInt();
+        
+        System.out.printf("Bonjour %s, vous avez %d ans%n", nom, age);
+        
+        // Formatage de sortie
+        System.out.println("Message normal");
+        System.err.println("Message d'erreur");
+        
+        System.out.format("Nombre: %d, Texte: %s, Decimal: %.2f%n", 
+                        42, "hello", 3.14159);
+        
+        scanner.close();
+    }
+    
+    // REDIRECTION DES FLUX
+    
+    public void redirectionFlux() throws FileNotFoundException {
+        // Sauvegarde du flux original
+        PrintStream originalOut = System.out;
+        
+        // Redirection vers un fichier
+        PrintStream fichierOut = new PrintStream(new File("sortie.txt"));
+        System.setOut(fichierOut);
+        
+        System.out.println("Ceci va dans le fichier");
+        
+        // Restauration
+        System.setOut(originalOut);
+        System.out.println("Ceci va dans la console");
+        
+        fichierOut.close();
+    }
+}
+
+// GESTION DES PROPRIÉTÉS
+
+public class GestionProprietes {
+    
+    public void chargerProprietes() throws IOException {
+        Properties props = new Properties();
+        
+        // Chargement depuis fichier
+        try (InputStream input = new FileInputStream("config.properties")) {
+            props.load(input);
+        }
+        
+        // Lecture
+        String url = props.getProperty("database.url");
+        String user = props.getProperty("database.user", "admin"); // Valeur par défaut
+        int port = Integer.parseInt(props.getProperty("database.port", "3306"));
+        
+        // Écriture
+        props.setProperty("database.password", "secret");
+        try (OutputStream output = new FileOutputStream("config.properties")) {
+            props.store(output, "Configuration de la base de données");
+        }
+    }
+    
+    // Propriétés système
+    public void proprietesSysteme() {
+        String os = System.getProperty("os.name");
+        String userHome = System.getProperty("user.home");
+        String javaVersion = System.getProperty("java.version");
+        
+        System.out.println("OS: " + os);
+        System.out.println("Home: " + userHome);
+        System.out.println("Java: " + javaVersion);
+        
+        // Définir une propriété
+        System.setProperty("mon.app.nom", "MonApplication");
+    }
+}
+
+// COMPRESSION
+
+public class Compression {
+    
+    public void compresserFichier(String source, String cible) throws IOException {
+        try (FileInputStream fis = new FileInputStream(source);
+             FileOutputStream fos = new FileOutputStream(cible);
+             GZIPOutputStream gzos = new GZIPOutputStream(fos)) {
+            
+            byte[] buffer = new byte[1024];
+            int len;
+            while ((len = fis.read(buffer)) > 0) {
+                gzos.write(buffer, 0, len);
+            }
+        }
+    }
+    
+    public void decompresserFichier(String source, String cible) throws IOException {
+        try (FileInputStream fis = new FileInputStream(source);
+             GZIPInputStream gzis = new GZIPInputStream(fis);
+             FileOutputStream fos = new FileOutputStream(cible)) {
+            
+            byte[] buffer = new byte[1024];
+            int len;
+            while ((len = gzis.read(buffer)) > 0) {
+                fos.write(buffer, 0, len);
+            }
+        }
+    }
+}</code></pre>
+        </div>
+      </section>
+
+      <!-- BONNES PRATIQUES -->
+      <section
+        class="mt-10 mb-20 bg-gray-900 p-6 rounded-xl border border-gray-800"
+      >
+        <h2 class="text-2xl font-bold text-orange-400 mb-4">
+          Bonnes pratiques Java
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">Encapsulation</h3>
+              <p class="text-sm text-gray-400">
+                Toujours utiliser private avec getters/setters
+              </p>
+            </div>
+          </div>
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">Immuabilité</h3>
+              <p class="text-sm text-gray-400">
+                Préférer les objets immuables quand possible
+              </p>
+            </div>
+          </div>
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">Gestion des ressources</h3>
+              <p class="text-sm text-gray-400">
+                Toujours utiliser try-with-resources
+              </p>
+            </div>
+          </div>
+          <div class="flex items-start p-3 bg-gray-800 rounded-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-green-400 mt-0.5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <div>
+              <h3 class="font-bold text-white">Collections</h3>
+              <p class="text-sm text-gray-400">
+                Utiliser les interfaces (List, Map) plutôt que les
+                implémentations
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESSOURCES -->
+      <section
+        class="mt-10 mb-20 bg-gray-900 p-6 rounded-xl border border-gray-800"
+      >
+        <h2 class="text-2xl font-bold text-orange-400 mb-4">Ressources Java</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <a
+            href="https://docs.oracle.com/javase/8/docs/api/"
+            class="flex items-center p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-orange-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
+            </svg>
+            API Java Documentation
+          </a>
+          <a
+            href="https://dev.java/"
+            class="flex items-center p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5 mr-2 text-orange-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+              />
+            </svg>
+            Dev.java - Oracle
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      function copyCode(button) {
+        const codeBlock = button.parentElement;
+        const code = codeBlock.querySelector("code").textContent;
+
+        navigator.clipboard.writeText(code).then(() => {
+          const originalText = button.textContent;
+          button.textContent = "Copié!";
+          setTimeout(() => {
+            button.textContent = originalText;
+          }, 2000);
+        });
+      }
+    </script>
+  </body>
+</html>
